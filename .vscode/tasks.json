@@ -1,0 +1,19 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "PRODUCTION css - Compressed",
+      "type": "shell",
+      "command": "sass --watch ./wp-content/themes/joyapplicant/dev/css/_core.scss:./wp-content/themes/joyapplicant/style.css --no-source-map --style compressed;",
+      "problemMatcher": []
+    },
+    {
+      "label": "LOCALDEV css - Compressed",
+      "type": "shell",
+      "command": "sass --watch ./wp-content/themes/joyapplicant/dev/css/_core.scss:./joyapplicant.com-www.dev-local/wp-content/themes/joyapplicant/style.css --no-source-map --style compressed;",
+      "problemMatcher": []
+    }
+  ]
+}

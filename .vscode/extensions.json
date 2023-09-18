@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "bmewburn.vscode-intelephense-client",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "natemoo-re.vscode-stencil-tools",
+    "streetsidesoftware.code-spell-checker",
+    "ue.alphabetical-sorter",
+    "formulahendry.vscode-mysql"
+  ]
+}

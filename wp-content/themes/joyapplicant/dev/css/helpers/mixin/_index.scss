@@ -1,0 +1,50 @@
+// Copyright (c) 2023-present, Drip Fed Ltd. All rights reserved.
+// #{$prefix-name}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- RESPONSIVE ----------
+// ----------
+// ----------
+//
+@mixin mixinResponsive($target) {
+  @if $target == mobile {
+    @media only screen and (max-width: map-get($breakpoint-width, "small")) {
+      @content;
+    }
+  } @else if $target == tablet {
+    @media only screen and (max-width: map-get($breakpoint-width, "medium")) {
+      @content;
+    }
+  } @else if $target == desktop {
+    @media only screen and (max-width: map-get($breakpoint-width, "large")) {
+      @content;
+    }
+  }
+}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ----------   ANIMATIONS  ----------
+// ----------
+// ----------
+//
+// @mixin mixinAnimationLinkDefault($duration: 0.6s) {
+//   animation-direction: normal;
+//   animation-duration: $duration;
+//   animation-fill-mode: forwards;
+//   animation-name: fadeInLink;
+//   animation-timing-function: ease-in-out;
+//   @keyframes fadeInLink {
+//     from {
+//       width: 1px;
+//     }
+//     to {
+//       width: ($column__one - 10%);
+//     }
+//   }
+// }
