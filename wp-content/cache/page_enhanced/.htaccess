@@ -11,4 +11,8 @@ FileETag MTime Size
     SetEnvIfNoCase Request_URI \.html_gzip$ no-gzip
     SetEnvIfNoCase Request_URI \.xml_gzip$ no-gzip
 </IfModule>
+<IfModule mod_headers.c>
+    Header set Pragma "public"
+    Header set Cache-Control "max-age=3600, public"
+</IfModule>
 # END W3TC Page Cache cache
