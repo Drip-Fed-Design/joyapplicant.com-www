@@ -13,7 +13,7 @@
     "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
   },
   "[html]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true
   },
   "markdown.preview.fontSize": 10
 }

@@ -1,0 +1,30 @@
+// Copyright (c) 2023-present, Drip Fed Ltd. All rights reserved.
+// #{$prefix-name}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- BUTTONS ----------
+// ----------
+// ----------
+//
+.#{$prefix-name}-button-container {
+  input.__button,
+  a.__button {
+    background: $colour-primary__black;
+    border-radius: $border-radius__button;
+    border: 0;
+    box-shadow: $box-shadow__button;
+    color: $colour-white__default;
+    cursor: pointer;
+    display: inline-block;
+    font-size: $font-size__primary;
+    font-weight: $font-weight__bold;
+    padding: $spacing__small $spacing__default;
+    text-decoration: none;
+    &:hover {
+      background: $colour-primary__blue;
+    }
+  }
+}
