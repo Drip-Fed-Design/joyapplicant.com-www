@@ -1,0 +1,208 @@
+// // Copyright (c) 2023-present, Drip Fed Ltd. All rights reserved.
+// // #{$prefix-name}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- WIDTH ----------
+// ----------
+// ----------
+//
+// Widths
+// ._width-max {
+//   margin: 0 auto;
+//   max-width: $column__max;
+//   position: relative;
+//   width: 100%;
+// }
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- PADDING ----------
+// ----------
+// ----------
+//
+// Small
+// ._padding-full__default {
+//   padding: $spacing__default;
+//   @include mixinResponsive("tablet") {
+//     padding: $spacing__small;
+//   }
+// }
+
+._padding-full__large {
+  padding: $spacing__large;
+  @include mixinResponsive("desktop") {
+    padding: $spacing__default;
+  }
+}
+
+// ._padding-full__small {
+//   padding: $spacing__small;
+// }
+
+// ._padding-top__small {
+//   padding-top: $spacing__small;
+// }
+
+// ._padding-right__small {
+//   padding-right: $spacing__small;
+// }
+
+._padding-top__small {
+  padding-top: $spacing__small;
+}
+
+._padding-bottom__default {
+  padding-bottom: $spacing__default;
+}
+
+._padding-bottom__small {
+  padding-bottom: $spacing__small;
+}
+
+// ._padding-left__small {
+//   padding-left: $spacing__small;
+// }
+
+// ._padding-top__default {
+//   padding-top: $spacing__default;
+// }
+
+// ._padding-bottom__default {
+//   padding-bottom: $spacing__default;
+// }
+
+// ._padding-bottom__large {
+//   padding-bottom: $spacing__large;
+// }
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- MARGIN ----------
+// ----------
+// ----------
+//
+// ._margin-top__micro {
+//   margin-top: $spacing__micro;
+// }
+
+// ._margin-right__default {
+//   margin-right: $spacing__default;
+// }
+
+// ._margin-bottom__remove {
+//   margin-bottom: 0 !important;
+// }
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- FONT SIZE ----------
+// ----------
+// ----------
+//
+._font-size__small {
+  font-size: $font-size__small !important;
+}
+._font-size__secondary {
+  font-size: $font-size__secondary !important;
+}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- TEXT ALIGNMENT ----------
+// ----------
+// ----------
+//
+// ._text-align__right {
+//   text-align: right;
+// }
+// ._text-align__center {
+//   text-align: center;
+// }
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- TEXT COLOUR ----------
+// ----------
+// ----------
+//
+// ._text-colour__red {
+//   color: $colour-primary__red;
+// }
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- ICONS ----------
+// ----------
+// ----------
+//
+// ._icon {
+//   background-position: center center;
+//   background-repeat: no-repeat;
+//   display: inline-block;
+//   height: 70px;
+//   width: 70px;
+//   // Sizes
+//   &.-small {
+//     height: 18px;
+//     margin-bottom: -3px;
+//     margin-right: 4px;
+//     width: 18px;
+//   }
+//   //   &.-large {
+//   //     height: 100px;
+//   //     width: 100px;
+//   //     @include mixinResponsive("mobile") {
+//   //       height: 70px;
+//   //       width: 70px;
+//   //     }
+//   //   }
+//   // Alignment
+//   &.-center {
+//     margin: 0 auto $spacing__small;
+//   }
+//   // Variations
+//   &.-telephone {
+//     background-image: url(#{$dir__assets}icon/tts-icon-phone-black.svg);
+//   }
+//   &.-email {
+//     background-image: url(#{$dir__assets}icon/tts-icon-email-black.svg);
+//   }
+// }
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- BACKGROUND ----------
+// ----------
+// ----------
+//
+._background-logo-os {
+  background: $gradient__red-orange;
+  position: relative;
+  &:after {
+    background-image: url(#{$dir__assets}images/brand/joyapplicant-brand-logo-part.svg);
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 80% auto;
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+}
