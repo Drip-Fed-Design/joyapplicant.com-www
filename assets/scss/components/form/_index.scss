@@ -1,0 +1,52 @@
+// Copyright (c) 2023-present, Drip Fed Ltd. All rights reserved.
+// #{$prefix-name}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- FORM ----------
+// ----------
+// ----------
+//
+.#{$prefix-name}-form-container {
+  .__input {
+    border-radius: $border-radius__button;
+    display: block;
+    margin-bottom: $spacing__small;
+    padding: $spacing__small $spacing__default;
+    width: 100%;
+    border: 1px solid $colour-grey__default;
+  }
+  .__group {
+    height: fit-content;
+  }
+  .__checkbox {
+    cursor: pointer;
+    height: $spacing__small;
+    width: $spacing__small;
+    @include mixinResponsive("mobile") {
+      height: 15px;
+      width: 15px;
+    }
+  }
+  .__gdpr {
+    label {
+      display: block;
+      margin-left: calc($spacing__small / 2);
+      text-transform: unset !important;
+    }
+  }
+  p.__legal-support {
+    display: inline-block;
+    color: $colour-grey__default !important;
+    line-height: normal !important;
+    margin-bottom: 0;
+    a {
+      color: inherit !important;
+    }
+  }
+  ::placeholder {
+    color: $colour-grey__default !important;
+  }
+}

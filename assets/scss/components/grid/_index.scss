@@ -1,0 +1,82 @@
+// Copyright (c) 2023-present, Drip Fed Ltd. All rights reserved.
+// #{$prefix-name}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- GRID ----------
+// ----------
+// ----------
+//
+.#{$prefix-name}-grid {
+  display: grid;
+  grid-template-rows: auto;
+  // Templates
+  &.-column-2 {
+    grid-template-columns: repeat(2, 1fr [col-start]);
+    @include mixinResponsive("desktop") {
+      grid-template-columns: 0.5fr 1fr;
+    }
+    @include mixinResponsive("tablet") {
+      grid-template-columns: 0.1fr 1fr;
+    }
+  }
+  &.-column-3 {
+    grid-template-columns: repeat(3, max-content);
+    @include mixinResponsive("desktop") {
+      grid-template-columns: 0.5fr 1fr;
+    }
+    @include mixinResponsive("tablet") {
+      grid-template-columns: 0.1fr 1fr;
+    }
+  }
+  &.-column-4 {
+    grid-template-columns: repeat(4, 1fr);
+    @include mixinResponsive("desktop") {
+      grid-template-columns: 1fr 1fr;
+    }
+    @include mixinResponsive("tablet") {
+      grid-template-columns: 1fr;
+    }
+  }
+  &.-column-1-3 {
+    grid-template-columns: 1fr 2.7fr;
+  }
+  &.-column-max-1fr {
+    grid-template-columns: max-content 1fr;
+  }
+  &.-column-1fr-max {
+    grid-template-columns: 1fr max-content;
+  }
+  &.-column-mmm-1fr-mmm {
+    grid-template-columns: max-content max-content max-content 1fr max-content max-content max-content;
+  }
+  &.-column-dashboard {
+    grid-template-columns: 1fr 3.3fr;
+  }
+
+  // Alignment
+  &.-align-v-center {
+    align-items: center;
+  }
+  &.-align-h-end {
+    justify-content: end;
+  }
+
+  // Column gaps
+  &.-gap-c-small {
+    column-gap: $spacing__small;
+  }
+  &.-gap-c-default {
+    column-gap: $spacing__default;
+  }
+  &.-gap-c-medium {
+    column-gap: $spacing__medium;
+  }
+
+  // Row gaps
+  &.-gap-r-small {
+    row-gap: $spacing__small;
+  }
+}

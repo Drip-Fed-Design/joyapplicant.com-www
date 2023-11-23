@@ -1,0 +1,31 @@
+// Copyright (c) 2023-present, Drip Fed Ltd. All rights reserved.
+// #{$prefix-name}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- SEARCH ----------
+// ----------
+// ----------
+//
+.#{$prefix-name}-search-container {
+  &.-quick {
+    background-color: $colour-grey__light;
+    padding: $spacing__default 0;
+  }
+  form {
+    background-color: $colour-white__default;
+    border-radius: $border-radius__default;
+    .__group {
+      display: block;
+      height: 100%;
+    }
+    .__input.-inset {
+      background: transparent;
+      border: 0;
+      height: 100%;
+      padding: $spacing__micro $spacing__micro $spacing__micro $spacing__default;
+    }
+  }
+}

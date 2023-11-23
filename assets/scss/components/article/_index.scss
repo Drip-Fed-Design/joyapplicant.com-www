@@ -1,0 +1,49 @@
+// Copyright (c) 2023-present, Drip Fed Ltd. All rights reserved.
+// #{$prefix-name}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- ARTICLE ----------
+// ----------
+// ----------
+//
+.#{$prefix-name}-jobs-container {
+  article {
+    border-radius: $border-radius__small;
+    border: 1px solid $colour-secondary__green-light;
+    padding: $spacing__small;
+    .__logo {
+      background-color: $colour-primary__orange;
+      border-radius: $border-radius__round;
+      height: 68px;
+      width: 68px;
+    }
+    h4 {
+      margin: 0;
+    }
+    .__pill {
+      &:nth-child(1) {
+        background-color: $colour-grey__light;
+      }
+      &:nth-child(3) {
+        background-color: $colour-secondary__blue-light;
+      }
+      &:nth-child(4) {
+        background-color: $colour-secondary__purple-light;
+      }
+    }
+    .__location {
+      font-weight: $font-weight__bold;
+      margin: 0 0 $spacing__micro;
+      ._icon {
+        margin-bottom: -10px;
+      }
+    }
+    .__posted {
+      color: $colour-grey__default;
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,128 @@
+// Copyright (c) 2023-present, Drip Fed Ltd. All rights reserved.
+// #{$prefix-name}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- FONT ----------
+// ----------
+// ----------
+//
+
+// Family
+$font-family__default: Helvetica, sans-serif;
+$font-family__headings: "Paytone One", sans-serif;
+
+// Size
+$font-size__primary: 1.063rem; // 17px
+$font-size__secondary: 0.938rem; // 15px;
+
+// Size
+$font-size__h0: 2.625rem; // 42px
+$font-size__h1: 2.25rem; // 36px
+$font-size__h2: 1.75rem; // 28px
+$font-size__h3: 1.625rem; // 26px
+$font-size__h4: 1.375rem; // 22px
+$font-size__h5: 1.125rem; // 18px
+
+// Weight
+$font-weight__normal: 400;
+$font-weight__bold: 700;
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- COLUMNS & SPACING ----------
+// ----------
+// ----------
+//
+// Column
+$column__max: 1400px;
+
+// Space
+$spacing__default: 30px;
+$spacing__micro: calc($spacing__default / 4);
+$spacing__small: calc($spacing__default / 2);
+$spacing__medium: calc($spacing__default * 2);
+$spacing__large: calc($spacing__default * 4);
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- COLOURS ----------
+// ----------
+// ----------
+//
+// Primary
+$colour-primary__orange: rgb(255, 116, 13, 1); // Orange - #FF740D
+$colour-primary__black: rgb(11, 26, 70, 1); // Dark Blue - #0B1A46
+$colour-primary__blue: rgb(51, 86, 164, 1); // Blue - #3356A4
+$colour-primary__red: rgb(253, 68, 60, 1); // Red - #FD443C
+
+$colour-primary__black-trans: rgba(11, 26, 70, 0.4);
+
+// Secondary
+$colour-secondary__green-light: rgb(192, 229, 200); // Green Light - #C0E5C8
+$colour-secondary__green-default: rgb(188, 217, 121); // Green Def - #BCD979
+$colour-secondary__green-dark: rgb(149, 191, 143); // Green Dark - #95BF8F
+$colour-secondary__purple-light: rgb(229, 190, 237); // Purple Light - #E5BEED
+$colour-secondary__purple-default: rgb(119, 45, 139); // Purple Def - #772D8B
+$colour-secondary__purple-dark: rgb(95, 26, 55); // Purple Dark - #5F1A37
+$colour-secondary__blue-light: rgb(175, 222, 220); // Blue Light - #AFDEDC
+
+// Grayscale
+$colour-white__default: rgb(255, 255, 255); // White Def - #FFFFFF
+$colour-grey__light: rgb(235, 242, 250); // Grey Light - #EBF2FA
+$colour-grey__default: rgb(164, 164, 164); // Grey Def - #A4A4A4
+$colour-grey__dark: rgb(108, 108, 108); // Grey Dark - #6C6C6C
+$colour-black__default: rgb(6, 14, 39); // Black Def - #060E27
+
+// Gradients
+$gradient__blue-black: linear-gradient(
+  90deg,
+  $colour-primary__blue 0%,
+  $colour-primary__black 100%
+);
+
+$gradient__red-orange: linear-gradient(
+  90deg,
+  $colour-primary__red 0%,
+  $colour-primary__orange 100%
+);
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- OTHER ----------
+// ----------
+// ----------
+//
+$border-radius__small: $spacing__small;
+$border-radius__default: $spacing__default;
+$border-radius__button: $spacing__micro;
+$border-radius__round: 50%;
+
+$opacity__default: 0.8;
+
+$transition__default: 0.2s;
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- DEFAULT ----------
+// ----------
+// ----------
+//
+##{$prefix-name}-body-container {
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  * {
+    box-sizing: border-box;
+  }
+}
