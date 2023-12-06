@@ -34,5 +34,6 @@ RewriteCond %{THE_REQUEST} /public/([^\s]+)\.php [NC]
 RewriteRule ^ /public/%1 [R=301,L,NC]
 
 RewriteRule ^user/(.*)$ public/user/$1 [L,QSA]
+RewriteRule ^onboard/(.*)$ public/onboard/$1 [L,QSA]
 
 </IfModule>

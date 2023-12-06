@@ -11,6 +11,7 @@
 //
 .#{$prefix-name}-jobs-container {
   article {
+    background-color: $colour-white__default;
     border-radius: $border-radius__small;
     border: 1px solid $colour-secondary__green-light;
     padding: $spacing__small;
@@ -44,6 +45,9 @@
     .__posted {
       color: $colour-grey__default;
       margin: 0;
+    }
+    .__teaser {
+      margin-top: $spacing__small;
     }
   }
 }

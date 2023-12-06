@@ -12,14 +12,53 @@
 .#{$prefix-name}-form-container {
   .__input {
     border-radius: $border-radius__button;
+    border: 1px solid $colour-grey__default;
     display: block;
     margin-bottom: $spacing__small;
     padding: $spacing__small $spacing__default;
     width: 100%;
+  }
+  .__select {
+    border-radius: $border-radius__button;
     border: 1px solid $colour-grey__default;
+    display: block;
+    margin-bottom: $spacing__small;
+    padding: $spacing__small $spacing__default;
+    width: 100%;
+  }
+  .__textarea {
+    border-radius: $border-radius__button;
+    border: 1px solid $colour-grey__default;
+    display: block;
+    margin-bottom: $spacing__small;
+    padding: $spacing__small $spacing__default;
+    width: 100%;
+  }
+  .__input,
+  .__select,
+  .__textarea {
+    &.-grey {
+      background-color: $colour-grey__light;
+    }
+  }
+  .__tip {
+    color: $colour-grey__dark;
+    font-size: $font-size__secondary;
+    margin-bottom: $spacing__small;
+    padding-left: calc($spacing__small * 1.5);
+    &:before {
+      background-image: url(#{$dir__assets}icon/joyapplicant-icon-help-grey.svg);
+      content: "";
+      height: $spacing__small;
+      left: 0;
+      margin-right: $spacing__micro;
+      position: absolute;
+      width: $spacing__small;
+    }
   }
   .__group {
     height: fit-content;
+    position: relative;
   }
   .__checkbox {
     cursor: pointer;

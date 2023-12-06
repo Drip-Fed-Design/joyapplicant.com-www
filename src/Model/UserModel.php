@@ -13,13 +13,14 @@ class UserModel
         $this->dbConnection = $dbConnection;
     }
 
-    public function insertUser($email, $password, $token)
+    public function insertUser($email, $type, $password, $token)
     {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO joyUsers (email, password, verify_email_token) VALUES (:email, :password, :token)";
+        $sql = "INSERT INTO joyUsers (email, type, password, verify_email_token) VALUES (:email, :type, :password, :token)";
         $stmt = $this->dbConnection->prepare($sql);
 
         $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':type', $type);
         $stmt->bindParam(':password', $hashedPassword);
         $stmt->bindParam(':token', $token);
 

@@ -196,6 +196,18 @@
   &.-search {
     background-image: url(#{$dir__assets}icon/joyapplicant-icon-search.svg);
   }
+  &.-alert {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-alert.svg);
+    &.__r {
+      background-image: url(#{$dir__assets}icon/joyapplicant-icon-alert-red.svg);
+    }
+  }
+  &.-help {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-help.svg);
+    &.__g {
+      background-image: url(#{$dir__assets}icon/joyapplicant-icon-help-grey.svg);
+    }
+  }
 
   &.-chev-r {
     background-image: url(#{$dir__assets}icon/joyapplicant-icon-chev-right.svg);
@@ -219,6 +231,10 @@
 
 ._background-colour__grey-light {
   background-color: $colour-grey__light !important;
+}
+
+._background-colour__secondary-green-light {
+  background-color: $colour-secondary__green-light !important;
 }
 
 //
@@ -246,6 +262,13 @@
 // ----------
 //
 ._hr__grey-light {
+  background: none;
+  border: 0;
+  border-bottom: 1px solid $colour-grey__light;
+  opacity: $opacity__default;
+}
+
+._hr__white-default {
   background: none;
   border: 0;
   border-bottom: 1px solid $colour-white__default;

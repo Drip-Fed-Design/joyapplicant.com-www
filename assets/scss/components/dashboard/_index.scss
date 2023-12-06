@@ -10,6 +10,7 @@
 // ----------
 //
 .#{$prefix-name}-dashboard-container {
+  padding: $spacing__medium $spacing__medium;
   .__user-nav {
     background-color: $colour-grey__light;
     border-radius: $border-radius__small;

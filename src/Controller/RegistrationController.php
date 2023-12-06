@@ -20,7 +20,7 @@ class RegistrationController
         $this->emailService = new EmailService($_ENV['SMTP_KEY']);
     }
 
-    public function registerUser($email, $password, $passwordConfirm)
+    public function registerUser($email, $type, $password, $passwordConfirm)
     {
         // Input validation
         $emailValidator = v::email();
@@ -54,7 +54,7 @@ class RegistrationController
                 exit();
             }
 
-            $userInsert = $this->userModel->insertUser($email, $password, $token);
+            $userInsert = $this->userModel->insertUser($email, $type, $password, $token);
             if ($userInsert) {
                 // The user was successfully registered.
 

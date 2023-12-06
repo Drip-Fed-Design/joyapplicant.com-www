@@ -16,9 +16,19 @@ if (empty($_SESSION['token'])) {
                 ?>
                 <section class="<?= $cssPrefix; ?>-form-container _margin__top-default">
                     <form action="register" method="post" id="registration-form">
-                        <div class="__group">
-                            <label for="email">Email address</label>
-                            <input type="email" id="email" name="email" class="__input" placeholder="Email address..." required />
+                        <div class="<?= $cssPrefix; ?>-grid -column-2 -align-v-center -gap-c-small">
+                            <div class="__group">
+                                <label for="email">Email address</label>
+                                <input type="email" id="email" name="email" class="__input" placeholder="Email address..." required />
+                            </div>
+                            <div class="__group">
+                                <label for="type">Why are you here</label>
+                                <select id="type" name="type" class="__select" required>
+                                    <option value="">Select...</option>
+                                    <option value="applicant">I'm looking for a job</option>
+                                    <option value="employer">I'll be listing jobs</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="<?= $cssPrefix; ?>-grid -column-2 -align-v-center -gap-c-small">
                             <div class="__group">

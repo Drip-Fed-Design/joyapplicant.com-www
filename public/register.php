@@ -18,11 +18,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $registrationController = new RegistrationController($dbConnection);
 
     $email = $_POST['email'] ?? null;
+    $type = $_POST['type'] ?? null;
     $password = $_POST['password'] ?? null;
     $passwordConfirm = $_POST['password_confirm'] ?? null;
 
     // Call the register method
-    $registrationController->registerUser($email, $password, $passwordConfirm);
+    $registrationController->registerUser($email, $type, $password, $passwordConfirm);
 }
 
 // Header Template

@@ -57,11 +57,12 @@ $spacing__large: calc($spacing__default * 4);
 // ----------
 //
 // Primary
-$colour-primary__orange: rgb(255, 116, 13, 1); // Orange - #FF740D
-$colour-primary__black: rgb(11, 26, 70, 1); // Dark Blue - #0B1A46
-$colour-primary__blue: rgb(51, 86, 164, 1); // Blue - #3356A4
-$colour-primary__red: rgb(253, 68, 60, 1); // Red - #FD443C
+$colour-primary__orange: rgb(255, 116, 13); // Orange - #FF740D
+$colour-primary__black: rgb(11, 26, 70); // Dark Blue - #0B1A46
+$colour-primary__blue: rgb(51, 86, 164); // Blue - #3356A4
+$colour-primary__red: rgb(253, 68, 60); // Red - #FD443C
 
+$colour-primary__red-15: rgb(255, 227, 226); // Red - 15%
 $colour-primary__black-trans: rgba(11, 26, 70, 0.4);
 
 // Secondary
@@ -72,6 +73,8 @@ $colour-secondary__purple-light: rgb(229, 190, 237); // Purple Light - #E5BEED
 $colour-secondary__purple-default: rgb(119, 45, 139); // Purple Def - #772D8B
 $colour-secondary__purple-dark: rgb(95, 26, 55); // Purple Dark - #5F1A37
 $colour-secondary__blue-light: rgb(175, 222, 220); // Blue Light - #AFDEDC
+
+$colour-secondary__blue-light-60: rgb(207, 235, 234); // Blue Light - 60%
 
 // Grayscale
 $colour-white__default: rgb(255, 255, 255); // White Def - #FFFFFF

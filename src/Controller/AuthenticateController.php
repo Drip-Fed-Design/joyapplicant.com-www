@@ -43,9 +43,10 @@ class AuthenticateController
             if ($userQuery) {
                 // The user was successfully registered.
                 error_log('You have logged in successfully!'); // TEMPORARY
-                $_SESSION['success_message'] = "You have logged in successfully!";
+                // $_SESSION['success_message'] = "You have logged in successfully!";
                 $_SESSION['user_authenticated'] = true;
                 $_SESSION['user_type'] = $userQuery['type']; // Extract user type
+                $_SESSION['user_id'] = $userQuery['id']; // Extract user type
                 header("Location: /user/dashboard.php"); // Redirect
                 exit();
             } else {
