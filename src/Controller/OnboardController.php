@@ -45,11 +45,32 @@ class OnboardController
             exit();
         }
     }
+
+    public function checkOnboardingCompany($userId)
+    {
+        // Check if the email exists
+        if ($this->onboardModel->onboardCompanyExists($userId)) {
+            error_log('onboard COMPANY already present');
+            header("Location: discovery.php"); // Redirect
+            exit();
+        }
+    }
+
     public function checkOnboardingDiscovery($userId)
     {
         // Check if the email exists
         if ($this->onboardModel->onboardDiscoveryExists($userId)) {
             error_log('onboard DISCOVERY already present');
+            header("Location: /../user/dashboard.php"); // Redirect
+            exit();
+        }
+    }
+
+    public function checkOnboardingDiscoveryCompany($userId)
+    {
+        // Check if the email exists
+        if ($this->onboardModel->onboardDiscoveryCompanyExists($userId)) {
+            error_log('onboard DISCOVERY COMPANY already present');
             header("Location: /../user/dashboard.php"); // Redirect
             exit();
         }
@@ -93,7 +114,7 @@ class OnboardController
         }
     }
 
-    public function userOnboardExperience($userId, $entry, $role, $company, $country, $city, $current, $startDate, $endDate, $desc)
+    public function userOnboardExperience($userId, $entry, $role, $company, $current, $startDate, $endDate, $desc)
     {
         // Input validation
         $dateValidator = v::date('Y-m-d');
@@ -105,7 +126,7 @@ class OnboardController
                 $dateValidator->assert($endDate);
             }
 
-            $onboardInsert = $this->onboardModel->insertOnboardExperience($userId, $entry, $role, $company, $country, $city, $current, $startDate, $endDate, $desc);
+            $onboardInsert = $this->onboardModel->insertOnboardExperience($userId, $entry, $role, $company, $current, $startDate, $endDate, $desc);
             if ($onboardInsert) {
                 // The YOU step for the user has been successful.
                 error_log('Successful EXPERIENCE onboard details for USER');
@@ -169,6 +190,63 @@ class OnboardController
         } catch (NestedValidationException $e) {
             error_log($e->getFullMessage());
             throw new \Exception('Invalid data provided for EXPERIENCE ENTRY onboard details for USER.');
+        } catch (\Exception $e) {
+            error_log($e->getMessage());
+            throw $e;
+        }
+    }
+
+    public function userOnboardCompany($userId, $name, $desc, $telephone, $email, $country, $city)
+    {
+        // Input validation
+        $telephoneValidator = v::phone();
+        $emailValidator = v::email();
+
+        try {
+            // Validate the telephone
+            $telephoneValidator->assert($telephone);
+            $emailValidator->assert($email);
+
+            $onboardInsert = $this->onboardModel->insertOnboardCompany($userId, $name, $desc, $telephone, $email, $country, $city);
+            if ($onboardInsert) {
+                // The YOU step for the user has been successful.
+                error_log('Successful EXPERIENCE onboard details for USER');
+                header("Location: discovery.php"); // Redirect to experience
+                exit();
+            } else {
+                error_log('An error occurred during EXPERIENCE onboard details for USER');
+                $_SESSION['error_message'] = "An error occurred during the setup of your account. Please try again.";
+                header("Location: /../user/dashboard.php"); // Redirect
+                exit();
+            }
+        } catch (NestedValidationException $e) {
+            error_log($e->getFullMessage());
+            throw new \Exception('Invalid data provided for EXPERIENCE onboard details for USER.');
+        } catch (\Exception $e) {
+            error_log($e->getMessage());
+            throw $e;
+        }
+    }
+
+    public function userOnboardDiscoveryCompany($companyId, $userId, $visibility, $alias)
+    {
+        try {
+            $onboardInsert = $this->onboardModel->insertOnboardDiscoveryCompany($companyId, $userId, $visibility, $alias);
+            if ($onboardInsert) {
+                // The YOU step for the user has been successful.
+                error_log('Successful DISCOVERY onboard details for COMPANY');
+                $_SESSION['success_message'] = "Great work, you've successfully completed your onboarding.";
+                header("Location: /../user/dashboard.php"); // Redirect to experience
+                exit();
+            } else {
+                error_log('An error occurred during DISCOVERY onboard details for COMPANY');
+                $_SESSION['error_message'] = "An error occurred during the setup of your account. Please try again.";
+                header("Location: /../user/dashboard.php"); // Redirect
+                exit();
+            }
+        } catch (NestedValidationException $e) {
+            error_log($e->getFullMessage());
+            throw new \Exception('Invalid data provided for DISCOVERY onboard details for COMPANY.');
         } catch (\Exception $e) {
             error_log($e->getMessage());
             throw $e;

@@ -31,33 +31,6 @@ if (empty($_SESSION['token'])) {
                                 <label for="company">Company *</label>
                                 <input type="text" id="company" name="company" class="__input -grey" placeholder="Company..." required />
                             </div>
-                            <div class="__group">
-                                <label for="country">Country *</label>
-                                <select id="country" name="country" class="__select -grey" required>
-                                    <option value="">Select...</option>
-                                    <?
-                                    sort($arrayCountries);
-                                    foreach ($arrayCountries as $c) {
-                                        echo '<option value="' . $c . '">' . $c . '</option>';
-                                    }
-                                    ?>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </div>
-                            <div class="__group">
-                                <label for="city">City *</label>
-                                <select id="city" name="city" class="__select -grey" required>
-                                    <option value="">Select...</option>
-                                    <?
-                                    // Dynamic list, depending on Country selection
-                                    sort($arrayCitiesGB);
-                                    foreach ($arrayCitiesGB as $v) {
-                                        echo '<option value="' . $v . '">' . $v . '</option>';
-                                    }
-                                    ?>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </div>
                         </div>
                         <div class="__group <?= $cssPrefix; ?>-grid -column-max-1fr -gap-c-default">
                             <input type="checkbox" id="current" name="current" class="__input -grey" value="1" />
@@ -156,45 +129,6 @@ if (empty($_SESSION['token'])) {
 </section>
 
 <script type="text/javascript">
-    // Convert PHP Arrays to JavaScript
-    var citiesByCountry = {
-        "Canada": <?php echo json_encode($arrayCitiesCA); ?>,
-        "United States": <?php echo json_encode($arrayCitiesUS); ?>,
-        "Ireland": <?php echo json_encode($arrayCitiesIE); ?>,
-        "United Kingdom": <?php echo json_encode($arrayCitiesGB); ?>
-        // Add other countries and their cities when supported
-    };
-
-    // Add JavaScript to Handle the Country Selection Change
-    document.addEventListener('DOMContentLoaded', function() {
-        var countrySelect = document.getElementById('country');
-        var citySelect = document.getElementById('city');
-
-        countrySelect.addEventListener('change', function() {
-            var selectedCountry = this.value;
-            var cities = citiesByCountry[selectedCountry] || [];
-
-            // Clear current city options
-            while (citySelect.firstChild) {
-                citySelect.removeChild(citySelect.firstChild);
-            }
-
-            // Add a default option
-            var defaultOption = document.createElement('option');
-            defaultOption.value = '';
-            defaultOption.textContent = 'Select city...';
-            citySelect.appendChild(defaultOption);
-
-            // Populate city options
-            cities.forEach(function(city) {
-                var option = document.createElement('option');
-                option.value = city;
-                option.textContent = city;
-                citySelect.appendChild(option);
-            });
-        });
-    });
-
     // Hide the Form When "entry" is Checked
     document.addEventListener('DOMContentLoaded', function() {
         var entryCheckbox = document.getElementById('entry');

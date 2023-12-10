@@ -10,9 +10,9 @@ if ((isset($userType)) && ($userType == 'applicant')) {
 
 // Load the HTML for user dashboards
 if ((isset($userType)) && ($userType == 'applicant')) {
-    require_once __DIR__ . '/../../src/View/applicantDashboard.php';
+    require_once __DIR__ . '/../../src/View/applicantFeedback.php';
 } elseif ((isset($userType)) && ($userType == 'employer')) {
-    require_once __DIR__ . '/../../src/View/employerDashboard.php';
+    require_once __DIR__ . '/../../src/View/employerFeedback.php';
 }
 
 require_once __DIR__ . '/../../templates/footer.user.php'; // Footer Template 

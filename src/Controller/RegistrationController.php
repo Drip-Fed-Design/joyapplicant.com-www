@@ -74,7 +74,7 @@ class RegistrationController
                 }
 
                 error_log('You have been registered successfully, please check your emails');
-                $_SESSION['success_message'] = "You have been registered successfully!";
+                $_SESSION['success_message'] = "You have registered successfully, check your email!";
                 header("Location: login.php"); // Redirect to login or dashboard
                 exit();
             } else {

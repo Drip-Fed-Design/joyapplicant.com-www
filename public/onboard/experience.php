@@ -28,8 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!isset($entry)) {
             $role = $_POST['role'] ?? null;
             $company = $_POST['company'] ?? null;
-            $country = $_POST['country'] ?? null;
-            $city = $_POST['city'] ?? null;
 
             $current = $_POST['current'] ?? null;
 
@@ -57,13 +55,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $desc = $_POST['desc'] ?? null;
 
             // Call the onboard method
-            $onboardController->userOnboardExperience($userId, $entry, $role, $company, $country, $city, $current, $formattedStartDate, $formattedEndDate, $desc);
+            $onboardController->userOnboardExperience($userId, $entry, $role, $company, $current, $formattedStartDate, $formattedEndDate, $desc);
         } elseif (isset($entry)) {
             // Call the onboard method
             $onboardController->userOnboardExperienceEntry($userId, $entry);
         }
-    } elseif ((isset($userType)) && ($userType == 'employer')) {
-        // coming soon
     }
 }
 
@@ -78,7 +74,9 @@ require_once __DIR__ . '/../../templates/header.onboard.php'; // Header Template
 if ((isset($userType)) && ($userType == 'applicant')) {
     require_once __DIR__ . '/../../src/View/onboardApplicantExperience.php';
 } elseif ((isset($userType)) && ($userType == 'employer')) {
-    require_once __DIR__ . '/../../src/View/onboardEmployerCompany.php';
+    // Redirect employer to company onboard page
+    header("Location: company.php");
+    exit();
 }
 
 require_once __DIR__ . '/../../templates/footer.user.php'; // Footer Template 

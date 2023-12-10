@@ -2,12 +2,17 @@
 require_once __DIR__ . '/../../config/global.init.php';
 require_once __DIR__ . '/../../config/global.user.php';
 
-require_once __DIR__ . '/../../templates/header.user.php'; // Header Template 
-?>
+if ((isset($userType)) && ($userType == 'applicant')) {
+    require_once __DIR__ . '/../../templates/header.applicant.php'; // Header Template 
+} elseif ((isset($userType)) && ($userType == 'employer')) {
+    require_once __DIR__ . '/../../templates/header.employer.php'; // Header Template 
+}
 
-<h1>Let's search for your next role or career step!</h1>
+// Load the HTML for user dashboards
+if ((isset($userType)) && ($userType == 'applicant')) {
+    require_once __DIR__ . '/../../src/View/applicantSearch.php';
+} elseif ((isset($userType)) && ($userType == 'employer')) {
+    require_once __DIR__ . '/../../src/View/employerSearch.php';
+}
 
-<p><a href="dashboard" title="back to dashboard">Dashboard</a>. <a href="logout" title="log out">Log Out</a> of your account.</p>
-
-<?
 require_once __DIR__ . '/../../templates/footer.user.php'; // Footer Template 

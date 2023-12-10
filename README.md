@@ -33,8 +33,8 @@ CREATE TABLE joyCompanies (
     `telephone` VARCHAR(20),
     `name` VARCHAR(255) NOT NULL,
     `logo` TEXT,
-    `city` VARCHAR(100),
     `country` VARCHAR(100),
+    `city` VARCHAR(100),
     `category` VARCHAR(100),
     `established` DATE,
     `employees` INT,
@@ -43,6 +43,16 @@ CREATE TABLE joyCompanies (
     `culture` TEXT,
     `admins` TEXT,
     `created_by` INT,
+    `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE joyCompaniesAlias (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `company` INT NOT NULL UNIQUE,
+    `visibility` INT NULL DEFAULT NULL,
+    `alias` VARCHAR(100),
+    `created_by` INT NOT NULL
     `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
     `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
@@ -86,7 +96,7 @@ CREATE TABLE joyJobStats (
     `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-CREATE TABLE joyAlias (
+CREATE TABLE joyUsersAlias (
     `id` INT AUTO_INCREMENT PRIMARY KEY,
     `user` INT NOT NULL UNIQUE,
     `visibility` INT NULL DEFAULT NULL,
@@ -111,8 +121,6 @@ CREATE TABLE joyUsersExperience (
   `experience` INT NOT NULL,
   `role` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `company` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `city` VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `country` VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `working_role` INT DEFAULT NULL,
   `start_date` DATE DEFAULT NULL,
   `end_date` DATE DEFAULT NULL,

@@ -22,8 +22,8 @@
                 <nav class="__main">
                     <div class="<?= $cssPrefix; ?>-grid -column-1fr-max -gap-c-small -align-v-center">
                         <div class="__buttons <?= $cssPrefix; ?>-button-container _text-align__right">
-                            <a href="dashboard" title="Your dashboard and account overview" class="__button -purple _margin__right-micro">Dashboard</a>
-                            <a href="messages" title="Catch up on your latest messages" class="__button -black">Messages</a>
+                            <a href="dashboard" title="#" class="__button -purple _margin__right-micro">Dashboard</a>
+                            <a href="search" title="#" class="__button -black">Search for jobs</a>
                         </div>
                         <div class="__user">
                             <div class="__mugshot"></div>

@@ -20,46 +20,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dbConnection = require_once __DIR__ . '/../../config/global.db.php';
     $onboardController = new OnboardController($dbConnection);
 
-    // Check if user is an APPLICANT
-    if ((isset($userType)) && ($userType == 'applicant')) {
+    if ((isset($userType)) && ($userType == 'employer')) {
 
-        $firstName = $_POST['firstname'] ?? null;
-        $lastName = $_POST['lastname'] ?? null;
+        $name = $_POST['name'] ?? null;
+        $desc = $_POST['desc'] ?? null;
         $telephone = $_POST['telephone'] ?? null;
+        $email = $_POST['email'] ?? null;
         $country = $_POST['country'] ?? null;
         $city = $_POST['city'] ?? null;
-        $findUs = $_POST['findus'] ?? null;
 
         // Call the onboard method
-        $onboardController->userOnboardYou($userId, $firstName, $lastName, $telephone, $country, $city, $findUs);
-
-        // Check if user is an EMPLOYER
-    } elseif ((isset($userType)) && ($userType == 'employer')) {
-
-        $firstName = $_POST['firstname'] ?? null;
-        $lastName = $_POST['lastname'] ?? null;
-        $telephone = $_POST['telephone'] ?? null;
-        $country = $_POST['country'] ?? null;
-        $city = $_POST['city'] ?? null;
-        $findUs = $_POST['findus'] ?? null;
-
-        // Call the onboard method
-        $onboardController->userOnboardYou($userId, $firstName, $lastName, $telephone, $country, $city, $findUs);
+        $onboardController->userOnboardCompany($userId, $name, $desc, $telephone, $email, $country, $city);
+    } elseif ((isset($userType)) && ($userType == 'applicant')) {
+        header("Location: /../user/dashboard.php");
+        exit();
     }
 }
 
-// Checking if YOU onboard in complete
+// Checking if EXPERIENCE onboard in complete
 $dbConnection = require_once __DIR__ . '/../../config/global.db.php';
-$onboardControllerYouCheck = new OnboardController($dbConnection);
-$onboardControllerYouCheck->checkOnboardingYou($userId);
+$onboardControllerCompanyCheck = new OnboardController($dbConnection);
+$onboardControllerCompanyCheck->checkOnboardingCompany($userId);
 
 require_once __DIR__ . '/../../templates/header.onboard.php'; // Header Template 
 
 // Load the HTML for onboarding
 if ((isset($userType)) && ($userType == 'applicant')) {
-    require_once __DIR__ . '/../../src/View/onboardApplicantYou.php';
+    // Redirect applicant to experience onboard page
+    header("Location: experience.php");
+    exit();
 } elseif ((isset($userType)) && ($userType == 'employer')) {
-    require_once __DIR__ . '/../../src/View/onboardEmployerYou.php';
+    require_once __DIR__ . '/../../src/View/onboardEmployerCompany.php';
 }
 
 require_once __DIR__ . '/../../templates/footer.user.php'; // Footer Template 

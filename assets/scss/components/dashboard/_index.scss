@@ -30,6 +30,9 @@
           &:hover {
             background-color: $colour-primary__orange;
           }
+          &.-active {
+            background-color: $colour-white__default;
+          }
         }
       }
     }

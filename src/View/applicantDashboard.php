@@ -19,27 +19,7 @@ $onboardController->checkOnboarding($userId);
         require_once __DIR__ . '/messageAlert.php';
         ?>
         <div class="<?= $cssPrefix; ?>-grid -column-dashboard -gap-c-default">
-            <div class="__user-nav">
-                <div class="__areas">
-                    <ul>
-                        <li><a href="#" title="#"><i class="_icon -small -dashboard"></i> Dashboard</a></li>
-                        <li><a href="search" title="search jobs"><i class="_icon -small -search"></i> Search Jobs</a></li>
-                        <li><a href="#" title="#"><i class="_icon -small -message"></i> Messages</a></li>
-                        <li><a href="#" title="#"><i class="_icon -small -calendar"></i> Calendar</a></li>
-                        <li><a href="#" title="#"><i class="_icon -small -tick"></i> Applications</a></li>
-                        <li><a href="#" title="#"><i class="_icon -small -review"></i> Feedback</a></li>
-                    </ul>
-                </div>
-                <hr class="_hr__white-default" />
-                <div class="__user">
-                    <ul>
-                        <li><a href="#" title="#"><i class="_icon -small -people"></i> Profile</a></li>
-                        <li><a href="#" title="#"><i class="_icon -small -settings"></i> Settings</a></li>
-                        <li><a href="#" title="#"><i class="_icon -small -help"></i> Help & Support</a></li>
-                        <li><a href="logout" title="log out"><i class="_icon -small -secure"></i> Log Out</a></li>
-                    </ul>
-                </div>
-            </div>
+            <? require __DIR__ . '/applicantMenu.php'; ?>
             <div class="__dashboard">
                 <div class="<?= $cssPrefix; ?>-grid -column-2 -gap-c-default -align-v-center">
                     <div class="__heading">
@@ -73,7 +53,7 @@ $onboardController->checkOnboarding($userId);
                             <? require __DIR__ . '/../../templates/widget.event.php'; ?>
                         </div>
                         <div class="__buttons <?= $cssPrefix; ?>-button-container">
-                            <a href="#" title="#" class="__button -plain -orange">View all events <i class="_icon -small -chev-r __o"></i></a>
+                            <a href="calendar" title="#" class="__button -plain -orange">View all events <i class="_icon -small -chev-r __o"></i></a>
                         </div>
                     </div>
                     <div class="__widget">
@@ -89,7 +69,7 @@ $onboardController->checkOnboarding($userId);
                             <? require __DIR__ . '/../../templates/widget.applied.php'; ?>
                         </div>
                         <div class="__buttons <?= $cssPrefix; ?>-button-container">
-                            <a href="#" title="#" class="__button -plain -orange">View all applied jobs <i class="_icon -small -chev-r __o"></i></a>
+                            <a href="applied" title="#" class="__button -plain -orange">View all applied jobs <i class="_icon -small -chev-r __o"></i></a>
                         </div>
                     </div>
                     <div class="__widget">
@@ -98,7 +78,7 @@ $onboardController->checkOnboarding($userId);
                             chart here
                         </div>
                         <div class="__buttons <?= $cssPrefix; ?>-button-container">
-                            <a href="#" title="#" class="__button -plain -orange">View all jobs applied <i class="_icon -small -chev-r __o"></i></a>
+                            <a href="applied" title="#" class="__button -plain -orange">View all jobs applied <i class="_icon -small -chev-r __o"></i></a>
                         </div>
                     </div>
                     <div class="__widget">
@@ -114,7 +94,7 @@ $onboardController->checkOnboarding($userId);
                             <? require __DIR__ . '/../../templates/widget.saved.php'; ?>
                         </div>
                         <div class="__buttons <?= $cssPrefix; ?>-button-container">
-                            <a href="#" title="#" class="__button -plain -orange">View all saved jobs <i class="_icon -small -chev-r __o"></i></a>
+                            <a href="saved" title="#" class="__button -plain -orange">View all saved jobs <i class="_icon -small -chev-r __o"></i></a>
                         </div>
                     </div>
                 </div>

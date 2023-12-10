@@ -32,7 +32,25 @@ class OnboardModel
     public function onboardDiscoveryExists($userId)
     {
         error_log('Checking user onboard alias');
-        $stmt = $this->dbConnection->prepare("SELECT COUNT(*) FROM joyAlias WHERE user = :userId");
+        $stmt = $this->dbConnection->prepare("SELECT COUNT(*) FROM joyUsersAlias WHERE user = :userId");
+        $stmt->bindParam(':userId', $userId);
+        $stmt->execute();
+        return $stmt->fetchColumn() > 0;
+    }
+
+    public function onboardDiscoveryCompanyExists($userId)
+    {
+        error_log('Checking COMPANY onboard alias');
+        $stmt = $this->dbConnection->prepare("SELECT COUNT(*) FROM joyCompaniesAlias WHERE created_by = :userId");
+        $stmt->bindParam(':userId', $userId);
+        $stmt->execute();
+        return $stmt->fetchColumn() > 0;
+    }
+
+    public function onboardCompanyExists($userId)
+    {
+        error_log('Checking user onboard alias');
+        $stmt = $this->dbConnection->prepare("SELECT COUNT(*) FROM joyCompanies WHERE created_by = :userId");
         $stmt->bindParam(':userId', $userId);
         $stmt->execute();
         return $stmt->fetchColumn() > 0;
@@ -71,17 +89,15 @@ class OnboardModel
         }
     }
 
-    public function insertOnboardExperience($userId, $entry, $role, $company, $country, $city, $current, $startDate, $endDate, $desc)
+    public function insertOnboardExperience($userId, $entry, $role, $company, $current, $startDate, $endDate, $desc)
     {
-        $sql = "INSERT INTO joyUsersExperience (user, experience, role, company, country, city, working_role, start_date, end_date, description) VALUES (:userId, :entry, :role, :company, :country, :city, :workingRole, :startDate, :endDate, :desc)";
+        $sql = "INSERT INTO joyUsersExperience (user, experience, role, company, working_role, start_date, end_date, description) VALUES (:userId, :entry, :role, :company, :workingRole, :startDate, :endDate, :desc)";
         $stmt = $this->dbConnection->prepare($sql);
 
         $stmt->bindParam(':userId', $userId);
         $stmt->bindParam(':entry', $entry);
         $stmt->bindParam(':role', $role);
         $stmt->bindParam(':company', $company);
-        $stmt->bindParam(':country', $country);
-        $stmt->bindParam(':city', $city);
         $stmt->bindParam(':workingRole', $current);
         $stmt->bindParam(':startDate', $startDate);
         $stmt->bindParam(':endDate', $endDate);
@@ -119,7 +135,7 @@ class OnboardModel
 
     public function insertOnboardDiscovery($userId, $visibility, $alias)
     {
-        $sql = "INSERT INTO joyAlias (user, visibility, alias) VALUES (:userId, :visibility, :alias)";
+        $sql = "INSERT INTO joyUsersAlias (user, visibility, alias) VALUES (:userId, :visibility, :alias)";
         $stmt = $this->dbConnection->prepare($sql);
 
         $stmt->bindParam(':userId', $userId);
@@ -137,6 +153,51 @@ class OnboardModel
         }
     }
 
+    public function insertOnboardCompany($userId, $name, $desc, $telephone, $email, $country, $city)
+    {
+        // $sql = "INSERT INTO joyCompanies (email, telephone, name, logo, country, city, category, established, employees, description, about, culture, admins, created_by) VALUES (:email, :telephone, :name, null, :country, :city, null, null, null, :desc, null, null, null, :userId)";
+        $sql = "INSERT INTO joyCompanies (email, telephone, name, country, city, description, created_by) VALUES (:email, :telephone, :name, :country, :city, :desc, :userId)";
+        $stmt = $this->dbConnection->prepare($sql);
+
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':telephone', $telephone);
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':country', $country);
+        $stmt->bindParam(':city', $city);
+        $stmt->bindParam(':desc', $desc);
+        $stmt->bindParam(':userId', $userId);
+
+        try {
+            $stmt->execute();
+            error_log('SQL insert COMPANY onboard details for USER');
+            return true;
+        } catch (\PDOException $e) {
+            // Handle other SQL related errors here
+            error_log('Failed to insert onboard COMPANY: ' . $e->getMessage());
+            throw new \Exception("An error occurred when inserting onboard COMPANY details for USER");
+        }
+    }
+
+    public function insertOnboardDiscoveryCompany($companyId, $userId, $visibility, $alias)
+    {
+        $sql = "INSERT INTO joyCompaniesAlias (company, visibility, alias, created_by) VALUES (:companyId, :visibility, :alias, :userId)";
+        $stmt = $this->dbConnection->prepare($sql);
+
+        $stmt->bindParam(':companyId', $companyId);
+        $stmt->bindParam(':visibility', $visibility);
+        $stmt->bindParam('alias', $alias);
+        $stmt->bindParam(':userId', $userId);
+
+        try {
+            $stmt->execute();
+            error_log('SQL insert COMPANY DISCOVERY onboard details for USER');
+            return true;
+        } catch (\PDOException $e) {
+            // Handle other SQL related errors here
+            error_log('Failed to insert onboard COMPANY DISCOVERY ENTRY: ' . $e->getMessage());
+            throw new \Exception("An error occurred when inserting onboard DISCOVERY details for COMPANY");
+        }
+    }
 
     // public function selectOnboard($quantity, $keywords = null)
     // {
