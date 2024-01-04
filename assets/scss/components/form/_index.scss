@@ -56,6 +56,12 @@
       width: $spacing__small;
     }
   }
+  .__form-section {
+    background: $colour-secondary__green-light-20;
+    border-radius: $spacing__micro;
+    margin: $spacing__micro 0 $spacing__default;
+    padding: $spacing__default;
+  }
   .__group {
     height: fit-content;
     position: relative;

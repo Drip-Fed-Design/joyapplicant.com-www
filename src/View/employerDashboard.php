@@ -46,7 +46,10 @@ $onboardController->checkOnboarding($userId);
                     <p class="_font-size__secondary">Let's take a look at how things are stacking up.</p>
                 </div>
                 <div class="__widget _margin__bottom-small">
-                    <h4>Active Jobs</h4>
+                    <div class="<?= $cssPrefix; ?>-grid -column-max-1fr -gap-c-small -align-v-center">
+                        <h4>Live Jobs</h4>
+                        <p class="_font-size__secondary _text-align__right">Showing 3 or 5 saved jobs</p>
+                    </div>
                     <div class="<?= $cssPrefix; ?>-chart-container">
                         <? require __DIR__ . '/../../templates/widget.event.php'; ?>
                         <hr class="_hr__grey-light" />
@@ -74,7 +77,7 @@ $onboardController->checkOnboarding($userId);
                     </div>
                     <div class="__widget">
                         <div class="<?= $cssPrefix; ?>-grid -column-max-1fr -gap-c-small -align-v-center">
-                            <h4>Drafts</h4>
+                            <h4>Draft Jobs</h4>
                             <p class="_font-size__secondary _text-align__right">Showing 3 or 5 saved jobs</p>
                         </div>
                         <div class="<?= $cssPrefix; ?>-chart-container">

@@ -22,8 +22,7 @@
                 <nav class="__main">
                     <div class="<?= $cssPrefix; ?>-grid -column-1fr-max -gap-c-small -align-v-center">
                         <div class="__buttons <?= $cssPrefix; ?>-button-container _text-align__right">
-                            <a href="list" title="List a job and gain applicants" class="__button -purple _margin__right-micro">List a job</a>
-                            <a href="dashboard" title="Go back to your dashboard overview" class="__button -black">Dashboard</a>
+                            <a href="../dashboard" title="Go back to your dashboard overview" class="__button -green">Save & Exit</a>
                         </div>
                         <div class="__user">
                             <div class="__mugshot"></div>
