@@ -11,6 +11,10 @@ Imagine a job and careers site that gives YOU, the applicant, the best job or ca
 Customer Portal Link: URL
 Customer Payment Link: URL
 
+## Validation Engine
+
+Code validation is build using the most awesome validation engine ever created for PHP, [Respect\Validation](https://github.com/Respect/Validation).
+
 ## SQL
 
 ```
@@ -34,7 +38,7 @@ CREATE TABLE joyCompanies (
     `name` VARCHAR(255) NOT NULL,
     `logo` TEXT,
     `country` VARCHAR(100),
-    `city` VARCHAR(100),
+    `postcodezip` VARCHAR(100),
     `category` VARCHAR(100),
     `established` DATE,
     `employees` INT,
@@ -69,8 +73,8 @@ CREATE TABLE joyCompaniesReview (
 CREATE TABLE joyJobPosts (
     `id` INT AUTO_INCREMENT PRIMARY KEY,
     `title` VARCHAR(100),
-    `city` VARCHAR(100),
     `country` VARCHAR(100),
+    `postcodezip` VARCHAR(100),
     `type` VARCHAR(100),
     `shift` VARCHAR(100),
     `currency` VARCHAR(3) NULL DEFAULT 'GBP',
@@ -110,8 +114,8 @@ CREATE TABLE joyUsersDetails (
   `first_name` VARCHAR(255) NOT NULL,
   `last_name` VARCHAR(255) NOT NULL,
   `telephone` VARCHAR(20) NOT NULL,
-  `city` VARCHAR(100) NOT NULL,
   `country` VARCHAR(100) NOT NULL,
+  `postcodezip` VARCHAR(100) NOT NULL,
   `find_us` VARCHAR(100) NOT NULL
 );
 
