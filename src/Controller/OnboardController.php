@@ -76,7 +76,7 @@ class OnboardController
         }
     }
 
-    public function userOnboardYou($userId, $firstName, $lastName, $telephone, $country, $city, $findUs)
+    public function userOnboardYou($userId, $firstName, $lastName, $telephone, $country, $postcodezip, $findUs)
     {
         // Input validation
         $telephoneValidator = v::phone();
@@ -93,7 +93,7 @@ class OnboardController
                 exit();
             }
 
-            $onboardInsert = $this->onboardModel->insertOnboardYou($userId, $firstName, $lastName, $telephone, $country, $city, $findUs);
+            $onboardInsert = $this->onboardModel->insertOnboardYou($userId, $firstName, $lastName, $telephone, $country, $postcodezip, $findUs);
             if ($onboardInsert) {
                 // The YOU step for the user has been successful.
                 error_log('Successful YOU onboard details for USER');
@@ -196,7 +196,7 @@ class OnboardController
         }
     }
 
-    public function userOnboardCompany($userId, $name, $desc, $telephone, $email, $country, $city)
+    public function userOnboardCompany($userId, $name, $desc, $telephone, $email, $country, $postcodezip)
     {
         // Input validation
         $telephoneValidator = v::phone();
@@ -207,7 +207,7 @@ class OnboardController
             $telephoneValidator->assert($telephone);
             $emailValidator->assert($email);
 
-            $onboardInsert = $this->onboardModel->insertOnboardCompany($userId, $name, $desc, $telephone, $email, $country, $city);
+            $onboardInsert = $this->onboardModel->insertOnboardCompany($userId, $name, $desc, $telephone, $email, $country, $postcodezip);
             if ($onboardInsert) {
                 // The YOU step for the user has been successful.
                 error_log('Successful EXPERIENCE onboard details for USER');

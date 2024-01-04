@@ -65,9 +65,9 @@ class OnboardModel
         return $stmt->fetchColumn() > 0;
     }
 
-    public function insertOnboardYou($userId, $firstName, $lastName, $telephone, $country, $city, $findUs)
+    public function insertOnboardYou($userId, $firstName, $lastName, $telephone, $country, $postcodezip, $findUs)
     {
-        $sql = "INSERT INTO joyUsersDetails (user, first_name, last_name, telephone, country, city, find_us) VALUES (:userId, :firstName, :lastName, :telephone, :country, :city, :findUs)";
+        $sql = "INSERT INTO joyUsersDetails (user, first_name, last_name, telephone, country, postcodezip, find_us) VALUES (:userId, :firstName, :lastName, :telephone, :country, :postcodezip, :findUs)";
         $stmt = $this->dbConnection->prepare($sql);
 
         $stmt->bindParam(':userId', $userId);
@@ -75,7 +75,7 @@ class OnboardModel
         $stmt->bindParam(':lastName', $lastName);
         $stmt->bindParam(':telephone', $telephone);
         $stmt->bindParam(':country', $country);
-        $stmt->bindParam(':city', $city);
+        $stmt->bindParam(':postcodezip', $postcodezip);
         $stmt->bindParam(':findUs', $findUs);
 
         try {
@@ -153,17 +153,17 @@ class OnboardModel
         }
     }
 
-    public function insertOnboardCompany($userId, $name, $desc, $telephone, $email, $country, $city)
+    public function insertOnboardCompany($userId, $name, $desc, $telephone, $email, $country, $postcodezip)
     {
-        // $sql = "INSERT INTO joyCompanies (email, telephone, name, logo, country, city, category, established, employees, description, about, culture, admins, created_by) VALUES (:email, :telephone, :name, null, :country, :city, null, null, null, :desc, null, null, null, :userId)";
-        $sql = "INSERT INTO joyCompanies (email, telephone, name, country, city, description, created_by) VALUES (:email, :telephone, :name, :country, :city, :desc, :userId)";
+        // $sql = "INSERT INTO joyCompanies (email, telephone, name, logo, country, postcodezip, category, established, employees, description, about, culture, admins, created_by) VALUES (:email, :telephone, :name, null, :country, :postcodezip, null, null, null, :desc, null, null, null, :userId)";
+        $sql = "INSERT INTO joyCompanies (email, telephone, name, country, postcodezip, description, created_by) VALUES (:email, :telephone, :name, :country, :postcodezip, :desc, :userId)";
         $stmt = $this->dbConnection->prepare($sql);
 
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':telephone', $telephone);
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':country', $country);
-        $stmt->bindParam(':city', $city);
+        $stmt->bindParam(':postcodezip', $postcodezip);
         $stmt->bindParam(':desc', $desc);
         $stmt->bindParam(':userId', $userId);
 

@@ -27,11 +27,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $lastName = $_POST['lastname'] ?? null;
         $telephone = $_POST['telephone'] ?? null;
         $country = $_POST['country'] ?? null;
-        $city = $_POST['city'] ?? null;
+        $postcodezip = $_POST['postcodezip'] ?? null;
         $findUs = $_POST['findus'] ?? null;
 
         // Call the onboard method
-        $onboardController->userOnboardYou($userId, $firstName, $lastName, $telephone, $country, $city, $findUs);
+        $onboardController->userOnboardYou($userId, $firstName, $lastName, $telephone, $country, $postcodezip, $findUs);
 
         // Check if user is an EMPLOYER
     } elseif ((isset($userType)) && ($userType == 'employer')) {
@@ -40,11 +40,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $lastName = $_POST['lastname'] ?? null;
         $telephone = $_POST['telephone'] ?? null;
         $country = $_POST['country'] ?? null;
-        $city = $_POST['city'] ?? null;
+        $postcodezip = $_POST['postcodezip'] ?? null;
         $findUs = $_POST['findus'] ?? null;
 
         // Call the onboard method
-        $onboardController->userOnboardYou($userId, $firstName, $lastName, $telephone, $country, $city, $findUs);
+        $onboardController->userOnboardYou($userId, $firstName, $lastName, $telephone, $country, $postcodezip, $findUs);
     }
 }
 

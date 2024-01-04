@@ -19,67 +19,79 @@ if (empty($_SESSION['token'])) {
                 <p>We'll keep questions to a minimum, but just enough to provide you with the best experience.</p>
                 <section class="<?= $cssPrefix; ?>-form-container _margin__top-default">
                     <form action="you" method="post" id="you-form">
-                        <div class="<?= $cssPrefix; ?>-grid -column-2 -gap-c-default">
-                            <div class="__group">
-                                <label for="firstname">First name *</label>
-                                <input type="text" id="firstname" name="firstname" class="__input -grey" placeholder="First name..." required />
-                                <div class="__tip">Provide a preferred name, as this is what future applicants will know you by.</div>
+                        <h4>What do we call you?</h4>
+                        <div class="__form-section">
+                            <div class="<?= $cssPrefix; ?>-grid -column-2 -gap-c-default">
+                                <div class="__group">
+                                    <label for="firstname">First name *</label>
+                                    <input type="text" id="firstname" name="firstname" class="__input -grey" placeholder="First name..." required />
+                                    <div class="__tip">Provide a preferred name, as this is what future applicants will know you by.</div>
+                                </div>
+                                <div class="__group">
+                                    <label for="lastname">Last name *</label>
+                                    <input type="text" id="lastname" name="lastname" class="__input -grey" placeholder="Last name..." required />
+                                </div>
                             </div>
-                            <div class="__group">
-                                <label for="lastname">Last name *</label>
-                                <input type="text" id="lastname" name="lastname" class="__input -grey" placeholder="Last name..." required />
+                        </div>
+                        <h4>Where are you from?</h4>
+                        <div class="__form-section">
+                            <div class="<?= $cssPrefix; ?>-grid -column-2 -gap-c-default">
+                                <div class="__group">
+                                    <label for="country">Country *</label>
+                                    <select id="country" name="country" class="__select -grey" required>
+                                        <option value="">Select...</option>
+                                        <optgroup label="Most Selected">
+                                            <?
+                                            sort($arrayCountriesPopular);
+                                            foreach ($arrayCountriesPopular as $c) {
+                                                echo '<option value="' . $c . '">' . $c . '</option>';
+                                            }
+                                            ?>
+                                        </optgroup>
+                                        <optgroup label="All">
+                                            <?
+                                            sort($arrayCountries);
+                                            foreach ($arrayCountries as $c) {
+                                                echo '<option value="' . $c . '">' . $c . '</option>';
+                                            }
+                                            ?>
+                                        </optgroup>
+                                    </select>
+                                    <div class="__tip">This is the Country you're currently living within.</div>
+                                </div>
+                                <div class="__group">
+                                    <label for="postcodezip">Postcode / Zip Code *</label>
+                                    <input type="text" id="postcodezip" name="postcodezip" class="__input -grey" placeholder="Postcode / Zip Code..." required />
+                                    <div class="__tip">This is the postal or zip code where you're currently living.</div>
+                                </div>
                             </div>
-                            <div class="__group">
-                                <label for="country">Country *</label>
-                                <select id="country" name="country" class="__select -grey" required>
-                                    <option value="">Select...</option>
-                                    <?
-                                    sort($arrayCountries);
-                                    foreach ($arrayCountries as $c) {
-                                        echo '<option value="' . $c . '">' . $c . '</option>';
-                                    }
-                                    ?>
-                                    <option value="Other">Other</option>
-                                </select>
-                                <div class="__tip">This is the Country you're currently living within.</div>
-                            </div>
-                            <div class="__group">
-                                <label for="city">City *</label>
-                                <select id="city" name="city" class="__select -grey" required>
-                                    <option value="">Select...</option>
-                                    <?
-                                    // Dynamic list, depending on Country selection
-                                    sort($arrayCitiesGB);
-                                    foreach ($arrayCitiesGB as $v) {
-                                        echo '<option value="' . $v . '">' . $v . '</option>';
-                                    }
-                                    ?>
-                                    <option value="Other">Other</option>
-                                </select>
-                                <div class="__tip">This is the City you're currently living within or near by.</div>
-                            </div>
-                            <div class="__group">
-                                <label for="telephone">Contact number *</label>
-                                <input type="telephone" id="telephone" name="telephone" class="__input -grey" placeholder="Contact number..." required />
-                                <div class="__tip">It's helpful to provide a direct contact number, such as a mobile or direct dial number.</div>
-                            </div>
-                            <div class="__group">
-                                <label for="findus">How did you hear about us *</label>
-                                <select id="findus" name="findus" class="__select -grey" required>
-                                    <option value="">Select...</option>
-                                    <?
-                                    foreach ($arrayFeedbackFindUs as $k => $f) {
-                                        echo '<option value="' . $k . '">' . $f . '</option>';
-                                    }
-                                    ?>
-                                    <option value="Other">Other</option>
-                                </select>
+                        </div>
+                        <h4>How can others call you?</h4>
+                        <div class="__form-section">
+                            <div class="<?= $cssPrefix; ?>-grid -column-2 -gap-c-default">
+                                <div class="__group">
+                                    <label for="telephone">Contact number *</label>
+                                    <input type="telephone" id="telephone" name="telephone" class="__input -grey" placeholder="Contact number..." required />
+                                    <div class="__tip">It's helpful to provide a direct contact number, such as a mobile or direct dial number.</div>
+                                </div>
+                                <div class="__group">
+                                    <label for="findus">How did you hear about us *</label>
+                                    <select id="findus" name="findus" class="__select -grey" required>
+                                        <option value="">Select...</option>
+                                        <?
+                                        foreach ($arrayFeedbackFindUs as $k => $f) {
+                                            echo '<option value="' . $k . '">' . $f . '</option>';
+                                        }
+                                        ?>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <input type="hidden" name="token" value="<?= $_SESSION['token']; ?>">
                         <hr class="_hr__grey-light" />
                         <div class="__buttons <?= $cssPrefix; ?>-button-container _margin__top-default _text-align__right">
-                            <button type="submit" name="you" class="__button">Continue to next step</button>
+                            <button type="submit" name="you" class="__button">Continue</button>
                         </div>
                     </form>
                 </section>

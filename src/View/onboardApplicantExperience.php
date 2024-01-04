@@ -22,76 +22,82 @@ if (empty($_SESSION['token'])) {
                             <input type="checkbox" id="entry" name="entry" class="__input -grey" value="1" />
                             <label for="entry">I don't have any work experience, that's why I'm here!</label>
                         </div>
-                        <div class="<?= $cssPrefix; ?>-grid -column-2 -gap-c-default">
-                            <div class="__group">
-                                <label for="role">Title of role *</label>
-                                <input type="text" id="role" name="role" class="__input -grey" placeholder="Title of role..." required />
-                            </div>
-                            <div class="__group">
-                                <label for="company">Company *</label>
-                                <input type="text" id="company" name="company" class="__input -grey" placeholder="Company..." required />
-                            </div>
-                        </div>
-                        <div class="__group <?= $cssPrefix; ?>-grid -column-max-1fr -gap-c-default">
-                            <input type="checkbox" id="current" name="current" class="__input -grey" value="1" />
-                            <label for="current">I am currently working in this role.</label>
-                        </div>
-                        <div class="<?= $cssPrefix; ?>-grid -column-4 -gap-c-default">
-                            <div class="__group">
-                                <label for="startmonth">Start date *</label>
-                                <select id="startmonth" name="startmonth" class="__select -grey" required>
-                                    <option value="">Select...</option>
-                                    <?
-                                    foreach ($arrayMonths as $n => $m) {
-                                        echo '<option value="' . $n . '">' . $m . '</option>';
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="__group">
-                                <label for="startyear" style="visibility:hidden;">Start year *</label>
-                                <select id="startyear" name="startyear" class="__select -grey" required>
-                                    <option value="">Select...</option>
-                                    <?
-                                    $currentYear = date('Y');
-                                    // Loop to generate each year option
-                                    for ($year = $currentYear; $year >= $currentYear - 25; $year--) {
-                                        echo '<option value="' . $year . '">' . $year . '</option>';
-                                    }
-                                    ?>
-                                    <option value="Over 25 years">Over 25 years</option>
-                                </select>
-                            </div>
-                            <div class="__group">
-                                <label for="endmonth">End date *</label>
-                                <select id="endmonth" name="endmonth" class="__select -grey" required>
-                                    <option value="">Select...</option>
-                                    <?
-                                    foreach ($arrayMonths as $n => $m) {
-                                        echo '<option value="' . $n . '">' . $m . '</option>';
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="__group">
-                                <label for="endyear" style="visibility:hidden;">End year *</label>
-                                <select id="endyear" name="endyear" class="__select -grey" required>
-                                    <option value="">Select...</option>
-                                    <?
-                                    $currentYear = date('Y');
-                                    // Loop to generate each year option
-                                    for ($year = $currentYear; $year >= $currentYear - 25; $year--) {
-                                        echo '<option value="' . $year . '">' . $year . '</option>';
-                                    }
-                                    ?>
-                                    <option value="Over 25 years">Over 25 years</option>
-                                </select>
+                        <div class="__form-section">
+                            <div class="<?= $cssPrefix; ?>-grid -column-2 -gap-c-default">
+                                <div class="__group">
+                                    <label for="role">Title of role *</label>
+                                    <input type="text" id="role" name="role" class="__input -grey" placeholder="Title of role..." required />
+                                </div>
+                                <div class="__group">
+                                    <label for="company">Company *</label>
+                                    <input type="text" id="company" name="company" class="__input -grey" placeholder="Company..." required />
+                                </div>
                             </div>
                         </div>
-                        <div class="__group">
-                            <label for="desc">Description *</label>
-                            <textarea id="desc" name="desc" rows="4" class="__textarea -grey"></textarea>
-                            <div class="__tip">Share details about your last role, such as what you did day-to-day, or the projects your worked on and the role you played within them. Try to keep as brief as possible, while still covering key areas of your responsibility.</div>
+                        <div class="__form-section">
+                            <div class="__group <?= $cssPrefix; ?>-grid -column-max-1fr -gap-c-default">
+                                <input type="checkbox" id="current" name="current" class="__input -grey" value="1" />
+                                <label for="current">I am currently working in this role.</label>
+                            </div>
+                            <div class="<?= $cssPrefix; ?>-grid -column-4 -gap-c-default">
+                                <div class="__group">
+                                    <label for="startmonth">Start date *</label>
+                                    <select id="startmonth" name="startmonth" class="__select -grey" required>
+                                        <option value="">Select...</option>
+                                        <?
+                                        foreach ($arrayMonths as $n => $m) {
+                                            echo '<option value="' . $n . '">' . $m . '</option>';
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="__group">
+                                    <label for="startyear" style="visibility:hidden;">Start year *</label>
+                                    <select id="startyear" name="startyear" class="__select -grey" required>
+                                        <option value="">Select...</option>
+                                        <?
+                                        $currentYear = date('Y');
+                                        // Loop to generate each year option
+                                        for ($year = $currentYear; $year >= $currentYear - 25; $year--) {
+                                            echo '<option value="' . $year . '">' . $year . '</option>';
+                                        }
+                                        ?>
+                                        <option value="Over 25 years">Over 25 years</option>
+                                    </select>
+                                </div>
+                                <div class="__group">
+                                    <label for="endmonth">End date *</label>
+                                    <select id="endmonth" name="endmonth" class="__select -grey" required>
+                                        <option value="">Select...</option>
+                                        <?
+                                        foreach ($arrayMonths as $n => $m) {
+                                            echo '<option value="' . $n . '">' . $m . '</option>';
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="__group">
+                                    <label for="endyear" style="visibility:hidden;">End year *</label>
+                                    <select id="endyear" name="endyear" class="__select -grey" required>
+                                        <option value="">Select...</option>
+                                        <?
+                                        $currentYear = date('Y');
+                                        // Loop to generate each year option
+                                        for ($year = $currentYear; $year >= $currentYear - 25; $year--) {
+                                            echo '<option value="' . $year . '">' . $year . '</option>';
+                                        }
+                                        ?>
+                                        <option value="Over 25 years">Over 25 years</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="__form-section">
+                            <div class="__group">
+                                <label for="desc">Description *</label>
+                                <textarea id="desc" name="desc" rows="4" class="__textarea -grey"></textarea>
+                                <div class="__tip">Share details about your last role, such as what you did day-to-day, or the projects your worked on and the role you played within them. Try to keep as brief as possible, while still covering key areas of your responsibility.</div>
+                            </div>
                         </div>
                         <input type="hidden" name="token" value="<?= $_SESSION['token']; ?>">
                         <hr class="_hr__grey-light" />
@@ -132,7 +138,7 @@ if (empty($_SESSION['token'])) {
     // Hide the Form When "entry" is Checked
     document.addEventListener('DOMContentLoaded', function() {
         var entryCheckbox = document.getElementById('entry');
-        var formElements = document.querySelectorAll('.__group');
+        var formElements = document.querySelectorAll('.__form-section');
 
         function toggleFormAndRequiredAttributes() {
             formElements.forEach(function(element) {

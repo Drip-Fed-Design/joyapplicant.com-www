@@ -27,10 +27,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $telephone = $_POST['telephone'] ?? null;
         $email = $_POST['email'] ?? null;
         $country = $_POST['country'] ?? null;
-        $city = $_POST['city'] ?? null;
+        $postcodezip = $_POST['postcodezip'] ?? null;
 
         // Call the onboard method
-        $onboardController->userOnboardCompany($userId, $name, $desc, $telephone, $email, $country, $city);
+        $onboardController->userOnboardCompany($userId, $name, $desc, $telephone, $email, $country, $postcodezip);
     } elseif ((isset($userType)) && ($userType == 'applicant')) {
         header("Location: /../user/dashboard.php");
         exit();

@@ -16,24 +16,26 @@ if (empty($_SESSION['token'])) {
                 <h2>Finally, how would you like to be found?</h2>
                 <section class="<?= $cssPrefix; ?>-form-container _margin__top-default">
                     <form action="discovery" method="post" id="discovery-form">
-                        <div class="<?= $cssPrefix; ?>-grid -column-2 -gap-c-default">
-                            <div class="__group">
-                                <label for="visibility">Visibility *</label>
-                                <select id="visibility" name="visibility" class="__select -grey" required>
-                                    <option value="">Select visibility...</option>
-                                    <option value="1">Make my profile public</option>
-                                    <option value="0">Hide my profile</option>
-                                </select>
-                            </div>
-                            <div class="__group">
-                                <label for="alias">Alias *</label>
-                                <input type="text" id="alias" name="alias" class="__input -grey" maxlength="90" placeholder="joyapplicant.com/..." required />
+                        <div class="__form-section">
+                            <div class="<?= $cssPrefix; ?>-grid -column-2 -gap-c-default">
+                                <div class="__group">
+                                    <label for="visibility">Visibility *</label>
+                                    <select id="visibility" name="visibility" class="__select -grey" required>
+                                        <option value="">Select visibility...</option>
+                                        <option value="1">Make my profile public</option>
+                                        <option value="0">Hide my profile</option>
+                                    </select>
+                                </div>
+                                <div class="__group">
+                                    <label for="alias">Alias *</label>
+                                    <input type="text" id="alias" name="alias" class="__input -grey" maxlength="90" placeholder="joyapplicant.com/..." required />
+                                </div>
                             </div>
                         </div>
                         <input type="hidden" name="token" value="<?= $_SESSION['token']; ?>">
                         <hr class="_hr__grey-light" />
                         <div class="__buttons <?= $cssPrefix; ?>-button-container _margin__top-default _text-align__right">
-                            <button type="submit" name="discovery" class="__button">Complete setup</button>
+                            <button type="submit" name="discovery" class="__button">Complete</button>
                         </div>
                     </form>
                 </section>
