@@ -260,12 +260,49 @@ $arrayMonths = [
 // ----------
 //
 $arrayEmploymentType = [
+    'co' => 'Commission Only',
     'ft' => 'Full-Time',
-    'pt' => 'Part-Time',
-    'ft' => 'Fixed Term',
-    'tm' => 'Temporary',
     'fr' => 'Freelance & Contractor',
+    'fx' => 'Fixed Term',
+    'in' => 'Internship',
+    'pt' => 'Part-Time',
+    'tm' => 'Temporary',
     'zh' => 'Zero Hours'
+];
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- WORKING CONDITIONS ----------
+// ----------
+// ----------
+//
+$arrayWorkingConditions = [
+    'fw' => 'Field Work',
+    'fc' => 'Freelance/Contractual',
+    'gl' => 'Global',
+    'hy' => 'Hybrid',
+    'on' => 'On-Site/In-Office',
+    'rm' => 'Remote/Work from Home',
+    'sw' => 'Shift Work',
+    'tr' => 'Traveling'
+];
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- Salary Terms ----------
+// ----------
+// ----------
+//
+$arraySalaryTerms = [
+    'py' => 'Per Year',
+    'pm' => 'Per Month',
+    'pb' => 'Per Biweekly',
+    'pw' => 'Per Week',
+    'ph' => 'Per Hour'
 ];
 
 //
