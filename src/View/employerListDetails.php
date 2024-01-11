@@ -27,20 +27,17 @@ if (empty($_SESSION['token'])) {
                             <div class="__group">
                                 <label for="name">Salary range *</label>
                                 <div class="<?= $cssPrefix; ?>-grid -column-4 -gap-c-default">
-                                    <input type="text" id="name" name="name" class="__input -grey" placeholder="Company name..." required />
+                                    <input type="text" id="salarymin" name="salarymin" class="__input -grey" placeholder="£30,000.00" required />
                                     <div class="__group">
                                         <label>to</label>
                                     </div>
-                                    <input type="text" id="name" name="name" class="__input -grey" placeholder="Company name..." required />
-                                    <select id="country" name="country" class="__select -grey" required>
-                                        <option value="">Select...</option>
+                                    <input type="text" id="salarymax" name="salarymax" class="__input -grey" placeholder="£34,999.00" required />
+                                    <select id="term" name="term" class="__select -grey" required>
                                         <?
-                                        sort($arrayCountries);
-                                        foreach ($arrayCountries as $c) {
+                                        foreach ($arraySalaryTerms as $c) {
                                             echo '<option value="' . $c . '">' . $c . '</option>';
                                         }
                                         ?>
-                                        <option value="Other">Other</option>
                                     </select>
                                 </div>
                             </div>

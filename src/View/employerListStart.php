@@ -41,12 +41,11 @@ if (empty($_SESSION['token'])) {
                                 </div>
                                 <div class="__group">
                                     <label for="category">Job Category *</label>
-                                    <select id="category" name="category" class="__select -grey" required>
+                                    <select id="categorySelect" name="category" class="__select -grey" required>
                                         <option value="">Select...</option>
-                                        <?
-                                        sort($arrayJobCategory);
-                                        foreach ($arrayJobCategory as $c) {
-                                            echo '<option value="' . $c . '">' . $c . '</option>';
+                                        <?php
+                                        foreach ($arrayJobCategory as $key => $value) {
+                                            echo '<option value="' . $key . '">' . $value . '</option>';
                                         }
                                         ?>
                                     </select>
@@ -54,14 +53,8 @@ if (empty($_SESSION['token'])) {
                                 </div>
                                 <div class="__group">
                                     <label for="role">Job Role *</label>
-                                    <select id="role" name="role" class="__select -grey" required>
+                                    <select id="roleSelect" name="role" class="__select -grey" required>
                                         <option value="">Select...</option>
-                                        <?
-                                        sort($arrayJobRole);
-                                        foreach ($arrayJobRole as $c) {
-                                            echo '<option value="' . $c . '">' . $c . '</option>';
-                                        }
-                                        ?>
                                     </select>
                                     <div class="__tip">More specific industry role (e.g. Software Development, Nursing).</div>
                                 </div>
@@ -70,48 +63,45 @@ if (empty($_SESSION['token'])) {
                         <h4>Where is the job located?</h4>
                         <div class="__form-section">
                             <div class="__group">
-                                <label for="country">Working Conditions *</label>
-                                <select id="country" name="country" class="__select -grey" required>
+                                <label for="conditions">Working Conditions *</label>
+                                <select id="conditions" name="conditions" class="__select -grey" required>
                                     <option value="">Select...</option>
                                     <?
-                                    sort($arrayCountries);
-                                    foreach ($arrayCountries as $c) {
+                                    sort($arrayWorkingConditions);
+                                    foreach ($arrayWorkingConditions as $c) {
                                         echo '<option value="' . $c . '">' . $c . '</option>';
                                     }
                                     ?>
-                                    <option value="Other">Other</option>
                                 </select>
                                 <div class="__tip">On-side, traveling, global, remote, hybrid, etc</div>
                             </div>
                             <div class="<?= $cssPrefix; ?>-grid -column-2 -gap-c-default">
                                 <div class="__group">
-                                    <label for="city">Country *</label>
-                                    <select id="city" name="city" class="__select -grey" required>
+                                    <label for="country">Country *</label>
+                                    <select id="country" name="country" class="__select -grey" required>
                                         <option value="">Select...</option>
-                                        <?
-                                        // Dynamic list, depending on Country selection
-                                        sort($arrayCitiesGB);
-                                        foreach ($arrayCitiesGB as $v) {
-                                            echo '<option value="' . $v . '">' . $v . '</option>';
-                                        }
-                                        ?>
-                                        <option value="Other">Other</option>
+                                        <optgroup label="Most Selected">
+                                            <?
+                                            sort($arrayCountriesPopular);
+                                            foreach ($arrayCountriesPopular as $c) {
+                                                echo '<option value="' . $c . '">' . $c . '</option>';
+                                            }
+                                            ?>
+                                        </optgroup>
+                                        <optgroup label="All">
+                                            <?
+                                            sort($arrayCountries);
+                                            foreach ($arrayCountries as $c) {
+                                                echo '<option value="' . $c . '">' . $c . '</option>';
+                                            }
+                                            ?>
+                                        </optgroup>
                                     </select>
                                     <div class="__tip">This is the City you're currently living within or near by.</div>
                                 </div>
                                 <div class="__group">
-                                    <label for="city">Postcode / Zip Code *</label>
-                                    <select id="city" name="city" class="__select -grey" required>
-                                        <option value="">Select...</option>
-                                        <?
-                                        // Dynamic list, depending on Country selection
-                                        sort($arrayCitiesGB);
-                                        foreach ($arrayCitiesGB as $v) {
-                                            echo '<option value="' . $v . '">' . $v . '</option>';
-                                        }
-                                        ?>
-                                        <option value="Other">Other</option>
-                                    </select>
+                                    <label for="postcodezip">Postcode / Zip Code *</label>
+                                    <input type="text" id="postcodezip" name="postcodezip" class="__input -grey" placeholder="Postcode / Zip Code..." required />
                                     <div class="__tip">This postal or zip code of the role location.</div>
                                 </div>
                             </div>
@@ -157,3 +147,24 @@ if (empty($_SESSION['token'])) {
         </div>
     </div>
 </section>
+
+<script type="text/javascript">
+    var jobRoles = <?php echo json_encode($arrayJobRole); ?>;
+</script>
+
+<!-- JavaScript code for handling the select change event -->
+<script type="text/javascript">
+    document.getElementById('categorySelect').addEventListener('change', function() {
+        var category = this.value;
+        var roles = jobRoles[category];
+        var roleSelect = document.getElementById('roleSelect');
+
+        roleSelect.innerHTML = ''; // Clear existing options
+        for (var key in roles) {
+            var opt = document.createElement('option');
+            opt.value = key;
+            opt.innerHTML = roles[key];
+            roleSelect.appendChild(opt);
+        }
+    });
+</script>
