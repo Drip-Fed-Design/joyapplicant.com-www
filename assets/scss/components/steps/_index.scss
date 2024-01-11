@@ -1,0 +1,35 @@
+// Copyright (c) 2023-present, Drip Fed Ltd. All rights reserved.
+// #{$prefix-name}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- STEPS ----------
+// ----------
+// ----------
+//
+.#{$prefix-name}-steps-container {
+  .__step {
+    margin-bottom: $spacing__default;
+  }
+  .__bullet {
+    background-color: $colour-grey__default;
+    border-radius: $border-radius__round;
+    height: 45px;
+    width: 45px;
+    &.-active {
+      background-color: $colour-primary__orange;
+    }
+  }
+  .__copy {
+    .__title,
+    .__desc {
+      color: $colour-primary__black;
+      margin: 0;
+    }
+    .__title {
+      font-weight: $font-weight__bold;
+    }
+  }
+}

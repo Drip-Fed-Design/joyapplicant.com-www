@@ -1,0 +1,279 @@
+// // Copyright (c) 2023-present, Drip Fed Ltd. All rights reserved.
+// // #{$prefix-name}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- WIDTH ----------
+// ----------
+// ----------
+//
+._width__max {
+  margin: 0 auto;
+  max-width: $column__max;
+}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- TYPEFACE ----------
+// ----------
+// ----------
+//
+._tf-paytone-one {
+  font-family: $font-family__headings;
+}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- MARGIN ----------
+// ----------
+// ----------
+//
+._margin__top-default {
+  margin-top: $spacing__default;
+}
+._margin__right-micro {
+  margin-right: $spacing__micro;
+}
+._margin__bottom-small {
+  margin-bottom: $spacing__small;
+}
+._margin__bottom-default {
+  margin-bottom: $spacing__default;
+}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- PADDING ----------
+// ----------
+// ----------
+//
+._padding__rl-medium {
+  padding-right: $spacing__medium;
+  padding-left: $spacing__medium;
+}
+._padding__rl-large {
+  padding-right: $spacing__large;
+  padding-left: $spacing__large;
+}
+
+._padding__top-small {
+  padding-top: $spacing__small;
+}
+._padding__top-medium {
+  padding-top: $spacing__medium;
+}
+._padding__top-large {
+  padding-top: $spacing__large;
+}
+
+// Bottome
+._padding__bottom-small {
+  padding-bottom: $spacing__small;
+}
+._padding__bottom-default {
+  padding-bottom: $spacing__default;
+}
+._padding__bottom-medium {
+  padding-bottom: $spacing__medium;
+}
+._padding__bottom-large {
+  padding-bottom: $spacing__large;
+}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- FONT SIZE ----------
+// ----------
+// ----------
+//
+._font-size__secondary {
+  font-size: $font-size__secondary !important;
+}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- TEXT ALIGNMENT ----------
+// ----------
+// ----------
+//
+._text-align__right {
+  text-align: right;
+}
+._text-align__center {
+  text-align: center;
+}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- ICONS ----------
+// ----------
+// ----------
+//
+._icon {
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: $spacing__default;
+  width: $spacing__default;
+  // Sizes
+  &.-small {
+    height: $spacing__small;
+    margin-right: 2px;
+    width: $spacing__small;
+  }
+
+  // Alignment
+  &.-center {
+    margin: 0 auto $spacing__small;
+  }
+
+  // Variations
+  &.-facebook {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-brand-facebook.svg);
+  }
+  &.-instagram {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-brand-instagram.svg);
+  }
+  &.-linkedin {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-brand-linkedin.svg);
+  }
+  &.-instagram {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-brand-instagram.svg);
+  }
+  &.-xinc {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-brand-xinc.svg);
+  }
+  &.-threads {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-brand-threads.svg);
+  }
+  &.-secure {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-secure.svg);
+    &.__p {
+      background-image: url(#{$dir__assets}icon/joyapplicant-icon-secure-purple.svg);
+    }
+    &.__r {
+      background-image: url(#{$dir__assets}icon/joyapplicant-icon-secure-red.svg);
+    }
+  }
+  &.-location {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-location.svg);
+  }
+  &.-calendar {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-calendar.svg);
+  }
+  &.-dashboard {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-dashboard.svg);
+  }
+  &.-help {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-help.svg);
+  }
+  &.-message {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-message.svg);
+  }
+  &.-people {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-people.svg);
+  }
+  &.-review {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-review.svg);
+  }
+  &.-settings {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-settings.svg);
+  }
+  &.-tick {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-tick.svg);
+  }
+  &.-search {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-search.svg);
+  }
+  &.-alert {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-alert.svg);
+    &.__r {
+      background-image: url(#{$dir__assets}icon/joyapplicant-icon-alert-red.svg);
+    }
+  }
+  &.-help {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-help.svg);
+    &.__g {
+      background-image: url(#{$dir__assets}icon/joyapplicant-icon-help-grey.svg);
+    }
+  }
+
+  &.-chev-r {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-chev-right.svg);
+    &.__o {
+      background-image: url(#{$dir__assets}icon/joyapplicant-icon-chev-right-orange.svg);
+    }
+  }
+}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- BACKGROUND ----------
+// ----------
+// ----------
+//
+._background-colour__primary-red {
+  background-color: $colour-primary__red !important;
+}
+
+._background-colour__grey-light {
+  background-color: $colour-grey__light !important;
+}
+
+._background-colour__secondary-green-light {
+  background-color: $colour-secondary__green-light !important;
+}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- CONTAINERS ----------
+// ----------
+// ----------
+//
+._box-reverse__blue {
+  background-color: $colour-grey__light;
+  border-radius: $border-radius__default;
+  margin-top: -(calc($spacing__medium + $spacing__default));
+  padding: calc($spacing__medium + $spacing__default) $spacing__small
+    $spacing__small;
+}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- HORIZONTAL RULE ----------
+// ----------
+// ----------
+//
+._hr__grey-light {
+  background: none;
+  border: 0;
+  border-bottom: 1px solid $colour-grey__light;
+  opacity: $opacity__default;
+}
+
+._hr__white-default {
+  background: none;
+  border: 0;
+  border-bottom: 1px solid $colour-white__default;
+  opacity: $opacity__default;
+}

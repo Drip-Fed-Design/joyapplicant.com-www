@@ -6,13 +6,19 @@
     {
       "label": "PRODUCTION css - Compressed",
       "type": "shell",
-      "command": "sass --watch ./dev/build/_core.scss:./dist/css/joyapplicant.min.css --no-source-map --style compressed;",
+      "command": "sass --watch ./assets/scss/_core.scss:./public/css/joyapplicant.min.css --no-source-map --style compressed;",
       "problemMatcher": []
     },
     {
       "label": "LOCALDEV css - Compressed",
       "type": "shell",
-      "command": "sass --watch ./dev/build/_core.scss:./joyapplicant.com-www.dev-local/dist/css/joyapplicant.min.css --no-source-map --style compressed;",
+      "command": "sass --watch ./assets/scss/_core.scss:./joyapplicant.com-www.dev-local/public/css/joyapplicant.min.css --no-source-map --style compressed;",
+      "problemMatcher": []
+    },
+    {
+      "label": "Composer - Update",
+      "type": "shell",
+      "command": "composer update",
       "problemMatcher": []
     }
   ]

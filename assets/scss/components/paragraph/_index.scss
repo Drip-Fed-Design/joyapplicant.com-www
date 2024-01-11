@@ -1,0 +1,67 @@
+// Copyright (c) 2023-present, Drip Fed Ltd. All rights reserved.
+// #{$prefix-name}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- PARAGRAPHS ----------
+// ----------
+// ----------
+//
+##{$prefix-name}-body-container {
+  p,
+  a,
+  input,
+  label,
+  button,
+  span,
+  table,
+  ul,
+  li,
+  figcaption,
+  cite,
+  blockquote,
+  div,
+  section,
+  header,
+  footer,
+  article {
+    font-family: $font-family__default;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  p {
+    color: $colour-primary__black;
+    font-size: $font-size__primary;
+    line-height: calc($font-size__primary * 1.2);
+    strong,
+    b {
+      font-weight: $font-weight__bold;
+    }
+    // Links
+    a {
+      text-decoration: none;
+      font-weight: $font-weight__bold;
+      color: $colour-black__default;
+      &:hover {
+        color: $colour-primary__orange;
+      }
+    }
+  }
+  // Label
+  label {
+    color: $colour-primary__black;
+    display: block;
+    font-size: $font-size__secondary;
+    font-weight: $font-weight__bold;
+    margin-bottom: $spacing__micro;
+  }
+  ::placeholder {
+    color: $colour-black__default;
+  }
+  li {
+    color: $colour-primary__black;
+    font-size: $font-size__primary;
+  }
+}

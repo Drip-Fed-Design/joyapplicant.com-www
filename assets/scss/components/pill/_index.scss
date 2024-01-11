@@ -1,0 +1,29 @@
+// Copyright (c) 2023-present, Drip Fed Ltd. All rights reserved.
+// #{$prefix-name}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- PILL ----------
+// ----------
+// ----------
+//
+.#{$prefix-name}-pill-container {
+  span.__pill,
+  a.__pill {
+    background-color: $colour-secondary__green-light;
+    border-radius: $spacing__default;
+    color: $colour-primary__black;
+    display: inline-block;
+    font-family: $font-family__default;
+    font-size: $font-size__h5;
+    font-weight: $font-weight__bold;
+    margin: $spacing__micro 0;
+    padding: $spacing__micro $spacing__default;
+    text-decoration: none;
+    &.-small {
+      padding: 4px $spacing__small;
+    }
+  }
+}

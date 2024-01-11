@@ -1,0 +1,27 @@
+// Copyright (c) 2023-present, Drip Fed Ltd. All rights reserved.
+// #{$prefix-name}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- ALERT ----------
+// ----------
+// ----------
+//
+.#{$prefix-name}-alert-container {
+  border-radius: $border-radius__small;
+  margin-bottom: $spacing__default;
+  padding: $spacing__default;
+  p {
+    font-size: $font-size__h5 !important;
+    font-weight: $font-weight__bold;
+    margin: 0;
+  }
+  &.-success {
+    background-color: $colour-secondary__green-default;
+  }
+  &.-error {
+    background-color: $colour-primary__red;
+  }
+}

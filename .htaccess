@@ -1,0 +1,39 @@
+# Enabling of media types
+
+<IfModule mod_mime.c>
+    AddType image/svg+xml .svg .svgz
+    AddType application/zip .zip
+    AddType image/png .png
+    AddType image/gif .gif
+    AddType text/css .css
+    AddType application/x-gzip .gz .gzip
+    AddType image/x-icon .ico
+    AddType image/jpeg .jpg .jpeg .jpe
+    AddType application/json .json
+    AddType video/mp4 .mp4 .m4v
+    AddType application/pdf .pdf
+    AddType application/vnd.ms-excel .xla .xls .xlsx .xlt .xlw
+    AddHandler application/x-httpd-php .php .html
+</IfModule>
+
+# URL rewrite
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Handle Front Controller pattern for clean URLs
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# Redirect to remove .php extension if it's directly accessed
+
+RewriteCond %{THE_REQUEST} /public/([^\s]+)\.php [NC]
+RewriteRule ^ /public/%1 [R=301,L,NC]
+
+RewriteRule ^user/(.*)$ public/user/$1 [L,QSA]
+RewriteRule ^onboard/(.*)$ public/onboard/$1 [L,QSA]
+
+</IfModule>

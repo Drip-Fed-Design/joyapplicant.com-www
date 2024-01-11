@@ -1,3 +1,10 @@
 User-agent: *
-Allow: /
+Disallow: /assets/
+Disallow: /config/
+Disallow: /src/
+Disallow: /templates/
+Disallow: /var/
+Disallow: /vendor/
+
+Allow: /public/
 Sitemap: https://www.joyapplicant.com/sitemap.xml

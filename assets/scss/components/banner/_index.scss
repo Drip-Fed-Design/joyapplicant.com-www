@@ -1,0 +1,27 @@
+// Copyright (c) 2023-present, Drip Fed Ltd. All rights reserved.
+// #{$prefix-name}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- BANNER ----------
+// ----------
+// ----------
+//
+.#{$prefix-name}-banner-container {
+  background-color: $colour-secondary__green-light;
+  padding: $spacing__default $spacing__medium 0;
+  .__copy {
+    padding: calc($spacing__medium + $spacing__default) 0 $spacing__large;
+  }
+  .__img {
+    background-image: url(#{$dir__assets}banner/joyapplicant-banner-person-stephen.png);
+    background-position-x: center;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+    width: 100%;
+  }
+}

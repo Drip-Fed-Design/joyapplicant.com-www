@@ -1,0 +1,81 @@
+// Copyright (c) 2023-present, Drip Fed Ltd. All rights reserved.
+// #{$prefix-name}
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- BUTTONS ----------
+// ----------
+// ----------
+//
+.#{$prefix-name}-button-container {
+  input.__button,
+  button.__button,
+  a.__button {
+    background: $colour-secondary__purple-default;
+    border-radius: $border-radius__button;
+    border: 0;
+    color: $colour-white__default;
+    cursor: pointer;
+    display: inline-block;
+    font-size: $font-size__primary;
+    font-weight: $font-weight__bold;
+    padding: $spacing__small $spacing__default;
+    text-decoration: none;
+    &:hover {
+      opacity: $opacity__default;
+    }
+    &.-blue {
+      background: $colour-primary__blue;
+    }
+    &.-black {
+      background: $colour-primary__black;
+    }
+    &.-green {
+      background: $colour-secondary__green-dark;
+      color: $colour-black__default;
+    }
+    &.-outline {
+      background: $colour-white__default;
+      border: 2px solid $colour-secondary__purple-default;
+      color: $colour-secondary__purple-default;
+      &.-grey {
+        border-color: $colour-grey__dark;
+        color: $colour-grey__dark;
+      }
+    }
+    // Plain
+    &.-plain {
+      background: unset;
+      color: $colour-primary__black;
+      font-size: $font-size__secondary;
+      padding: 0;
+      text-decoration: underline;
+      &.-orange {
+        color: $colour-primary__orange;
+      }
+      ._icon {
+        margin-bottom: -4px;
+      }
+    }
+    &.-icon {
+      background: unset;
+      color: $colour-secondary__purple-default;
+      padding: $spacing__small $spacing__small;
+      ._icon {
+        margin-bottom: -2px;
+      }
+    }
+    &.-stretch {
+      width: 100%;
+    }
+  }
+  button.__button {
+    &.-inset {
+      background-color: $colour-primary__orange;
+      border-radius: $border-radius__default;
+      color: $colour-black__default;
+    }
+  }
+}
