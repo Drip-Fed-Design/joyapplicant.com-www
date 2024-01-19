@@ -20,7 +20,7 @@ if (empty($_SESSION['token'])) {
                     <form action="requirements" method="post" id="requirements-form">
                         <div class="__form-section">
                             <div class="__group">
-                                <div class="<?= $cssPrefix; ?>-grid -column-max-1fr -gap-c-default">
+                                <div class="<?= $cssPrefix; ?>-grid -column-max-max-max -gap-c-default">
                                     <div class="<?= $cssPrefix; ?>-grid -column-max-1fr -gap-c-default -align-v-center">
                                         <label for="timeperiod">Minimum of</label>
                                         <select id="timeperiod" name="timeperiod" class="__select -grey" required>
@@ -39,6 +39,7 @@ if (empty($_SESSION['token'])) {
                                         </div>
                                         <label>experience</label>
                                     </div>
+                                    <button class="close-row" data-target="#experience-row">Close</button>
                                 </div>
                             </div>
                         </div>
@@ -104,3 +105,59 @@ if (empty($_SESSION['token'])) {
         </div>
     </div>
 </section>
+
+
+
+<!-- Buttons -->
+<div id="buttons-container">
+    <button class="rule-button" data-target="#education-row">+ Education</button>
+    <button class="rule-button" data-target="#experience-row">+ Experience</button>
+    <!-- Add other buttons similarly -->
+</div>
+
+<!-- Option Rows (hidden by default) -->
+<div id="education-row" class="option-row" style="display: none;">
+    <p>Hello education</p>
+    <input name="education" value="" />
+    <button class="close-row" data-target="#education-row">Close</button>
+</div>
+
+<div id="experience-row" class="option-row" style="display: none;">
+    <p>Hello experience</p>
+    <input name="experience" value="" />
+    <button class="close-row" data-target="#experience-row">Close</button>
+</div>
+
+<script>
+    document.querySelectorAll('.rule-button').forEach(function(button) {
+        button.addEventListener('click', function() {
+            var targetSelector = button.getAttribute('data-target');
+            var targetElement = document.querySelector(targetSelector);
+
+            // Hide the button
+            button.style.display = 'none'; // If you want to use the 'hidden' class here, make sure it's defined in your CSS
+
+            // Show the targeted row and set inputs as required
+            targetElement.style.display = 'block'; // Replace this with targetElement.classList.add('active'); if using class-based toggling
+            targetElement.querySelectorAll('input').forEach(function(input) {
+                input.required = true;
+            });
+        });
+    });
+
+    document.querySelectorAll('.close-row').forEach(function(button) {
+        button.addEventListener('click', function() {
+            var targetSelector = button.getAttribute('data-target');
+            var targetElement = document.querySelector(targetSelector);
+
+            // Hide the row and unset inputs as required
+            targetElement.style.display = 'none'; // Replace this with targetElement.classList.remove('active'); if using class-based toggling
+            targetElement.querySelectorAll('input').forEach(function(input) {
+                input.required = false;
+            });
+
+            // Find the button that corresponds to this row and show it again
+            document.querySelector(`.rule-button[data-target="${targetSelector}"]`).style.display = 'inline-block'; // If you want to use the 'hidden' class here, make sure it's defined in your CSS
+        });
+    });
+</script>
