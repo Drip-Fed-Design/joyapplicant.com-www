@@ -17,19 +17,19 @@ if (empty($_SESSION['token'])) {
                 ?>
                 <h2>Next, tell us about the job details</h2>
                 <section class="<?= $cssPrefix; ?>-form-container _margin__top-default">
-                    <form action="company" method="post" id="company-form">
+                    <form action="details" method="post" id="details-form">
                         <h4>What is the salary range candidates can expect?</h4>
                         <div class="__form-section">
-                            <div class="<?= $cssPrefix; ?>-grid -column-max-1fr -gap-c-default">
+                            <div class="<?= $cssPrefix; ?>-grid -column-max-1fr -gap-c-default _padding__bottom-small">
                                 <input type="checkbox" id="entry" name="entry" class="__input -grey" value="1" />
                                 <label for="entry">This is a volunteer role, therefore has no salary association.</label>
                             </div>
                             <div class="__group">
                                 <label for="name">Salary range *</label>
-                                <div class="<?= $cssPrefix; ?>-grid -column-3 -gap-c-default">
-                                    <div class="<?= $cssPrefix; ?>-grid -column-1fr-max -gap-c-default">
+                                <div class="<?= $cssPrefix; ?>-grid -column-3 -gap-c-default -align-v-center">
+                                    <div class="<?= $cssPrefix; ?>-grid -column-1fr-max -gap-c-default -align-v-center">
                                         <input type="text" id="salarymin" name="salarymin" class="__input -grey" placeholder="£30,000.00" required />
-                                        <div class="__group -align-vh-center">
+                                        <div class="__group">
                                             <label>to</label>
                                         </div>
                                     </div>
@@ -47,25 +47,25 @@ if (empty($_SESSION['token'])) {
                         <h4>Expand on the role and reasons behind the hire?</h4>
                         <div class="__form-section">
                             <div class="__group">
-                                <label for="country">Why are you hiring *</label>
-                                <textarea type="telephone" id="telephone" name="telephone" class="__input -grey" placeholder="Contact number..." required></textarea>
+                                <label for="why">Why are you hiring *</label>
+                                <textarea type="why" id="why" name="why" class="__input -grey" placeholder="Why are you hiring..." required></textarea>
                                 <div class="__tip">Explanation of the need for this role.</div>
                             </div>
                             <div class="__group">
-                                <label for="country">Duties of the role *</label>
-                                <textarea type="telephone" id="telephone" name="telephone" class="__input -grey" placeholder="Contact number..." required></textarea>
+                                <label for="duties">Duties of the role *</label>
+                                <textarea type="duties" id="duties" name="duties" class="__input -grey" placeholder="Why are you hiring..." required></textarea>
                                 <div class="__tip">General tasks to be performed.</div>
                             </div>
                             <div class="__group">
-                                <label for="country">Responsibilities *</label>
-                                <textarea type="telephone" id="telephone" name="telephone" class="__input -grey" placeholder="Contact number..." required></textarea>
+                                <label for="responsibilities">Responsibilities *</label>
+                                <textarea type="responsibilities" id="responsibilities" name="responsibilities" class="__input -grey" placeholder="Responsibilities..." required></textarea>
                                 <div class="__tip">Key responsibilities and expectations.</div>
                             </div>
                         </div>
                         <input type="hidden" name="token" value="<?= $_SESSION['token']; ?>">
                         <hr class="_hr__grey-light" />
                         <div class="__buttons <?= $cssPrefix; ?>-button-container _margin__top-default _text-align__right">
-                            <button type="submit" name="company" class="__button">Continue</button>
+                            <button type="submit" name="details" class="__button">Continue</button>
                         </div>
                     </form>
                 </section>

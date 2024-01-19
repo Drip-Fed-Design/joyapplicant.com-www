@@ -58,6 +58,10 @@
   &.-column-1fr-max {
     grid-template-columns: 1fr max-content;
   }
+  &.-column-max-max-max {
+    grid-template-columns: max-content max-content max-content;
+  }
+
   &.-column-mmm-1fr-mmm {
     grid-template-columns: max-content max-content max-content 1fr max-content max-content max-content;
   }
