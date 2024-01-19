@@ -18,7 +18,7 @@ if (empty($_SESSION['token'])) {
                 <h2>Getting started</h2>
                 <p>We'll keep questions to a minimum, but just enough to provide you with the best candidates.</p>
                 <section class="<?= $cssPrefix; ?>-form-container _margin__top-default">
-                    <form action="company" method="post" id="company-form">
+                    <form action="start" method="post" id="start-form">
                         <div class="__form-section">
                             <div class="<?= $cssPrefix; ?>-grid -column-2 -gap-c-default">
                                 <div class="__group">
@@ -109,7 +109,7 @@ if (empty($_SESSION['token'])) {
                         <input type="hidden" name="token" value="<?= $_SESSION['token']; ?>">
                         <hr class="_hr__grey-light" />
                         <div class="__buttons <?= $cssPrefix; ?>-button-container _margin__top-default _text-align__right">
-                            <button type="submit" name="company" class="__button">Continue</button>
+                            <button type="submit" name="start" class="__button">Continue</button>
                         </div>
                     </form>
                 </section>
