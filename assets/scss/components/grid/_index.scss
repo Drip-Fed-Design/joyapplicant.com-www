@@ -66,6 +66,11 @@
   }
 
   // Alignment
+  &.-align-vh-center,
+  .-align-vh-center {
+    place-self: center;
+  }
+
   &.-align-v-center {
     align-items: center;
   }
