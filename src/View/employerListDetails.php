@@ -26,10 +26,12 @@ if (empty($_SESSION['token'])) {
                             </div>
                             <div class="__group">
                                 <label for="name">Salary range *</label>
-                                <div class="<?= $cssPrefix; ?>-grid -column-4 -gap-c-default">
-                                    <input type="text" id="salarymin" name="salarymin" class="__input -grey" placeholder="£30,000.00" required />
-                                    <div class="__group">
-                                        <label>to</label>
+                                <div class="<?= $cssPrefix; ?>-grid -column-3 -gap-c-default">
+                                    <div class="<?= $cssPrefix; ?>-grid -column-1fr-max -gap-c-default">
+                                        <input type="text" id="salarymin" name="salarymin" class="__input -grey" placeholder="£30,000.00" required />
+                                        <div class="__group -align-vh-center">
+                                            <label>to</label>
+                                        </div>
                                     </div>
                                     <input type="text" id="salarymax" name="salarymax" class="__input -grey" placeholder="£34,999.00" required />
                                     <select id="term" name="term" class="__select -grey" required>
