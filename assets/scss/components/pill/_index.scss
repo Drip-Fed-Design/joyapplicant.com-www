@@ -19,11 +19,17 @@
     font-family: $font-family__default;
     font-size: $font-size__h5;
     font-weight: $font-weight__bold;
-    margin: $spacing__micro 0;
+    margin: $spacing__micro $spacing__micro $spacing__micro 0;
     padding: $spacing__micro $spacing__default;
     text-decoration: none;
     &.-small {
       padding: 4px $spacing__small;
+    }
+    &._req-action {
+      cursor: pointer !important;
+      &:hover {
+        opacity: $opacity__default;
+      }
     }
   }
 }

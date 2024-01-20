@@ -18,51 +18,38 @@ if (empty($_SESSION['token'])) {
                 <h2>Requirements from the candidates</h2>
                 <section class="<?= $cssPrefix; ?>-form-container _margin__top-default">
                     <form action="requirements" method="post" id="requirements-form">
-                        <div class="__form-section">
-                            <div class="__group">
-                                <div class="<?= $cssPrefix; ?>-grid -column-max-max-max -gap-c-default">
-                                    <div class="<?= $cssPrefix; ?>-grid -column-max-1fr -gap-c-default -align-v-center">
-                                        <label for="timeperiod">Minimum of</label>
-                                        <select id="timeperiod" name="timeperiod" class="__select -grey" required>
-                                            <?
-                                            sort($arrayPeriodYears);
-                                            foreach ($arrayPeriodYears as $c) {
-                                                echo '<option value="' . $c . '">' . $c . '</option>';
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                    <div class="<?= $cssPrefix; ?>-grid -column-max-max-max -gap-c-default -align-v-center">
-                                        <label>in</label>
-                                        <div class="<?= $cssPrefix; ?>-pill-container">
-                                            <span class="__pill">Administrative Skills</span>
+                        <? foreach ($arrayWorkingRequirements as $k => $v) { ?>
+                            <div class="__form-section" id="<?= $k; ?>-row" style="display: none;">
+                                <div class="__group">
+                                    <div class="<?= $cssPrefix; ?>-grid -column-max-max-max -gap-c-default">
+                                        <div class="<?= $cssPrefix; ?>-grid -column-max-1fr -gap-c-default -align-v-center">
+                                            <label for="<?= $k; ?>"><?= $v['outputIntro']; ?></label>
+                                            <select id="<?= $k; ?>" name="<?= $k; ?>" class="__select -grey">
+                                                <?
+                                                sort($arrayPeriodYears);
+                                                foreach ($arrayPeriodYears as $c) {
+                                                    echo '<option value="' . $c . '">' . $c . '</option>';
+                                                }
+                                                ?>
+                                            </select>
                                         </div>
-                                        <label>experience</label>
+                                        <div class="<?= $cssPrefix; ?>-grid -column-max-max-max -gap-c-default -align-v-center">
+                                            <label for="<?= $k; ?>">in</label>
+                                            <div class="<?= $cssPrefix; ?>-pill-container">
+                                                <span class="__pill"><?= $v['outputSubject']; ?></span>
+                                            </div>
+                                            <label for="<?= $k; ?>">experience</label>
+                                        </div>
+                                        <a href="#" class="close-row" data-target="#<?= $k; ?>-row"><span class="_icon -close"></span> </a>
                                     </div>
-                                    <button class="close-row" data-target="#experience-row">Close</button>
                                 </div>
                             </div>
-                        </div>
-
+                        <? } ?>
                         <div class="<?= $cssPrefix; ?>-pill-container">
-                            <span class="__pill">Education</span>
-                            <span class="__pill">Interview Availability</span>
-                            <span class="__pill">Experience</span>
-                            <span class="__pill">Location</span>
-                            <span class="__pill">Driving License</span>
-                            <span class="__pill">Language</span>
-                            <span class="__pill">Work Authorisation</span>
-                            <span class="__pill">Background Check</span>
-                            <span class="__pill">Willingness to Travel</span>
-                            <span class="__pill">Relocation</span>
-                            <span class="__pill">Working Days</span>
-                            <span class="__pill">Start Date</span>
-                            <span class="__pill">Security Clearance</span>
-                            <span class="__pill">Share References</span>
-                            <span class="__pill">Software Experience</span>
-                            <span class="__pill">Service Experience</span>
+                            <? foreach ($arrayWorkingRequirements as $k => $v) { ?>
+                                <span class="__pill _req-action" data-target="#<?= $k; ?>-row">+ <?= $v['outputSubject']; ?></span>
+                            <? } ?>
                         </div>
-
                         <input type="hidden" name="token" value="<?= $_SESSION['token']; ?>">
                         <hr class="_hr__grey-light" />
                         <div class="__buttons <?= $cssPrefix; ?>-button-container _margin__top-default _text-align__right">
@@ -105,59 +92,31 @@ if (empty($_SESSION['token'])) {
         </div>
     </div>
 </section>
-
-
-
-<!-- Buttons -->
-<div id="buttons-container">
-    <button class="rule-button" data-target="#education-row">+ Education</button>
-    <button class="rule-button" data-target="#experience-row">+ Experience</button>
-    <!-- Add other buttons similarly -->
-</div>
-
-<!-- Option Rows (hidden by default) -->
-<div id="education-row" class="option-row" style="display: none;">
-    <p>Hello education</p>
-    <input name="education" value="" />
-    <button class="close-row" data-target="#education-row">Close</button>
-</div>
-
-<div id="experience-row" class="option-row" style="display: none;">
-    <p>Hello experience</p>
-    <input name="experience" value="" />
-    <button class="close-row" data-target="#experience-row">Close</button>
-</div>
-
 <script>
-    document.querySelectorAll('.rule-button').forEach(function(button) {
+    document.querySelectorAll('._req-action').forEach(function(button) {
         button.addEventListener('click', function() {
             var targetSelector = button.getAttribute('data-target');
             var targetElement = document.querySelector(targetSelector);
-
             // Hide the button
             button.style.display = 'none'; // If you want to use the 'hidden' class here, make sure it's defined in your CSS
-
             // Show the targeted row and set inputs as required
             targetElement.style.display = 'block'; // Replace this with targetElement.classList.add('active'); if using class-based toggling
-            targetElement.querySelectorAll('input').forEach(function(input) {
+            targetElement.querySelectorAll('select').forEach(function(input) {
                 input.required = true;
             });
         });
     });
-
     document.querySelectorAll('.close-row').forEach(function(button) {
         button.addEventListener('click', function() {
             var targetSelector = button.getAttribute('data-target');
             var targetElement = document.querySelector(targetSelector);
-
             // Hide the row and unset inputs as required
             targetElement.style.display = 'none'; // Replace this with targetElement.classList.remove('active'); if using class-based toggling
-            targetElement.querySelectorAll('input').forEach(function(input) {
+            targetElement.querySelectorAll('select').forEach(function(input) {
                 input.required = false;
             });
-
             // Find the button that corresponds to this row and show it again
-            document.querySelector(`.rule-button[data-target="${targetSelector}"]`).style.display = 'inline-block'; // If you want to use the 'hidden' class here, make sure it's defined in your CSS
+            document.querySelector(`._req-action[data-target="${targetSelector}"]`).style.display = 'inline-block'; // If you want to use the 'hidden' class here, make sure it's defined in your CSS
         });
     });
 </script>

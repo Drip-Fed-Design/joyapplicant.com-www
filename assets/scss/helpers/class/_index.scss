@@ -199,6 +199,9 @@
   &.-search {
     background-image: url(#{$dir__assets}icon/joyapplicant-icon-search.svg);
   }
+  &.-close {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-close.svg);
+  }
   &.-alert {
     background-image: url(#{$dir__assets}icon/joyapplicant-icon-alert.svg);
     &.__r {

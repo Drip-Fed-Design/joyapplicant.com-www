@@ -330,6 +330,97 @@ $arraySalaryTerms = [
 // ------------------------------------------------------------
 // ------------------------------------------------------------
 // ------------------------------------------------------------
+// ---------- WORKING REQUIREMENTS ----------
+// ----------
+// ----------
+//
+$arrayWorkingRequirements = [
+    'edu' => [
+        'outputIntro' => 'Minimum of',
+        'outputSubject' => 'Education',
+        'outputType' => 'Trading standards officer'
+    ],
+    'int' => [
+        'outputIntro' => '...',
+        'outputSubject' => 'Interview Availability',
+        'outputType' => '...'
+    ],
+    'exp' => [
+        'outputIntro' => '...',
+        'outputSubject' => 'Experience',
+        'outputType' => '...'
+    ],
+    'loc' => [
+        'outputIntro' => '...',
+        'outputSubject' => 'Location',
+        'outputType' => '...'
+    ],
+    'dri' => [
+        'outputIntro' => '...',
+        'outputSubject' => 'Driving License',
+        'outputType' => '...'
+    ],
+    'lng' => [
+        'outputIntro' => '...',
+        'outputSubject' => 'Language',
+        'outputType' => '...'
+    ],
+    'wau' => [
+        'outputIntro' => '...',
+        'outputSubject' => 'Work Authorisation',
+        'outputType' => '...'
+    ],
+    'bkg' => [
+        'outputIntro' => '...',
+        'outputSubject' => 'Background Check',
+        'outputType' => '...'
+    ],
+    'trv' => [
+        'outputIntro' => '...',
+        'outputSubject' => 'Willingness to Travel',
+        'outputType' => '...'
+    ],
+    'rel' => [
+        'outputIntro' => '...',
+        'outputSubject' => 'Relocation',
+        'outputType' => '...'
+    ],
+    'wrk' => [
+        'outputIntro' => '...',
+        'outputSubject' => 'Working Days',
+        'outputType' => '...'
+    ],
+    'str' => [
+        'outputIntro' => '...',
+        'outputSubject' => 'Start Date',
+        'outputType' => '...'
+    ],
+    'sec' => [
+        'outputIntro' => '...',
+        'outputSubject' => 'Security Clearance',
+        'outputType' => '...'
+    ],
+    'ref' => [
+        'outputIntro' => '...',
+        'outputSubject' => 'Share References',
+        'outputType' => '...'
+    ],
+    'sof' => [
+        'outputIntro' => '...',
+        'outputSubject' => 'Software Experience',
+        'outputType' => '...'
+    ],
+    'ser' => [
+        'outputIntro' => '...',
+        'outputSubject' => 'Service Experience',
+        'outputType' => '...'
+    ]
+];
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
 // ---------- JOB CATEGORY & ROLES ----------
 // ----------
 // ----------
