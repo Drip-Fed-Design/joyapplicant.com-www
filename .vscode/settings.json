@@ -3,6 +3,7 @@
   "editor.fontFamily": "Andale Mono, Monaco, 'Courier New', monospace",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
+  "editor.wordWrap": "on",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "html.format.indentInnerHtml": true,
   "editor.tabSize": 4,
