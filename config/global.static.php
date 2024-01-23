@@ -334,88 +334,125 @@ $arraySalaryTerms = [
 // ----------
 // ----------
 //
-$arrayWorkingRequirements = [
-    'edu' => [
-        'outputIntro' => 'Minimum of',
-        'outputSubject' => 'Education',
-        'outputType' => 'Trading standards officer'
-    ],
-    'int' => [
-        'outputIntro' => '...',
-        'outputSubject' => 'Interview Availability',
-        'outputType' => '...'
-    ],
-    'exp' => [
-        'outputIntro' => '...',
-        'outputSubject' => 'Experience',
-        'outputType' => '...'
-    ],
-    'loc' => [
-        'outputIntro' => '...',
-        'outputSubject' => 'Location',
-        'outputType' => '...'
-    ],
-    'dri' => [
-        'outputIntro' => '...',
-        'outputSubject' => 'Driving License',
-        'outputType' => '...'
-    ],
-    'lng' => [
-        'outputIntro' => '...',
-        'outputSubject' => 'Language',
-        'outputType' => '...'
-    ],
-    'wau' => [
-        'outputIntro' => '...',
-        'outputSubject' => 'Work Authorisation',
-        'outputType' => '...'
-    ],
-    'bkg' => [
-        'outputIntro' => '...',
-        'outputSubject' => 'Background Check',
-        'outputType' => '...'
-    ],
-    'trv' => [
-        'outputIntro' => '...',
-        'outputSubject' => 'Willingness to Travel',
-        'outputType' => '...'
-    ],
-    'rel' => [
-        'outputIntro' => '...',
-        'outputSubject' => 'Relocation',
-        'outputType' => '...'
-    ],
-    'wrk' => [
-        'outputIntro' => '...',
-        'outputSubject' => 'Working Days',
-        'outputType' => '...'
-    ],
-    'str' => [
-        'outputIntro' => '...',
-        'outputSubject' => 'Start Date',
-        'outputType' => '...'
-    ],
-    'sec' => [
-        'outputIntro' => '...',
-        'outputSubject' => 'Security Clearance',
-        'outputType' => '...'
-    ],
-    'ref' => [
-        'outputIntro' => '...',
-        'outputSubject' => 'Share References',
-        'outputType' => '...'
-    ],
-    'sof' => [
-        'outputIntro' => '...',
-        'outputSubject' => 'Software Experience',
-        'outputType' => '...'
-    ],
-    'ser' => [
-        'outputIntro' => '...',
-        'outputSubject' => 'Service Experience',
-        'outputType' => '...'
-    ]
-];
+// $arrayWorkingRequirements = [
+//     'edu' => [
+//         'outputIntro' => 'Minimum of',
+//         'outputType' => 'int', // int, custom
+//         'outputMid' => 'years in',
+//         'outputSubject' => 'Education',
+//         'outputOutro' => ''
+//     ],
+//     'int' => [
+//         'outputIntro' => 'Has',
+//         'outputType' => 'custom',
+//         'outputMid' => '',
+//         'outputSubject' => 'Interview Availability',
+//         'outputOutro' => '',
+//         'outputOptions' => [
+//             'tel' => 'Telephone',
+//             'vid' => 'Video',
+//             'per' => 'In-Person'
+//         ]
+//     ],
+//     'exp' => [
+//         'outputIntro' => '...',
+//         'outputType' => 'input',
+//         'outputMid' => 'in',
+//         'outputSubject' => 'Experience',
+//         'outputOutro' => 'in'
+//     ],
+//     'loc' => [
+//         'outputIntro' => '...',
+//         'outputType' => '...',
+//         'outputMid' => 'in',
+//         'outputSubject' => 'Location',
+//         'outputOutro' => 'in'
+//     ],
+//     'dri' => [
+//         'outputIntro' => '...',
+//         'outputType' => '...',
+//         'outputMid' => 'in',
+//         'outputSubject' => 'Driving License',
+//         'outputOutro' => 'in'
+//     ],
+//     'lng' => [
+//         'outputIntro' => '...',
+//         'outputType' => '...',
+//         'outputMid' => 'in',
+//         'outputSubject' => 'Language',
+//         'outputOutro' => 'in'
+//     ],
+//     'wau' => [
+//         'outputIntro' => '...',
+//         'outputType' => '...',
+//         'outputMid' => 'in',
+//         'outputSubject' => 'Work Authorisation',
+//         'outputOutro' => 'in'
+//     ],
+//     'bkg' => [
+//         'outputIntro' => '...',
+//         'outputType' => '...',
+//         'outputMid' => 'in',
+//         'outputSubject' => 'Background Check',
+//         'outputOutro' => 'in'
+//     ],
+//     'trv' => [
+//         'outputIntro' => '...',
+//         'outputType' => '...',
+//         'outputMid' => 'in',
+//         'outputSubject' => 'Willingness to Travel',
+//         'outputOutro' => 'in'
+//     ],
+//     'rel' => [
+//         'outputIntro' => '...',
+//         'outputType' => '...',
+//         'outputMid' => 'in',
+//         'outputSubject' => 'Relocation',
+//         'outputOutro' => 'in'
+//     ],
+//     'wrk' => [
+//         'outputIntro' => '...',
+//         'outputType' => '...',
+//         'outputMid' => 'in',
+//         'outputSubject' => 'Working Days',
+//         'outputOutro' => 'in'
+//     ],
+//     'str' => [
+//         'outputIntro' => '...',
+//         'outputType' => '...',
+//         'outputMid' => 'in',
+//         'outputSubject' => 'Start Date',
+//         'outputOutro' => 'in'
+//     ],
+//     'sec' => [
+//         'outputIntro' => '...',
+//         'outputType' => '...',
+//         'outputMid' => 'in',
+//         'outputSubject' => 'Security Clearance',
+//         'outputOutro' => 'in'
+//     ],
+//     'ref' => [
+//         'outputIntro' => 'Willing',
+//         'outputType' => 'hidden',
+//         'outputMid' => 'share',
+//         'outputSubject' => 'Share References',
+//         'outputOutro' => 'in'
+//     ],
+//     'sof' => [
+//         'outputIntro' => '...',
+//         'outputType' => '...',
+//         'outputMid' => 'in',
+//         'outputSubject' => 'Software Experience',
+//         'outputOutro' => 'in'
+//     ],
+//     'ser' => [
+//         'outputIntro' => '...',
+//         'outputType' => '...',
+//         'outputMid' => 'in',
+//         'outputSubject' => 'Service Experience',
+//         'outputOutro' => 'in'
+//     ]
+// ];
 
 //
 // ------------------------------------------------------------

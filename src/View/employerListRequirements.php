@@ -18,30 +18,66 @@ if (empty($_SESSION['token'])) {
                 <h2>Requirements from the candidates</h2>
                 <section class="<?= $cssPrefix; ?>-form-container _margin__top-default">
                     <form action="requirements" method="post" id="requirements-form">
+
+                        <div class="__form-section">
+                            <div class="__group">
+                                <label for="requirements">Candidate requirements *</label>
+                                <textarea rows="8" type="requirements" id="requirements" name="requirements" class="__input -grey" placeholder="What requirements should the candidate have..." required></textarea>
+                                <div class="__tip">Try to be clear with the requirements you need from your candidates.</div>
+                            </div>
+                        </div>
+
+                        <!--                         
                         <? foreach ($arrayWorkingRequirements as $k => $v) { ?>
-                            <div class="__form-section" id="<?= $k; ?>-row" style="display: none;">
+                            <div class="__form-section" id="<?= $k; ?>-row" style="display: block;">
                                 <div class="__group">
-                                    <div class="<?= $cssPrefix; ?>-grid -column-max-max-max -gap-c-default">
-                                        <div class="<?= $cssPrefix; ?>-grid -column-max-1fr -gap-c-default -align-v-center">
-                                            <label for="<?= $k; ?>"><?= $v['outputIntro']; ?></label>
-                                            <select id="<?= $k; ?>" name="<?= $k; ?>" class="__select -grey">
-                                                <?
-                                                sort($arrayPeriodYears);
-                                                foreach ($arrayPeriodYears as $c) {
-                                                    echo '<option value="' . $c . '">' . $c . '</option>';
-                                                }
-                                                ?>
-                                            </select>
-                                        </div>
-                                        <div class="<?= $cssPrefix; ?>-grid -column-max-max-max -gap-c-default -align-v-center">
-                                            <label for="<?= $k; ?>">in</label>
-                                            <div class="<?= $cssPrefix; ?>-pill-container">
-                                                <span class="__pill"><?= $v['outputSubject']; ?></span>
+
+                                    <? if ($v['outputType'] === 'int') { ?>
+                                        <div class="<?= $cssPrefix; ?>-grid -column-max-max-max -gap-c-default">
+                                            <div class="<?= $cssPrefix; ?>-grid -column-max-1fr -gap-c-default -align-v-center">
+                                                <label for="<?= $k; ?>"><?= $v['outputIntro']; ?></label>
+                                                <select id="<?= $k; ?>" name="<?= $k; ?>" class="__select -grey">
+                                                    <?
+                                                    sort($arrayPeriodYears);
+                                                    foreach ($arrayPeriodYears as $c) {
+                                                        echo '<option value="' . $c . '">' . $c . '</option>';
+                                                    }
+                                                    ?>
+                                                </select>
                                             </div>
-                                            <label for="<?= $k; ?>">experience</label>
+                                            <div class="<?= $cssPrefix; ?>-grid -column-max-max-max -gap-c-default -align-v-center">
+                                                <label for="<?= $k; ?>"><?= $v['outputMid']; ?></label>
+                                                <div class="<?= $cssPrefix; ?>-pill-container">
+                                                    <span class="__pill"><?= $v['outputSubject']; ?></span>
+                                                </div>
+                                                <label for="<?= $k; ?>"><?= $v['outputOutro']; ?></label>
+                                            </div>
+                                            <a href="#" class="close-row" data-target="#<?= $k; ?>-row"><span class="_icon -close"></span> </a>
                                         </div>
-                                        <a href="#" class="close-row" data-target="#<?= $k; ?>-row"><span class="_icon -close"></span> </a>
-                                    </div>
+
+                                    <? } else if ($v['outputType'] === 'custom') { ?>
+                                        <div class="<?= $cssPrefix; ?>-grid -column-max-max-max -gap-c-default">
+                                            <div class="<?= $cssPrefix; ?>-grid -column-max-1fr -gap-c-default -align-v-center">
+                                                <label for="<?= $k; ?>"><?= $v['outputIntro']; ?></label>
+                                                <select id="<?= $k; ?>" name="<?= $k; ?>" class="__select -grey">
+                                                    <?
+                                                    foreach ($v['outputOptions'] as $kk => $vv) {
+                                                        echo '<option value="' . $kk . '">' . $vv . '</option>';
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                            <div class="<?= $cssPrefix; ?>-grid -column-max-max-max -gap-c-default -align-v-center">
+                                                <label for="<?= $k; ?>"><?= $v['outputMid']; ?></label>
+                                                <div class="<?= $cssPrefix; ?>-pill-container">
+                                                    <span class="__pill"><?= $v['outputSubject']; ?></span>
+                                                </div>
+                                                <label for="<?= $k; ?>"><?= $v['outputOutro']; ?></label>
+                                            </div>
+                                            <a href="#" class="close-row" data-target="#<?= $k; ?>-row"><span class="_icon -close"></span> </a>
+                                        </div>
+                                    <? } ?>
+
                                 </div>
                             </div>
                         <? } ?>
@@ -49,7 +85,7 @@ if (empty($_SESSION['token'])) {
                             <? foreach ($arrayWorkingRequirements as $k => $v) { ?>
                                 <span class="__pill _req-action" data-target="#<?= $k; ?>-row">+ <?= $v['outputSubject']; ?></span>
                             <? } ?>
-                        </div>
+                        </div> -->
                         <input type="hidden" name="token" value="<?= $_SESSION['token']; ?>">
                         <hr class="_hr__grey-light" />
                         <div class="__buttons <?= $cssPrefix; ?>-button-container _margin__top-default _text-align__right">
