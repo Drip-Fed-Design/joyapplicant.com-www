@@ -295,7 +295,7 @@ $arrayEmploymentType = [
 // ------------------------------------------------------------
 // ------------------------------------------------------------
 // ------------------------------------------------------------
-// ---------- WORKING CONDITIONS ----------
+// ---------- WORKING CONDITIONS & SHIFT ----------
 // ----------
 // ----------
 //
@@ -308,6 +308,12 @@ $arrayWorkingConditions = [
     'rm' => 'Remote/Work from Home',
     'sw' => 'Shift Work',
     'tr' => 'Traveling'
+];
+
+$arrayWorkingShift = [
+    'ds' => 'Day',
+    'ns' => 'Night',
+    'fx' => 'Flexible'
 ];
 
 //
