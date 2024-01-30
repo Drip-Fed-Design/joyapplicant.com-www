@@ -5,6 +5,11 @@ require_once __DIR__ . '/../../config/global.static.php';
 if (empty($_SESSION['token'])) {
     $_SESSION['token'] = bin2hex(random_bytes(32));
 }
+
+// Generate a new SESSION token for job listing
+if (empty($_SESSION['job_session'])) {
+    $_SESSION['job_session'] = bin2hex(random_bytes(32));
+}
 ?>
 
 <section class="<?= $cssPrefix; ?>-dashboard-container">
@@ -62,18 +67,33 @@ if (empty($_SESSION['token'])) {
                         </div>
                         <h4>Where is the job located?</h4>
                         <div class="__form-section">
-                            <div class="__group">
-                                <label for="conditions">Working Conditions *</label>
-                                <select id="conditions" name="conditions" class="__select -grey" required>
-                                    <option value="">Select...</option>
-                                    <?
-                                    sort($arrayWorkingConditions);
-                                    foreach ($arrayWorkingConditions as $c) {
-                                        echo '<option value="' . $c . '">' . $c . '</option>';
-                                    }
-                                    ?>
-                                </select>
-                                <div class="__tip">On-side, traveling, global, remote, hybrid, etc</div>
+                            <div class="<?= $cssPrefix; ?>-grid -column-2 -gap-c-default">
+                                <div class="__group">
+                                    <label for="conditions">Working Conditions *</label>
+                                    <select id="conditions" name="conditions" class="__select -grey" required>
+                                        <option value="">Select...</option>
+                                        <?
+                                        sort($arrayWorkingConditions);
+                                        foreach ($arrayWorkingConditions as $c) {
+                                            echo '<option value="' . $c . '">' . $c . '</option>';
+                                        }
+                                        ?>
+                                    </select>
+                                    <div class="__tip">On-side, traveling, global, remote, hybrid, etc</div>
+                                </div>
+                                <div class="__group">
+                                    <label for="shift">Shift *</label>
+                                    <select id="shift" name="shift" class="__select -grey" required>
+                                        <option value="">Select...</option>
+                                        <?
+                                        sort($arrayWorkingShift);
+                                        foreach ($arrayWorkingShift as $c) {
+                                            echo '<option value="' . $c . '">' . $c . '</option>';
+                                        }
+                                        ?>
+                                    </select>
+                                    <div class="__tip">Day, Night, Flexible, etc</div>
+                                </div>
                             </div>
                             <div class="<?= $cssPrefix; ?>-grid -column-2 -gap-c-default">
                                 <div class="__group">
@@ -107,6 +127,7 @@ if (empty($_SESSION['token'])) {
                             </div>
                         </div>
                         <input type="hidden" name="token" value="<?= $_SESSION['token']; ?>">
+                        <input type="hidden" name="jobsession" value="<?= $_SESSION['job_session']; ?>">
                         <hr class="_hr__grey-light" />
                         <div class="__buttons <?= $cssPrefix; ?>-button-container _margin__top-default _text-align__right">
                             <button type="submit" name="start" class="__button">Continue</button>

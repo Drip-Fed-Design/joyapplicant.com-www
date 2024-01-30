@@ -47,6 +47,16 @@ class AuthenticateController
                 $_SESSION['user_authenticated'] = true;
                 $_SESSION['user_type'] = $userQuery['type']; // Extract user type
                 $_SESSION['user_id'] = $userQuery['id']; // Extract user type
+                $_SESSION['user_id'] = $userQuery['id']; // Extract user type
+
+
+                // NEED TO CHECK USER AGAINST COMPANY, AND GET COMPANY ID IF EXISTS
+                // NEED TO CHECK USER AGAINST COMPANY, AND GET COMPANY ID IF EXISTS
+                // NEED TO CHECK USER AGAINST COMPANY, AND GET COMPANY ID IF EXISTS
+                // NEED TO CHECK USER AGAINST COMPANY, AND GET COMPANY ID IF EXISTS
+                // NEED TO CHECK USER AGAINST COMPANY, AND GET COMPANY ID IF EXISTS
+
+
                 header("Location: /user/dashboard.php"); // Redirect
                 exit();
             } else {
