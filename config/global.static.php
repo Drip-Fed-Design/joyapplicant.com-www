@@ -281,14 +281,14 @@ $arrayMonths = [
 // ----------
 //
 $arrayEmploymentType = [
-    'co' => 'Commission Only',
-    'ft' => 'Full-Time',
-    'fr' => 'Freelance & Contractor',
-    'fx' => 'Fixed Term',
-    'in' => 'Internship',
-    'pt' => 'Part-Time',
-    'tm' => 'Temporary',
-    'zh' => 'Zero Hours'
+    'CO' => 'Commission Only',
+    'FT' => 'Full-Time',
+    'FR' => 'Freelance & Contractor',
+    'FX' => 'Fixed Term',
+    'IN' => 'Internship',
+    'PT' => 'Part-Time',
+    'TM' => 'Temporary',
+    'ZH' => 'Zero Hours'
 ];
 
 //
@@ -300,36 +300,65 @@ $arrayEmploymentType = [
 // ----------
 //
 $arrayWorkingConditions = [
-    'fw' => 'Field Work',
-    'fc' => 'Freelance/Contractual',
-    'gl' => 'Global',
-    'hy' => 'Hybrid',
-    'on' => 'On-Site/In-Office',
-    'rm' => 'Remote/Work from Home',
-    'sw' => 'Shift Work',
-    'tr' => 'Traveling'
+    'FW' => 'Field Work',
+    'GL' => 'Global',
+    'HY' => 'Hybrid',
+    'ON' => 'On-Site/In-Office',
+    'RM' => 'Remote/Work from Home',
+    'SW' => 'Shift Work',
+    'TR' => 'Traveling'
 ];
 
 $arrayWorkingShift = [
-    'ds' => 'Day',
-    'ns' => 'Night',
-    'fx' => 'Flexible'
+    'DS' => 'Day',
+    'NS' => 'Night',
+    'FX' => 'Flexible'
 ];
 
 //
 // ------------------------------------------------------------
 // ------------------------------------------------------------
 // ------------------------------------------------------------
-// ---------- Salary Terms ----------
+// ---------- Salary Terms & Currency ----------
 // ----------
 // ----------
 //
 $arraySalaryTerms = [
-    'py' => 'Per Year',
-    'pm' => 'Per Month',
-    'pb' => 'Per Biweekly',
-    'pw' => 'Per Week',
-    'ph' => 'Per Hour'
+    'PY' => 'Per Year',
+    'PM' => 'Per Month',
+    'PB' => 'Per Biweekly',
+    'PW' => 'Per Week',
+    'PH' => 'Per Hour'
+];
+
+$arraySalaryCurrencyPopular = [
+    'CAD' => 'Canadian Dollar ($)',
+    'USD' => 'United States Dollar ($)',
+    'EUR' => 'Euro (€)',
+    'GBP' => 'Great British Pounds (£)'
+];
+
+$arraySalaryCurrency = [
+    'AUD' => 'Australian Dollar ($)',
+    'BRL' => 'Brazilian Real (R$)',
+    // 'CAD' => 'Canadian Dollar ($)',
+    'CHF' => 'Swiss Franc (CHF)',
+    'CNY' => 'Chinese Yuan (¥)',
+    // 'EUR' => 'Euro (€)',
+    // 'GBP' => 'Great British Pounds (£)',
+    'HKD' => 'Hong Kong Dollar ($)',
+    'INR' => 'Indian Rupee (₹)',
+    'JPY' => 'Japanese Yen (¥)',
+    'KRW' => 'South Korean Won (₩)',
+    'MXN' => 'Mexican Peso ($)',
+    'NOK' => 'Norwegian Krone (kr)',
+    'NZD' => 'New Zealand Dollar ($)',
+    'RUB' => 'Russian Ruble (₽)',
+    'SEK' => 'Swedish Krona (kr)',
+    'SGD' => 'Singapore Dollar ($)',
+    'TRY' => 'Turkish Lira (₺)',
+    // 'USD' => 'United States Dollar ($)',
+    'ZAR' => 'South African Rand (R)'
 ];
 
 //
