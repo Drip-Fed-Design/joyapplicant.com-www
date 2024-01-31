@@ -47,15 +47,16 @@ class AuthenticateController
                 $_SESSION['user_authenticated'] = true;
                 $_SESSION['user_type'] = $userQuery['type']; // Extract user type
                 $_SESSION['user_id'] = $userQuery['id']; // Extract user type
-                $_SESSION['user_id'] = $userQuery['id']; // Extract user type
 
-
-                // NEED TO CHECK USER AGAINST COMPANY, AND GET COMPANY ID IF EXISTS
-                // NEED TO CHECK USER AGAINST COMPANY, AND GET COMPANY ID IF EXISTS
-                // NEED TO CHECK USER AGAINST COMPANY, AND GET COMPANY ID IF EXISTS
-                // NEED TO CHECK USER AGAINST COMPANY, AND GET COMPANY ID IF EXISTS
-                // NEED TO CHECK USER AGAINST COMPANY, AND GET COMPANY ID IF EXISTS
-
+                // Get company id IF the user is and employer,
+                if ($userQuery['type'] == 'employer') {
+                    $userCompanyQuery = $this->userModel->selectUserCompany($_SESSION['user_id']);
+                    if ($userCompanyQuery) {
+                        // The user was successfully assigned a company.
+                        error_log('You have logged in successfully and captured company ID!'); // TEMPORARY
+                        $_SESSION['company_id'] = $userCompanyQuery['id']; // Extract company id
+                    }
+                }
 
                 header("Location: /user/dashboard.php"); // Redirect
                 exit();

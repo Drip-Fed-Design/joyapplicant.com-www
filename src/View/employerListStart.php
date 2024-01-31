@@ -36,9 +36,8 @@ if (empty($_SESSION['job_session'])) {
                                     <select id="type" name="type" class="__select -grey" required>
                                         <option value="">Select...</option>
                                         <?
-                                        sort($arrayEmploymentType);
-                                        foreach ($arrayEmploymentType as $c) {
-                                            echo '<option value="' . $c . '">' . $c . '</option>';
+                                        foreach ($arrayEmploymentType as $key => $value) {
+                                            echo '<option value="' . $key . '">' . $value . '</option>';
                                         }
                                         ?>
                                     </select>
@@ -73,9 +72,8 @@ if (empty($_SESSION['job_session'])) {
                                     <select id="conditions" name="conditions" class="__select -grey" required>
                                         <option value="">Select...</option>
                                         <?
-                                        sort($arrayWorkingConditions);
-                                        foreach ($arrayWorkingConditions as $c) {
-                                            echo '<option value="' . $c . '">' . $c . '</option>';
+                                        foreach ($arrayWorkingConditions as $key => $value) {
+                                            echo '<option value="' . $key . '">' . $value . '</option>';
                                         }
                                         ?>
                                     </select>
@@ -86,9 +84,8 @@ if (empty($_SESSION['job_session'])) {
                                     <select id="shift" name="shift" class="__select -grey" required>
                                         <option value="">Select...</option>
                                         <?
-                                        sort($arrayWorkingShift);
-                                        foreach ($arrayWorkingShift as $c) {
-                                            echo '<option value="' . $c . '">' . $c . '</option>';
+                                        foreach ($arrayWorkingShift as $key => $value) {
+                                            echo '<option value="' . $key . '">' . $value . '</option>';
                                         }
                                         ?>
                                     </select>
@@ -102,17 +99,15 @@ if (empty($_SESSION['job_session'])) {
                                         <option value="">Select...</option>
                                         <optgroup label="Most Selected">
                                             <?
-                                            sort($arrayCountriesPopular);
-                                            foreach ($arrayCountriesPopular as $c) {
-                                                echo '<option value="' . $c . '">' . $c . '</option>';
+                                            foreach ($arrayCountriesPopular as $key => $value) {
+                                                echo '<option value="' . $key . '">' . $value . '</option>';
                                             }
                                             ?>
                                         </optgroup>
                                         <optgroup label="All">
                                             <?
-                                            sort($arrayCountries);
-                                            foreach ($arrayCountries as $c) {
-                                                echo '<option value="' . $c . '">' . $c . '</option>';
+                                            foreach ($arrayCountries as $key => $value) {
+                                                echo '<option value="' . $key . '">' . $value . '</option>';
                                             }
                                             ?>
                                         </optgroup>

@@ -26,18 +26,37 @@ if (empty($_SESSION['token'])) {
                             </div>
                             <div class="__group">
                                 <label for="name">Salary range *</label>
-                                <div class="<?= $cssPrefix; ?>-grid -column-3 -gap-c-default -align-v-center">
+                                <div class="<?= $cssPrefix; ?>-grid -column-4 -gap-c-default -align-v-center">
+
+                                    <select id="currency" name="currency" class="__select -grey" required>
+                                        <option value="">Select...</option>
+                                        <optgroup label="Most Selected">
+                                            <?
+                                            foreach ($arraySalaryCurrencyPopular as $key => $value) {
+                                                echo '<option value="' . $key . '">' . $value . '</option>';
+                                            }
+                                            ?>
+                                        </optgroup>
+                                        <optgroup label="All">
+                                            <?
+                                            foreach ($arraySalaryCurrency as $key => $value) {
+                                                echo '<option value="' . $key . '">' . $value . '</option>';
+                                            }
+                                            ?>
+                                        </optgroup>
+                                    </select>
+
                                     <div class="<?= $cssPrefix; ?>-grid -column-1fr-max -gap-c-default -align-v-center">
-                                        <input type="text" id="salarymin" name="salarymin" class="__input -grey" placeholder="£30,000.00" required />
+                                        <input type="text" id="salarymin" name="salarymin" class="__input -grey" placeholder="30,000.00" required />
                                         <div class="__group">
                                             <label>to</label>
                                         </div>
                                     </div>
-                                    <input type="text" id="salarymax" name="salarymax" class="__input -grey" placeholder="£34,999.00" required />
+                                    <input type="text" id="salarymax" name="salarymax" class="__input -grey" placeholder="34,999.00" required />
                                     <select id="term" name="term" class="__select -grey" required>
                                         <?
-                                        foreach ($arraySalaryTerms as $c) {
-                                            echo '<option value="' . $c . '">' . $c . '</option>';
+                                        foreach ($arraySalaryTerms as $key => $value) {
+                                            echo '<option value="' . $key . '">' . $value . '</option>';
                                         }
                                         ?>
                                     </select>
@@ -63,6 +82,7 @@ if (empty($_SESSION['token'])) {
                             </div>
                         </div>
                         <input type="hidden" name="token" value="<?= $_SESSION['token']; ?>">
+                        <input type="hidden" name="jobsession" value="<?= $_SESSION['job_session']; ?>">
                         <hr class="_hr__grey-light" />
                         <div class="__buttons <?= $cssPrefix; ?>-button-container _margin__top-default _text-align__right">
                             <button type="submit" name="details" class="__button">Continue</button>
