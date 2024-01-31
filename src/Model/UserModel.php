@@ -73,6 +73,32 @@ class UserModel
         }
     }
 
+    public function selectUserCompany($userId)
+    {
+        try {
+            // Prepare SQL statement to select userID from company
+            $stmt = $this->dbConnection->prepare("SELECT id FROM joyCompanies WHERE created_by = :userId");
+            $stmt->bindParam(':userId', $userId, \PDO::PARAM_STR); // Notice the backslash before PDO
+            $stmt->execute();
+
+            // Fetch user data
+            $company = $stmt->fetch(\PDO::FETCH_ASSOC); // Notice the backslash before PDO
+
+            // Check if user was found
+            if ($company) {
+                // userId found
+                return $company;
+            } else {
+                // No user found with that email address
+                return false;
+            }
+        } catch (\PDOException $e) { // Notice the backslash before PDOException
+            // Handle the exception as needed
+            error_log('Failed to select company and user: ' . $e->getMessage());
+            throw $e; // Rethrow it if you want to handle it further up the call stack
+        }
+    }
+
     public function validateEmailVerifyToken($email, $token)
     {
         try {

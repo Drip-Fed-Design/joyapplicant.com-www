@@ -4,8 +4,9 @@ require_once __DIR__ . '/../../../config/global.user.php';
 
 use JoyApplicant\Controller\JobListController;
 
-// Set user_id to variable
+// Set user_id and company_id to variable
 $userId = $_SESSION['user_id'];
+$companyId = $_SESSION['company_id'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -33,10 +34,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $jobCountry = $_POST['country'] ?? null;
         $jobPostcodeZip = $_POST['postcodezip'] ?? null;
 
+        // Set country code for currency within next step
+        $_SESSION['job_country'] = $jobCountry;
+
         // Call the start listing method
         $jobListController->listJobStart($jobSession, $userId, $companyId, $jobTitle, $employmentType, $jobCategory, $jobRole, $workingConditions, $workingShift, $jobCountry, $jobPostcodeZip);
     }
 }
+
 
 if ((isset($userType)) && ($userType == 'applicant')) {
     require_once __DIR__ . '/../../../templates/header.applicant.php'; // Header Template 
