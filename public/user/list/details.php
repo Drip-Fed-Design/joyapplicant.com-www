@@ -2,6 +2,54 @@
 require_once __DIR__ . '/../../../config/global.init.php';
 require_once __DIR__ . '/../../../config/global.user.php';
 
+use JoyApplicant\Controller\JobListController;
+
+// Set user_id and company_id to variable
+$userId = $_SESSION['user_id'];
+$companyId = $_SESSION['company_id'];
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    // Checking CSRF token
+    $token = $_POST['token'] ?? '';
+    if (!hash_equals($_SESSION['token'], $token)) {
+        // CSRF token does not match
+        error_log('Invalid CSRF token');
+        exit();
+    }
+
+    $dbConnection = require_once __DIR__ . '/../../../config/global.db.php';
+    $jobListController = new JobListController($dbConnection);
+
+    // Check if user is an EMPLOYER
+    if ((isset($userType)) && ($userType == 'employer')) {
+
+        $jobSession = $_POST['jobsession'] ?? null;
+
+        $jobVolunteer = $_POST['volunteer'] ?? null;
+        $salaryCurrency = $_POST['currency'] ?? null;
+        $salaryMin = $_POST['salarymin'] ?? null;
+        $salaryMax = $_POST['salarymax'] ?? null;
+        $salaryTerm = $_POST['term'] ?? null;
+
+        $jobWhy = $_POST['why'] ?? null;
+        $jobDuties = $_POST['duties'] ?? null;
+        $jobResponsibilities = $_POST['responsibilities'] ?? null;
+
+        // Format salary values
+        $salaryMin = str_replace(',', '', $salaryMin);
+        $salaryMin = (float)$salaryMin;
+        $salaryMin = number_format($salaryMin, 2, '.', '');
+
+        $salaryMax = str_replace(',', '', $salaryMax);
+        $salaryMax = (float)$salaryMax;
+        $salaryMax = number_format($salaryMax, 2, '.', '');
+
+        // Call the details listing method
+        $jobListController->listJobDetails($jobSession, $companyId, $jobVolunteer, $salaryCurrency, $salaryMin, $salaryMax, $salaryTerm, $jobWhy, $jobDuties, $jobResponsibilities);
+    }
+}
+
 if ((isset($userType)) && ($userType == 'applicant')) {
     require_once __DIR__ . '/../../../templates/header.applicant.php'; // Header Template 
 } elseif ((isset($userType)) && ($userType == 'employer')) {

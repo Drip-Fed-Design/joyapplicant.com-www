@@ -49,6 +49,8 @@ if (empty($_SESSION['token'])) {
                             </div>
                         </div>
                         <input type="hidden" name="token" value="<?= $_SESSION['token']; ?>">
+                        <input type="hidden" name="jobsession" value="<?= $_SESSION['job_session']; ?>">
+                        <input type="hidden" name="status" value="1">
                         <hr class="_hr__grey-light" />
                         <div class="__buttons <?= $cssPrefix; ?>-button-container _margin__top-default _text-align__right">
                             <button type="submit" name="dates" class="__button">Complete and publish</button>

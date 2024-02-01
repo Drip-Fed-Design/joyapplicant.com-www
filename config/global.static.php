@@ -287,6 +287,7 @@ $arrayEmploymentType = [
     'FX' => 'Fixed Term',
     'IN' => 'Internship',
     'PT' => 'Part-Time',
+    'SW' => 'Shift Work',
     'TM' => 'Temporary',
     'ZH' => 'Zero Hours'
 ];
@@ -305,7 +306,6 @@ $arrayWorkingConditions = [
     'HY' => 'Hybrid',
     'ON' => 'On-Site/In-Office',
     'RM' => 'Remote/Work from Home',
-    'SW' => 'Shift Work',
     'TR' => 'Traveling'
 ];
 

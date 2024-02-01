@@ -21,8 +21,8 @@ if (empty($_SESSION['token'])) {
 
                         <div class="__form-section">
                             <div class="__group">
-                                <label for="requirements">Candidate requirements *</label>
-                                <textarea rows="8" type="requirements" id="requirements" name="requirements" class="__input -grey" placeholder="What requirements should the candidate have..." required></textarea>
+                                <label for="requires">Candidate requirements *</label>
+                                <textarea rows="8" type="requires" id="requires" name="requires" class="__input -grey" placeholder="What requirements should the candidate have..." required></textarea>
                                 <div class="__tip">Try to be clear with the requirements you need from your candidates.</div>
                             </div>
                         </div>
@@ -87,6 +87,7 @@ if (empty($_SESSION['token'])) {
                             <? } ?>
                         </div> -->
                         <input type="hidden" name="token" value="<?= $_SESSION['token']; ?>">
+                        <input type="hidden" name="jobsession" value="<?= $_SESSION['job_session']; ?>">
                         <hr class="_hr__grey-light" />
                         <div class="__buttons <?= $cssPrefix; ?>-button-container _margin__top-default _text-align__right">
                             <button type="submit" name="skip" class="__button -outline -grey _margin__right-micro">skip</button>
