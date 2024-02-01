@@ -2,6 +2,42 @@
 require_once __DIR__ . '/../../../config/global.init.php';
 require_once __DIR__ . '/../../../config/global.user.php';
 
+use JoyApplicant\Controller\JobListController;
+
+// Set user_id and company_id to variable
+$userId = $_SESSION['user_id'];
+$companyId = $_SESSION['company_id'];
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    // Checking CSRF token
+    $token = $_POST['token'] ?? '';
+    if (!hash_equals($_SESSION['token'], $token)) {
+        // CSRF token does not match
+        error_log('Invalid CSRF token');
+        exit();
+    }
+
+    $dbConnection = require_once __DIR__ . '/../../../config/global.db.php';
+    $jobListController = new JobListController($dbConnection);
+
+    // Check if user is an EMPLOYER
+    if ((isset($userType)) && ($userType == 'employer')) {
+
+        $jobSession = $_POST['jobsession'] ?? null;
+        $jobStatus = $_POST['status'] ?? null;
+
+        $dateOpening = $_POST['opening'] ?? null;
+        $dateClosing = $_POST['closing'] ?? null;
+
+        $dateInterview = $_POST['interview'] ?? null;
+        $dateTarget = $_POST['target'] ?? null;
+
+        // Call the dates listing method
+        $jobListController->listJobDates($jobSession, $companyId, $jobStatus, $dateOpening, $dateClosing, $dateInterview, $dateTarget);
+    }
+}
+
 if ((isset($userType)) && ($userType == 'applicant')) {
     require_once __DIR__ . '/../../../templates/header.applicant.php'; // Header Template 
 } elseif ((isset($userType)) && ($userType == 'employer')) {

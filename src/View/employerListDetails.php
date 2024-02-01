@@ -21,8 +21,8 @@ if (empty($_SESSION['token'])) {
                         <h4>What is the salary range candidates can expect?</h4>
                         <div class="__form-section">
                             <div class="<?= $cssPrefix; ?>-grid -column-max-1fr -gap-c-default _padding__bottom-small">
-                                <input type="checkbox" id="entry" name="entry" class="__input -grey" value="1" />
-                                <label for="entry">This is a volunteer role, therefore has no salary association.</label>
+                                <input type="checkbox" id="volunteer" name="volunteer" class="__input -grey" value="1" />
+                                <label for="volunteer">This is a volunteer role, therefore has no salary association.</label>
                             </div>
                             <div class="__group">
                                 <label for="name">Salary range *</label>
@@ -47,12 +47,12 @@ if (empty($_SESSION['token'])) {
                                     </select>
 
                                     <div class="<?= $cssPrefix; ?>-grid -column-1fr-max -gap-c-default -align-v-center">
-                                        <input type="text" id="salarymin" name="salarymin" class="__input -grey" placeholder="30,000.00" required />
+                                        <input type="text" id="salarymin" name="salarymin" class="__input -grey -salary-format" placeholder="30,250" required />
                                         <div class="__group">
                                             <label>to</label>
                                         </div>
                                     </div>
-                                    <input type="text" id="salarymax" name="salarymax" class="__input -grey" placeholder="34,999.00" required />
+                                    <input type="text" id="salarymax" name="salarymax" class="__input -grey -salary-format" placeholder="34,500" required />
                                     <select id="term" name="term" class="__select -grey" required>
                                         <?
                                         foreach ($arraySalaryTerms as $key => $value) {
@@ -123,3 +123,24 @@ if (empty($_SESSION['token'])) {
         </div>
     </div>
 </section>
+
+<script type="text/javascript">
+    // Select all elements with the class '-salary-format'
+    const inputs = document.querySelectorAll('.-salary-format');
+
+    inputs.forEach(function(input) {
+        input.addEventListener('input', function(e) {
+            // Remove any characters that are not digits
+            let value = e.target.value.replace(/[^\d]/g, '');
+
+            // Convert to a number then back to a string to remove leading zeros
+            value = Number(value).toString();
+
+            // Add thousand separators
+            let formattedValue = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+            // Update the input field with the formatted value
+            e.target.value = formattedValue ? formattedValue : '';
+        });
+    });
+</script>
