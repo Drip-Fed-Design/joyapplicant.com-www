@@ -24,7 +24,7 @@ if (empty($_SESSION['token'])) {
                                 <input type="checkbox" id="volunteer" name="volunteer" class="__input -grey" value="1" />
                                 <label for="volunteer">This is a volunteer role, therefore has no salary association.</label>
                             </div>
-                            <div class="__group">
+                            <div class="__group -salary-volunteer">
                                 <label for="name">Salary range *</label>
                                 <div class="<?= $cssPrefix; ?>-grid -column-4 -gap-c-default -align-v-center">
 
@@ -125,6 +125,37 @@ if (empty($_SESSION['token'])) {
 </section>
 
 <script type="text/javascript">
+    // Hide the Form When "volunteer" is Checked
+    document.addEventListener('DOMContentLoaded', function() {
+        var volunteerCheckbox = document.getElementById('volunteer');
+        var salaryElements = document.querySelectorAll('.-salary-volunteer');
+
+
+        function toggleFormAndRequiredAttributes() {
+            salaryElements.forEach(function(element) {
+                if (element.id !== 'volunteer') {
+                    // Toggle display
+                    element.style.display = volunteerCheckbox.checked ? 'none' : '';
+
+                    // Find all input, textarea, and select elements within this group
+                    var inputs = element.querySelectorAll('input, textarea, select');
+
+                    // Toggle the required attribute
+                    inputs.forEach(function(input) {
+                        if (volunteerCheckbox.checked) {
+                            input.removeAttribute('required');
+                        } else {
+                            input.setAttribute('required', '');
+                        }
+                    });
+                }
+            });
+        }
+        volunteerCheckbox.addEventListener('change', toggleFormAndRequiredAttributes);
+        toggleFormAndRequiredAttributes(); // call on initial load
+    });
+
+
     // Select all elements with the class '-salary-format'
     const inputs = document.querySelectorAll('.-salary-format');
 
