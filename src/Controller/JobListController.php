@@ -38,7 +38,7 @@ class JobListController
             if ($jobListInsert) {
                 // The YOU step for the user has been successful.
                 error_log('Successful LIST job start');
-                header("Location: details.php"); // Redirect to details
+                header("Location: details.php"); // Redirect
                 exit();
             } else {
                 error_log('An error occurred during LIST job start');
@@ -62,17 +62,22 @@ class JobListController
         $salaryValidator = v::decimal(2);
 
         try {
-            // Validate the telephone
-            $currencyValidator->assert($salaryCurrency);
+            // Validate the salary
             $salaryValidator->assert($salaryMin);
             $salaryValidator->assert($salaryMax);
 
+            // Validate the currency code, null if voluntary role
+            if ($salaryCurrency != null) {
+                $currencyValidator->assert($salaryCurrency);
+            } else {
+                $salaryCurrency = null;
+            }
 
             $jobListInsert = $this->jobListModel->insertJobDetails($jobSession, $companyId, $jobVolunteer, $salaryCurrency, $salaryMin, $salaryMax, $salaryTerm, $jobWhy, $jobDuties, $jobResponsibilities);
             if ($jobListInsert) {
                 // The YOU step for the user has been successful.
                 error_log('Successful LIST job details');
-                header("Location: requirements.php"); // Redirect to requirements
+                header("Location: requirements.php"); // Redirect
                 exit();
             } else {
                 error_log('An error occurred during LIST job details');
@@ -98,7 +103,7 @@ class JobListController
             if ($jobListInsert) {
                 // The YOU step for the user has been successful.
                 error_log('Successful LIST job requirements');
-                header("Location: dates.php"); // Redirect to dates
+                header("Location: dates.php"); // Redirect
                 exit();
             } else {
                 error_log('An error occurred during LIST job requirements');
@@ -115,7 +120,7 @@ class JobListController
         }
     }
 
-    public function listJobDates($jobSession, $companyId, $jobStatus, $dateOpening, $dateClosing, $dateInterview, $dateTarget)
+    public function listJobDates($jobSession, $companyId, $dateOpening, $dateClosing, $dateInterview, $dateTarget)
     {
         // Input validation
         $dateValidator = v::date('Y-m-d');
@@ -128,11 +133,11 @@ class JobListController
             $dateValidator->assert($dateTarget);
 
 
-            $jobListInsert = $this->jobListModel->insertJobDates($jobSession, $companyId, $jobStatus, $dateOpening, $dateClosing, $dateInterview, $dateTarget);
+            $jobListInsert = $this->jobListModel->insertJobDates($jobSession, $companyId, $dateOpening, $dateClosing, $dateInterview, $dateTarget);
             if ($jobListInsert) {
                 // The YOU step for the user has been successful.
                 error_log('Successful LIST job dates');
-                header("Location: success.php"); // Redirect to requirements
+                header("Location: publish.php"); // Redirect
                 exit();
             } else {
                 error_log('An error occurred during LIST job dates');
@@ -143,6 +148,34 @@ class JobListController
         } catch (NestedValidationException $e) {
             error_log($e->getFullMessage());
             throw new \Exception('Invalid data provided for LIST job dates');
+        } catch (\Exception $e) {
+            error_log($e->getMessage());
+            throw $e;
+        }
+    }
+
+    public function listJobLive($jobSession, $companyId, $jobStatus)
+    {
+
+        try {
+
+            $jobListInsert = $this->jobListModel->insertJobLive($jobSession, $companyId, $jobStatus);
+
+            if ($jobListInsert) {
+                // The YOU step for the user has been successful.
+                error_log('Successful LIVE job dates');
+                $_SESSION['success_message'] = "Nice, your job post will go live to applicants on your opening date.";
+                header("Location: /../user/dashboard.php"); // Redirect
+                exit();
+            } else {
+                error_log('An error occurred during LIVE job dates');
+                $_SESSION['error_message'] = "Oh no! There was an issue with making your job live. Find your job within your drafts.";
+                header("Location: /../user/dashboard.php"); // Redirect
+                exit();
+            }
+        } catch (NestedValidationException $e) {
+            error_log($e->getFullMessage());
+            throw new \Exception('Invalid data provided for LIVE job dates');
         } catch (\Exception $e) {
             error_log($e->getMessage());
             throw $e;

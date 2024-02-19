@@ -21,6 +21,9 @@
   &.-success {
     background-color: $colour-secondary__green-default;
   }
+  &.-notice {
+    background-color: $colour-grey__light;
+  }
   &.-error {
     background-color: $colour-primary__red;
   }

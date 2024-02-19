@@ -25,7 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ((isset($userType)) && ($userType == 'employer')) {
 
         $jobSession = $_POST['jobsession'] ?? null;
-        $jobStatus = $_POST['status'] ?? null;
 
         $dateOpening = $_POST['opening'] ?? null;
         $dateClosing = $_POST['closing'] ?? null;
@@ -33,8 +32,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $dateInterview = $_POST['interview'] ?? null;
         $dateTarget = $_POST['target'] ?? null;
 
+        // Set opening date go live within next step
+        $_SESSION['job_opening_date'] = $dateOpening;
+
         // Call the dates listing method
-        $jobListController->listJobDates($jobSession, $companyId, $jobStatus, $dateOpening, $dateClosing, $dateInterview, $dateTarget);
+        $jobListController->listJobDates($jobSession, $companyId, $dateOpening, $dateClosing, $dateInterview, $dateTarget);
     }
 }
 

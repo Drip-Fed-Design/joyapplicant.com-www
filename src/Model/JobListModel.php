@@ -91,15 +91,13 @@ class JobListModel
         }
     }
 
-    public function insertJobDates($jobSession, $companyId, $jobStatus, $dateOpening, $dateClosing, $dateInterview, $dateTarget)
+    public function insertJobDates($jobSession, $companyId, $dateOpening, $dateClosing, $dateInterview, $dateTarget)
     {
-        $sql = "UPDATE joyJobPosts SET status = :jobStatus, date_opening = :dateOpening, date_closing = :dateClosing, date_interviews = :dateInterview, date_target = :dateTarget WHERE session = :jobSession AND company = :companyId";
+        $sql = "UPDATE joyJobPosts SET date_opening = :dateOpening, date_closing = :dateClosing, date_interviews = :dateInterview, date_target = :dateTarget WHERE session = :jobSession AND company = :companyId";
         $stmt = $this->dbConnection->prepare($sql);
 
         $stmt->bindParam(':jobSession', $jobSession);
         $stmt->bindParam(':companyId', $companyId);
-
-        $stmt->bindParam(':jobStatus', $jobStatus);
 
         $stmt->bindParam(':dateOpening', $dateOpening);
         $stmt->bindParam(':dateClosing', $dateClosing);
@@ -114,6 +112,27 @@ class JobListModel
             // Handle other SQL related errors here
             error_log('Failed to insert user: ' . $e->getMessage());
             throw new \Exception("An error occurred when inserting ADDING job dates");
+        }
+    }
+
+    public function insertJobLive($jobSession, $companyId, $jobStatus)
+    {
+        $sql = "UPDATE joyJobPosts SET session = null, status = :jobStatus WHERE session = :jobSession AND company = :companyId";
+        $stmt = $this->dbConnection->prepare($sql);
+
+        $stmt->bindParam(':jobSession', $jobSession);
+        $stmt->bindParam(':companyId', $companyId);
+
+        $stmt->bindParam(':jobStatus', $jobStatus);
+
+        try {
+            $stmt->execute();
+            error_log('SQL insert LIVE job dates');
+            return true;
+        } catch (\PDOException $e) {
+            // Handle other SQL related errors here
+            error_log('Failed to insert user: ' . $e->getMessage());
+            throw new \Exception("An error occurred when inserting LIVE job dates");
         }
     }
 }
