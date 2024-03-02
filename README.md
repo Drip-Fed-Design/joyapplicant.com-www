@@ -15,6 +15,11 @@ Customer Payment Link: URL
 
 Code validation is build using the most awesome validation engine ever created for PHP, [Respect\Validation](https://github.com/Respect/Validation).
 
+## URL Structure
+
+For jobs;
+`https://jobapplicant/job/digital-designer/london/apple-inc/[COMPANY-ID]/[JOB-ID]/`
+
 ## SQL
 
 ```
