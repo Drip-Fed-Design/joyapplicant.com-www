@@ -3,8 +3,8 @@
 namespace JoyApplicant\Controller;
 
 use JoyApplicant\Model\CompanyModel;
-use Respect\Validation\Validator as v;
-use Respect\Validation\Exceptions\NestedValidationException;
+// use Respect\Validation\Validator as v;
+// use Respect\Validation\Exceptions\NestedValidationException;
 
 class CompanyController
 {

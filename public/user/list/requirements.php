@@ -27,6 +27,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $jobSession = $_POST['jobsession'] ?? null;
         $jobRequirements = $_POST['requires'] ?? null;
 
+        if ($jobRequirements === '') {
+            error_log('TinyMCE job listing was submitted with no content');
+            $_SESSION['error_message'] = "Please make sure the requirement fields complete.";
+            header("Location: requirements.php"); // Redirect
+            exit();
+        }
+
         // Call the requirements listing method
         $jobListController->listJobRequirements($jobSession, $companyId, $jobRequirements);
     }

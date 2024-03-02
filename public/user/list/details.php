@@ -34,7 +34,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $jobWhy = $_POST['why'] ?? null;
         $jobDuties = $_POST['duties'] ?? null;
-        $jobResponsibilities = $_POST['responsibilities'] ?? null;
+        $jobBenefits = $_POST['benefits'] ?? null;
+        $jobTeaser = $_POST['teaser'] ?? null;
+
+        if (($jobWhy === '') || ($jobDuties === '') || ($jobBenefits === '')) {
+            error_log('TinyMCE job listing was submitted with no content');
+            $_SESSION['error_message'] = "Please make sure all detail fields are complete.";
+            header("Location: details.php"); // Redirect
+            exit();
+        }
 
         // Format salary values
         $salaryMin = str_replace(',', '', $salaryMin);
@@ -46,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $salaryMax = number_format($salaryMax, 2, '.', '');
 
         // Call the details listing method
-        $jobListController->listJobDetails($jobSession, $companyId, $jobVolunteer, $salaryCurrency, $salaryMin, $salaryMax, $salaryTerm, $jobWhy, $jobDuties, $jobResponsibilities);
+        $jobListController->listJobDetails($jobSession, $companyId, $jobVolunteer, $salaryCurrency, $salaryMin, $salaryMax, $salaryTerm, $jobWhy, $jobDuties, $jobBenefits, $jobTeaser);
     }
 }
 

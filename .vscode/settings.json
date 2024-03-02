@@ -16,5 +16,6 @@
   "[html]": {
     "editor.formatOnSave": true
   },
-  "markdown.preview.fontSize": 10
+  "markdown.preview.fontSize": 10,
+  "cSpell.words": ["nessasary"]
 }

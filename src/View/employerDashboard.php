@@ -1,15 +1,22 @@
 <?
 
+use JoyApplicant\Controller\CompanyController;
 use JoyApplicant\Controller\JobController;
 use JoyApplicant\Controller\OnboardController;
 
 $dbConnection = require_once __DIR__ . '/../../config/global.db.php';
 $jobController = new JobController($dbConnection);
 $onboardController = new OnboardController($dbConnection);
+$companyController = new CompanyController($dbConnection);
+
+$userId = $_SESSION['user_id'];
+$companyId = $_SESSION['company_id'];
 
 // Check user onboarding
-$userId = $_SESSION['user_id'];
 $onboardController->checkOnboarding($userId);
+
+// Fetch nessasary company details for dashboard
+$companyDetails = $companyController->companyDetails($userId);
 ?>
 
 <section class="<?= $cssPrefix; ?>-dashboard-container">
@@ -51,28 +58,27 @@ $onboardController->checkOnboarding($userId);
                         <p class="_font-size__secondary _text-align__right">Showing 3 or 5 saved jobs</p>
                     </div>
                     <div class="<?= $cssPrefix; ?>-chart-container">
-                        <? require __DIR__ . '/../../templates/widget.event.php'; ?>
-                        <hr class="_hr__grey-light" />
-                        <? require __DIR__ . '/../../templates/widget.event.php'; ?>
-                        <hr class="_hr__grey-light" />
-                        <? require __DIR__ . '/../../templates/widget.event.php'; ?>
+                        <?
+                        $jobs = $jobController->getCompanyJobs($companyId, 3, 'live');
+                        require __DIR__ . '/widget.job.php';
+                        ?>
                     </div>
                     <div class="__buttons <?= $cssPrefix; ?>-button-container">
-                        <a href="#" title="#" class="__button -plain -orange">View all events <i class="_icon -small -chev-r __o"></i></a>
+                        <a href="#" title="#" class="__button -plain -orange">View all live jobs <i class="_icon -small -chev-r -o"></i></a>
                     </div>
                 </div>
                 <div class="<?= $cssPrefix; ?>-grid -column-2 -gap-c-small -gap-r-small">
                     <div class="__widget">
                         <h4>Upcoming Interviews</h4>
                         <div class="<?= $cssPrefix; ?>-chart-container">
-                            <? require __DIR__ . '/../../templates/widget.event.php'; ?>
+                            <? require __DIR__ . '/widget.event.php'; ?>
                             <hr class="_hr__grey-light" />
-                            <? require __DIR__ . '/../../templates/widget.event.php'; ?>
+                            <? require __DIR__ . '/widget.event.php'; ?>
                             <hr class="_hr__grey-light" />
-                            <? require __DIR__ . '/../../templates/widget.event.php'; ?>
+                            <? require __DIR__ . '/widget.event.php'; ?>
                         </div>
                         <div class="__buttons <?= $cssPrefix; ?>-button-container">
-                            <a href="#" title="#" class="__button -plain -orange">View all events <i class="_icon -small -chev-r __o"></i></a>
+                            <a href="#" title="#" class="__button -plain -orange">View all events <i class="_icon -small -chev-r -o"></i></a>
                         </div>
                     </div>
                     <div class="__widget">
@@ -81,14 +87,13 @@ $onboardController->checkOnboarding($userId);
                             <p class="_font-size__secondary _text-align__right">Showing 3 or 5 saved jobs</p>
                         </div>
                         <div class="<?= $cssPrefix; ?>-chart-container">
-                            <? require __DIR__ . '/../../templates/widget.saved.php'; ?>
-                            <hr class="_hr__grey-light" />
-                            <? require __DIR__ . '/../../templates/widget.saved.php'; ?>
-                            <hr class="_hr__grey-light" />
-                            <? require __DIR__ . '/../../templates/widget.saved.php'; ?>
+                            <?
+                            $jobs = $jobController->getCompanyJobs($companyId, 3, 'draft');
+                            require __DIR__ . '/widget.job.php';
+                            ?>
                         </div>
                         <div class="__buttons <?= $cssPrefix; ?>-button-container">
-                            <a href="#" title="#" class="__button -plain -orange">View all draft jobs <i class="_icon -small -chev-r __o"></i></a>
+                            <a href="#" title="#" class="__button -plain -orange">View all draft jobs <i class="_icon -small -chev-r -o"></i></a>
                         </div>
                     </div>
                 </div>

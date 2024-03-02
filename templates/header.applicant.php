@@ -26,7 +26,7 @@
                             <a href="search" title="#" class="__button -black">Search for jobs</a>
                         </div>
                         <div class="__user">
-                            <div class="__mugshot"></div>
+                            <div class="_icon -avatar"></div>
                         </div>
                     </div>
                 </nav>

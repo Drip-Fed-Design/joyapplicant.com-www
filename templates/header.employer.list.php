@@ -22,10 +22,10 @@
                 <nav class="__main">
                     <div class="<?= $cssPrefix; ?>-grid -column-1fr-max -gap-c-small -align-v-center">
                         <div class="__buttons <?= $cssPrefix; ?>-button-container _text-align__right">
-                            <a href="../dashboard" title="Go back to your dashboard overview" class="__button -green">Save & Exit</a>
+                            <a href="../dashboard" title="Go back to your dashboard overview" class="__button -green">Return to dashboard</a>
                         </div>
                         <div class="__user">
-                            <div class="__mugshot"></div>
+                            <div class="_icon -avatar"></div>
                         </div>
                     </div>
                 </nav>

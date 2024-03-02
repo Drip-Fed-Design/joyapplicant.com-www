@@ -74,7 +74,7 @@
   padding-top: $spacing__large;
 }
 
-// Bottome
+// Bottom
 ._padding__bottom-small {
   padding-bottom: $spacing__small;
 }
@@ -141,6 +141,16 @@
     margin: 0 auto $spacing__small;
   }
 
+  // Company or user avatar size
+  &.-logo,
+  &.-avatar {
+    background-color: $colour-primary__orange;
+    background-size: contain;
+    border-radius: $border-radius__round;
+    height: 53px;
+    width: 53px;
+  }
+
   // Variations
   &.-facebook {
     background-image: url(#{$dir__assets}icon/joyapplicant-icon-brand-facebook.svg);
@@ -171,9 +181,21 @@
   }
   &.-location {
     background-image: url(#{$dir__assets}icon/joyapplicant-icon-location.svg);
+    &.-o {
+      background-image: url(#{$dir__assets}icon/joyapplicant-icon-location-orange.svg);
+    }
+  }
+  &.-company {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-company.svg);
+    &.-o {
+      background-image: url(#{$dir__assets}icon/joyapplicant-icon-company-orange.svg);
+    }
   }
   &.-calendar {
     background-image: url(#{$dir__assets}icon/joyapplicant-icon-calendar.svg);
+    &.-o {
+      background-image: url(#{$dir__assets}icon/joyapplicant-icon-calendar-orange.svg);
+    }
   }
   &.-dashboard {
     background-image: url(#{$dir__assets}icon/joyapplicant-icon-dashboard.svg);
@@ -186,12 +208,18 @@
   }
   &.-people {
     background-image: url(#{$dir__assets}icon/joyapplicant-icon-people.svg);
+    &.-o {
+      background-image: url(#{$dir__assets}icon/joyapplicant-icon-people-orange.svg);
+    }
   }
   &.-review {
     background-image: url(#{$dir__assets}icon/joyapplicant-icon-review.svg);
   }
   &.-settings {
     background-image: url(#{$dir__assets}icon/joyapplicant-icon-settings.svg);
+    &.-o {
+      background-image: url(#{$dir__assets}icon/joyapplicant-icon-settings-orange.svg);
+    }
   }
   &.-tick {
     background-image: url(#{$dir__assets}icon/joyapplicant-icon-tick.svg);
@@ -217,8 +245,15 @@
 
   &.-chev-r {
     background-image: url(#{$dir__assets}icon/joyapplicant-icon-chev-right.svg);
-    &.__o {
+    &.-o {
       background-image: url(#{$dir__assets}icon/joyapplicant-icon-chev-right-orange.svg);
+    }
+  }
+
+  &.-chev-l {
+    background-image: url(#{$dir__assets}icon/joyapplicant-icon-chev-left.svg);
+    &.-o {
+      background-image: url(#{$dir__assets}icon/joyapplicant-icon-chev-left-orange.svg);
     }
   }
 }
@@ -280,3 +315,22 @@
   border-bottom: 1px solid $colour-white__default;
   opacity: $opacity__default;
 }
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- TinyMCR ----------
+// ----------
+// ----------
+//
+// .-tinymce {
+//   background: transparent !important;
+//   border-radius: 0 !important;
+//   border: 0 !important;
+//   display: block !important;
+//   height: 0.5px !important;
+//   margin: 0 !important;
+//   outline: none !important;
+//   padding: 0 !important;
+// }

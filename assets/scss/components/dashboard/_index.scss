@@ -43,3 +43,58 @@
     padding: $spacing__small;
   }
 }
+
+//
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ------------------------------------------------------------
+// ---------- JOB VIEW ----------
+// ----------
+// ----------
+//
+.#{$prefix-name}-job-container {
+  padding: $spacing__medium $spacing__medium;
+  .__entry,
+  .__teaser,
+  .__why,
+  .__requirements,
+  .__duties,
+  .__benefits,
+  .__keywords,
+  .__edit,
+  .__rating,
+  .__about,
+  .__culture,
+  .__facts {
+    margin-bottom: $spacing__default;
+  }
+  .__job-details {
+    .__copy {
+      margin-bottom: $spacing__medium;
+      padding-left: $spacing__small;
+    }
+  }
+  .__company-details {
+    border-radius: $border-radius__small;
+    border: 1px solid $colour-secondary__green-light;
+    padding: $spacing__default;
+  }
+  .__rating {
+    margin-top: $spacing__small;
+  }
+  .__edit {
+    border-bottom: 1px solid $colour-grey__light;
+    padding-bottom: $spacing__default;
+  }
+  .__back {
+    &.-top {
+      border-bottom: 1px solid $colour-grey__light;
+      margin-bottom: $spacing__default;
+      padding-bottom: $spacing__default;
+    }
+    &.-bottom {
+      border-top: 1px solid $colour-grey__light;
+      padding-top: $spacing__default;
+    }
+  }
+}
