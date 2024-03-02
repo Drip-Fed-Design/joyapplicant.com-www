@@ -12,9 +12,6 @@
 header.#{$prefix-name}-navigation-container {
   border-bottom: 2px solid $colour-grey__light;
   padding: $spacing__default $spacing__medium;
-  .__logo {
-    // null
-  }
   nav.__main {
     ul {
       margin: 0;
@@ -34,12 +31,6 @@ header.#{$prefix-name}-navigation-container {
     }
     .__sub {
       display: none;
-    }
-    .__mugshot {
-      background-color: $colour-primary__orange;
-      border-radius: $border-radius__round;
-      height: 53px;
-      width: 53px;
     }
   }
 }

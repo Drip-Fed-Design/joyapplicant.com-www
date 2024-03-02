@@ -25,7 +25,7 @@
                             <a href="/../user/dashboard" title="Cancel" class="__button -outline _margin__right-micro">Cancel</a>
                         </div>
                         <div class="__user">
-                            <div class="__mugshot"></div>
+                            <div class="_icon -avatar"></div>
                         </div>
                     </div>
                 </nav>

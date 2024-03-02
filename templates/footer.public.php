@@ -64,7 +64,7 @@
                         <img src="/public/img/brand/joyapplicant-brand-logo-iconic.svg" width="33" height="33" alt="JoyApplicant">
                     </div>
                     <div class="__copyright">
-                        <p class="_font-size__secondary">Copyright © 2023 JoyApplicant. All rights reserved.</p>
+                        <p class="_font-size__secondary">Copyright © <?= date('Y'); ?> JoyApplicant. All rights reserved.</p>
                     </div>
                 </div>
                 <div class="__legal _text-align__right">

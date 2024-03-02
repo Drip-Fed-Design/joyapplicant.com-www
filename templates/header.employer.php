@@ -26,7 +26,7 @@
                             <a href="dashboard" title="Go back to your dashboard overview" class="__button -black">Dashboard</a>
                         </div>
                         <div class="__user">
-                            <div class="__mugshot"></div>
+                            <div class="_icon -avatar"></div>
                         </div>
                     </div>
                 </nav>

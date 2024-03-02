@@ -68,6 +68,9 @@
   &.-column-dashboard {
     grid-template-columns: 1fr 3.3fr;
   }
+  &.-column-jobview {
+    grid-template-columns: 2.5fr 1fr;
+  }
 
   // Alignment
   &.-align-vh-center,
