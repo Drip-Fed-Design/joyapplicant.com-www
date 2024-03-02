@@ -46,14 +46,14 @@ $onboardController->checkOnboarding($userId);
                     <div class="__widget">
                         <h4>Upcoming Interviews</h4>
                         <div class="<?= $cssPrefix; ?>-chart-container">
-                            <? require __DIR__ . '/../../templates/widget.event.php'; ?>
+                            <? require __DIR__ . '/widget.event.php'; ?>
                             <hr class="_hr__grey-light" />
-                            <? require __DIR__ . '/../../templates/widget.event.php'; ?>
+                            <? require __DIR__ . '/widget.event.php'; ?>
                             <hr class="_hr__grey-light" />
-                            <? require __DIR__ . '/../../templates/widget.event.php'; ?>
+                            <? require __DIR__ . '/widget.event.php'; ?>
                         </div>
                         <div class="__buttons <?= $cssPrefix; ?>-button-container">
-                            <a href="calendar" title="#" class="__button -plain -orange">View all events <i class="_icon -small -chev-r __o"></i></a>
+                            <a href="calendar" title="#" class="__button -plain -orange">View all events <i class="_icon -small -chev-r -o"></i></a>
                         </div>
                     </div>
                     <div class="__widget">
@@ -62,14 +62,14 @@ $onboardController->checkOnboarding($userId);
                             <p class="_font-size__secondary _text-align__right">Showing 3 or 14 applied jobs</p>
                         </div>
                         <div class="<?= $cssPrefix; ?>-chart-container">
-                            <? require __DIR__ . '/../../templates/widget.applied.php'; ?>
+                            <? require __DIR__ . '/widget.applied.php'; ?>
                             <hr class="_hr__grey-light" />
-                            <? require __DIR__ . '/../../templates/widget.applied.php'; ?>
+                            <? require __DIR__ . '/widget.applied.php'; ?>
                             <hr class="_hr__grey-light" />
-                            <? require __DIR__ . '/../../templates/widget.applied.php'; ?>
+                            <? require __DIR__ . '/widget.applied.php'; ?>
                         </div>
                         <div class="__buttons <?= $cssPrefix; ?>-button-container">
-                            <a href="applied" title="#" class="__button -plain -orange">View all applied jobs <i class="_icon -small -chev-r __o"></i></a>
+                            <a href="applied" title="#" class="__button -plain -orange">View all applied jobs <i class="_icon -small -chev-r -o"></i></a>
                         </div>
                     </div>
                     <div class="__widget">
@@ -78,7 +78,7 @@ $onboardController->checkOnboarding($userId);
                             chart here
                         </div>
                         <div class="__buttons <?= $cssPrefix; ?>-button-container">
-                            <a href="applied" title="#" class="__button -plain -orange">View all jobs applied <i class="_icon -small -chev-r __o"></i></a>
+                            <a href="applied" title="#" class="__button -plain -orange">View all jobs applied <i class="_icon -small -chev-r -o"></i></a>
                         </div>
                     </div>
                     <div class="__widget">
@@ -87,14 +87,14 @@ $onboardController->checkOnboarding($userId);
                             <p class="_font-size__secondary _text-align__right">Showing 3 or 19 saved jobs</p>
                         </div>
                         <div class="<?= $cssPrefix; ?>-chart-container">
-                            <? require __DIR__ . '/../../templates/widget.saved.php'; ?>
+                            <? require __DIR__ . '/widget.saved.php'; ?>
                             <hr class="_hr__grey-light" />
-                            <? require __DIR__ . '/../../templates/widget.saved.php'; ?>
+                            <? require __DIR__ . '/widget.saved.php'; ?>
                             <hr class="_hr__grey-light" />
-                            <? require __DIR__ . '/../../templates/widget.saved.php'; ?>
+                            <? require __DIR__ . '/widget.saved.php'; ?>
                         </div>
                         <div class="__buttons <?= $cssPrefix; ?>-button-container">
-                            <a href="saved" title="#" class="__button -plain -orange">View all saved jobs <i class="_icon -small -chev-r __o"></i></a>
+                            <a href="saved" title="#" class="__button -plain -orange">View all saved jobs <i class="_icon -small -chev-r -o"></i></a>
                         </div>
                     </div>
                 </div>
