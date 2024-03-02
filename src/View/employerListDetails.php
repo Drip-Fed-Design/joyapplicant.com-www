@@ -6,7 +6,19 @@ if (empty($_SESSION['token'])) {
     $_SESSION['token'] = bin2hex(random_bytes(32));
 }
 ?>
-
+<script src="https://cdn.tiny.cloud/1/25ymu4ev55v3yckntpymc5t22vwl94mj9sxq6211m0no6zqv/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: '.-tinymce',
+        skin: 'borderless', // 'naked'
+        icons: 'small',
+        menubar: false,
+        statusbar: false,
+        plugins: 'link lists tinymcespellchecker',
+        toolbar: 'bold italic bullist | link | spellcheckdialog | removeformat',
+        height: 250
+    });
+</script>
 <section class="<?= $cssPrefix; ?>-dashboard-container">
     <div class="_width__max">
         <div class="<?= $cssPrefix; ?>-grid -column-1fr-max -gap-c-medium">
@@ -63,22 +75,30 @@ if (empty($_SESSION['token'])) {
                                 </div>
                             </div>
                         </div>
+                        <h4>Description and Teaser</h4>
+                        <div class="__form-section">
+                            <div class="__group">
+                                <label for="teaser">Describe the role in 160 characters or less *</label>
+                                <textarea type="teaser" id="teaser" name="teaser" class="__input -grey" placeholder="Describe the role in 160 or less..." maxlength="160" required></textarea>
+                                <div class="__tip">Role teaser for listing and search in 160 characters.</div>
+                            </div>
+                        </div>
                         <h4>Expand on the role and reasons behind the hire?</h4>
                         <div class="__form-section">
                             <div class="__group">
                                 <label for="why">Why are you hiring *</label>
-                                <textarea type="why" id="why" name="why" class="__input -grey" placeholder="Why are you hiring..." required></textarea>
+                                <textarea type="why" id="why" name="why" class="__input -grey -tinymce" placeholder="Why are you hiring..."></textarea>
                                 <div class="__tip">Explanation of the need for this role.</div>
                             </div>
                             <div class="__group">
                                 <label for="duties">Duties of the role *</label>
-                                <textarea type="duties" id="duties" name="duties" class="__input -grey" placeholder="Why are you hiring..." required></textarea>
+                                <textarea type="duties" id="duties" name="duties" class="__input -grey -tinymce" placeholder="Why are you hiring..."></textarea>
                                 <div class="__tip">General tasks to be performed.</div>
                             </div>
                             <div class="__group">
-                                <label for="responsibilities">Responsibilities *</label>
-                                <textarea type="responsibilities" id="responsibilities" name="responsibilities" class="__input -grey" placeholder="Responsibilities..." required></textarea>
-                                <div class="__tip">Key responsibilities and expectations.</div>
+                                <label for="benefits">Benefits *</label>
+                                <textarea type="benefits" id="benefits" name="benefits" class="__input -grey -tinymce" placeholder="What are benefits and perks..."></textarea>
+                                <div class="__tip">Benefits of the role or available by company.</div>
                             </div>
                         </div>
                         <input type="hidden" name="token" value="<?= $_SESSION['token']; ?>">

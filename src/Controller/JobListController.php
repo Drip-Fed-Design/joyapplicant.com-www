@@ -55,7 +55,7 @@ class JobListController
         }
     }
 
-    public function listJobDetails($jobSession, $companyId, $jobVolunteer, $salaryCurrency, $salaryMin, $salaryMax, $salaryTerm, $jobWhy, $jobDuties, $jobResponsibilities)
+    public function listJobDetails($jobSession, $companyId, $jobVolunteer, $salaryCurrency, $salaryMin, $salaryMax, $salaryTerm, $jobWhy, $jobDuties, $jobBenefits, $jobTeaser)
     {
         // Input validation
         $currencyValidator = v::currencyCode();
@@ -73,7 +73,7 @@ class JobListController
                 $salaryCurrency = null;
             }
 
-            $jobListInsert = $this->jobListModel->insertJobDetails($jobSession, $companyId, $jobVolunteer, $salaryCurrency, $salaryMin, $salaryMax, $salaryTerm, $jobWhy, $jobDuties, $jobResponsibilities);
+            $jobListInsert = $this->jobListModel->insertJobDetails($jobSession, $companyId, $jobVolunteer, $salaryCurrency, $salaryMin, $salaryMax, $salaryTerm, $jobWhy, $jobDuties, $jobBenefits, $jobTeaser);
             if ($jobListInsert) {
                 // The YOU step for the user has been successful.
                 error_log('Successful LIST job details');

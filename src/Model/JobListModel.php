@@ -41,9 +41,9 @@ class JobListModel
         }
     }
 
-    public function insertJobDetails($jobSession, $companyId, $jobVolunteer, $salaryCurrency, $salaryMin, $salaryMax, $salaryTerm, $jobWhy, $jobDuties, $jobResponsibilities)
+    public function insertJobDetails($jobSession, $companyId, $jobVolunteer, $salaryCurrency, $salaryMin, $salaryMax, $salaryTerm, $jobWhy, $jobDuties, $jobBenefits, $jobTeaser)
     {
-        $sql = "UPDATE joyJobPosts SET voluntary = :jobVolunteer, currency = :salaryCurrency, salary_min = :salaryMin, salary_max = :salaryMax, salary_term = :salaryTerm, why = :jobWhy, duties = :jobDuties, responsibilities = :jobResponsibilities WHERE session = :jobSession AND company = :companyId";
+        $sql = "UPDATE joyJobPosts SET voluntary = :jobVolunteer, currency = :salaryCurrency, salary_min = :salaryMin, salary_max = :salaryMax, salary_term = :salaryTerm, why = :jobWhy, duties = :jobDuties, benefits = :jobBenefits, teaser = :jobTeaser WHERE session = :jobSession AND company = :companyId";
         $stmt = $this->dbConnection->prepare($sql);
 
         $stmt->bindParam(':jobSession', $jobSession);
@@ -57,7 +57,8 @@ class JobListModel
 
         $stmt->bindParam(':jobWhy', $jobWhy);
         $stmt->bindParam(':jobDuties', $jobDuties);
-        $stmt->bindParam(':jobResponsibilities', $jobResponsibilities);
+        $stmt->bindParam(':jobBenefits', $jobBenefits);
+        $stmt->bindParam(':jobTeaser', $jobTeaser);
 
         try {
             $stmt->execute();

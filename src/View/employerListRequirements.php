@@ -6,7 +6,19 @@ if (empty($_SESSION['token'])) {
     $_SESSION['token'] = bin2hex(random_bytes(32));
 }
 ?>
-
+<script src="https://cdn.tiny.cloud/1/25ymu4ev55v3yckntpymc5t22vwl94mj9sxq6211m0no6zqv/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: '.-tinymce',
+        skin: 'borderless', // 'naked'
+        icons: 'small',
+        menubar: false,
+        statusbar: false,
+        plugins: 'link lists tinymcespellchecker',
+        toolbar: 'bold italic bullist | link | spellcheckdialog | removeformat',
+        height: 250
+    });
+</script>
 <section class="<?= $cssPrefix; ?>-dashboard-container">
     <div class="_width__max">
         <div class="<?= $cssPrefix; ?>-grid -column-1fr-max -gap-c-medium">
@@ -22,7 +34,7 @@ if (empty($_SESSION['token'])) {
                         <div class="__form-section">
                             <div class="__group">
                                 <label for="requires">Candidate requirements *</label>
-                                <textarea rows="8" type="requires" id="requires" name="requires" class="__input -grey" placeholder="What requirements should the candidate have..." required></textarea>
+                                <textarea rows="8" type="requires" id="requires" name="requires" class="__input -grey -tinymce" placeholder="What requirements should the candidate have..."></textarea>
                                 <div class="__tip">Try to be clear with the requirements you need from your candidates.</div>
                             </div>
                         </div>
