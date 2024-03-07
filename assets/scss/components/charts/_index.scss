@@ -13,6 +13,9 @@
   //   background-color: $colour-grey__light;
   margin: $spacing__small 0;
   padding: $spacing__micro;
+  .__entry {
+    position: relative;
+  }
   .__avatar {
     background-color: $colour-primary__orange;
     background-position: center center;

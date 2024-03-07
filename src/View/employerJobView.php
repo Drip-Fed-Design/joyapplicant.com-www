@@ -3,10 +3,12 @@
 use JoyApplicant\Controller\CompanyController;
 use JoyApplicant\Controller\JobController;
 use JoyApplicant\Controller\OnboardController;
+use JoyApplicant\Controller\FormattingController;
 
 $dbConnection = require_once __DIR__ . '/../../config/global.db.php';
 $jobController = new JobController($dbConnection);
 $companyController = new CompanyController($dbConnection);
+$formattingController = new FormattingController();
 
 // Get job id from URL
 $jobId = base64_decode($_GET['jid']);
@@ -37,6 +39,7 @@ $companyIdEncode = base64_encode($companyId);
 $jobDetails = $jobController->getCompanyJobById($companyId, $jobId);
 
 // Set job variables
+$jobStatus = $jobDetails[0]['status'];
 $jobTitle = $jobDetails[0]['title'];
 $jobVoluntary = $jobDetails[0]['voluntary'];
 $salaryMin = $jobDetails[0]['salary_min'];
@@ -45,7 +48,9 @@ $jobType = $jobDetails[0]['type'];
 $jobShift = $jobDetails[0]['shift'];
 $jobPostCode = $jobDetails[0]['postcodezip'];
 $jobCountry = $jobDetails[0]['country'];
+$jobDateCreated = $jobDetails[0]['created_at'];
 $jobDateOpening = $jobDetails[0]['date_opening'];
+$jobDateClosing = $jobDetails[0]['date_closing'];
 
 $jobWhy = $jobDetails[0]['why'];
 $jobRequirements = $jobDetails[0]['requirements'];
@@ -55,6 +60,10 @@ $jobTeaser = $jobDetails[0]['teaser'];
 
 $jobKeywords = $jobDetails[0]['keywords'];
 
+// Job type and shift formatting
+$jobType = $formattingController->getValueFromArray($jobType, $arrayEmploymentType);
+$jobShift = $formattingController->getValueFromArray($jobShift, $arrayWorkingShift);
+
 // Data formatting
 // Check if role is voluntary, format salary
 if ($jobVoluntary === 1) {
@@ -63,9 +72,14 @@ if ($jobVoluntary === 1) {
     $jobSalary = "£" . number_format($salaryMin, 0, '.', ',') . " - £" . number_format($salaryMax, 0, '.', ',');
 }
 
-$jobDateOpening = new DateTime($jobDateOpening);
+// Format posted date
 $currentDate = new DateTime();
+$jobDateOpening = new DateTime($jobDateOpening);
 $interval = $jobDateOpening->diff($currentDate);
+
+// Format post closing date
+$jobDateClosing = new DateTime($jobDateClosing);
+$jobDateClosing = $jobDateClosing->diff($currentDate);
 ?>
 
 <section class="<?= $cssPrefix; ?>-job-container">
@@ -80,6 +94,24 @@ $interval = $jobDateOpening->diff($currentDate);
                 <div class="__back -top">
                     <a href="#" class="__location _font-size__secondary"><i class="_icon -small -chev-l -o"></i>Back to active jobs</a>
                 </div>
+                <!-- Job toolbar - START -->
+                <div class="__toolbar">
+                    <div class="<?= $cssPrefix; ?>-grid -column-1fr-max -gap-c-small -align-v-center">
+                        <? if ($jobStatus === 1) { ?>
+                            <h2>Job is live</h2>
+                        <? } else { ?>
+                            <div class="__details">
+                                <h2>Job is draft</h2>
+                                <p class="__posted _font-size__secondary"><?= "Created on " . date('l, M j, Y @ g:ia', strtotime($jobDateCreated)); ?></p>
+                            </div>
+
+                            <div class="__buttons <?= $cssPrefix; ?>-button-container">
+                                <a href="edit?jid=<?= $_GET['jid']; ?>" title="edit job" class="__button">Edit job</a>
+                            </div>
+                        <? }  ?>
+                    </div>
+                </div>
+                <!-- Job toolbar - END -->
                 <!-- Job details - START -->
                 <article class="__entry">
                     <div class="<?= $cssPrefix; ?>-grid -column-1fr-max -gap-c-small -align-v-center">
@@ -95,10 +127,12 @@ $interval = $jobDateOpening->diff($currentDate);
                                 </div>
                                 <div class="__loc _text-align__right">
                                     <p class="__location _font-size__secondary"><i class="_icon -location"></i> <?= $jobPostCode; ?>, <?= $jobCountry; ?></p>
-                                    <? if ($interval->days >= 1) { ?>
-                                        <p class="__posted _font-size__secondary"><?= "Posted " . $interval->days . " days ago"; ?></p>
-                                    <? } else if ($interval->days <= 0) { ?>
-                                        <p class="__posted _font-size__secondary"><?= "Recently posted"; ?></p>
+                                    <? if ($jobStatus === 1) { ?>
+                                        <? if ($interval->days >= 1) { ?>
+                                            <p class="__posted _font-size__secondary"><?= "Posted " . $interval->days . " days ago"; ?></p>
+                                        <? } else if ($interval->days <= 0) { ?>
+                                            <p class="__posted _font-size__secondary"><?= "Recently posted"; ?></p>
+                                        <? } ?>
                                     <? } ?>
                                 </div>
                             </div>
@@ -140,6 +174,7 @@ $interval = $jobDateOpening->diff($currentDate);
                         <span class="__pill -small"><?= $jobSalary; ?></span>
                         <span class="__pill -small"><?= $jobType; ?></span>
                         <span class="__pill -small"><?= $jobShift; ?></span>
+                        <span class="__pill -small">Closing in <?= $jobDateClosing->days; ?> days</span>
                     </div>
                     <?= $jobKeywords; ?>
                 </article>

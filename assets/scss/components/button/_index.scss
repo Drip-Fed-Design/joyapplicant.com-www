@@ -70,6 +70,16 @@
     &.-stretch {
       width: 100%;
     }
+    // Invisible
+    &.-invisible {
+      background-color: unset;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      &:hover {
+        background-color: $colour-grey__light;
+      }
+    }
   }
   button.__button {
     &.-inset {

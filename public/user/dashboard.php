@@ -2,6 +2,9 @@
 require_once __DIR__ . '/../../config/global.init.php';
 require_once __DIR__ . '/../../config/global.user.php';
 
+// Load in static variables
+require_once __DIR__ . '/../../config/global.static.php';
+
 if ((isset($userType)) && ($userType == 'applicant')) {
     require_once __DIR__ . '/../../templates/header.applicant.php'; // Header Template 
 } elseif ((isset($userType)) && ($userType == 'employer')) {

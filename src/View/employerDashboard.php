@@ -3,11 +3,13 @@
 use JoyApplicant\Controller\CompanyController;
 use JoyApplicant\Controller\JobController;
 use JoyApplicant\Controller\OnboardController;
+use JoyApplicant\Controller\FormattingController;
 
 $dbConnection = require_once __DIR__ . '/../../config/global.db.php';
 $jobController = new JobController($dbConnection);
 $onboardController = new OnboardController($dbConnection);
 $companyController = new CompanyController($dbConnection);
+$formattingController = new FormattingController();
 
 $userId = $_SESSION['user_id'];
 $companyId = $_SESSION['company_id'];

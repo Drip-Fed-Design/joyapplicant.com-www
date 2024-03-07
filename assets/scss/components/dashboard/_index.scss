@@ -97,4 +97,10 @@
       padding-top: $spacing__default;
     }
   }
+  .__toolbar {
+    background-color: $colour-grey__light;
+    border-radius: $border-radius__small;
+    margin-bottom: $spacing__default;
+    padding: $spacing__small;
+  }
 }

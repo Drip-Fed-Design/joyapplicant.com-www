@@ -2,6 +2,9 @@
 require_once __DIR__ . '/../config/global.init.php';
 require_once __DIR__ . '/../config/global.public.php';
 
+// Load in static variables
+require_once __DIR__ . '/../config/global.static.php';
+
 require_once __DIR__ . '/../templates/header.public.php'; // Header Template
 
 // Load the HTML form for search
@@ -16,9 +19,13 @@ require __DIR__ . '/../src/View/searchQuick.php';
 
 // Load the job listing
 use JoyApplicant\Controller\JobController;
+use JoyApplicant\Controller\FormattingController;
 
 $dbConnection = require_once __DIR__ . '/../config/global.db.php';
 $jobController = new JobController($dbConnection);
+$formattingController = new FormattingController();
+
+// Output jobs
 $jobs = $jobController->getRandomJob(4);
 
 // Output the job listings

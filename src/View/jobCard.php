@@ -23,9 +23,13 @@
                         $jobSalary = "£" . number_format($salaryMin, 0, '.', ',') . " - £" . number_format($salaryMax, 0, '.', ',');
                     }
 
+                    // Job type and shift formatting
+                    $jobType = $formattingController->getValueFromArray($job['type'], $arrayEmploymentType);
+                    $jobShift = $formattingController->getValueFromArray($job['shift'], $arrayWorkingShift);
+
                     // Format posted date
-                    $postDate = new DateTime($job['date_opening']);
                     $currentDate = new DateTime();
+                    $postDate = new DateTime($job['date_opening']);
                     $interval = $postDate->diff($currentDate);
             ?>
                     <article class="__entry _margin__bottom-default">
@@ -37,8 +41,8 @@
                                     <div class="<?= $cssPrefix; ?>-pill-container">
                                         <a href="#" class="__pill -small"><?= $job['name']; ?></a>
                                         <a href="#" class="__pill -small"><?= $jobSalary; ?></a>
-                                        <a href="#" class="__pill -small"><?= $job['type']; ?></a>
-                                        <a href="#" class="__pill -small"><?= $job['shift']; ?></a>
+                                        <a href="#" class="__pill -small"><?= $jobType; ?></a>
+                                        <a href="#" class="__pill -small"><?= $jobShift; ?></a>
                                     </div>
                                 </div>
                                 <div class="__loc _text-align__right">
